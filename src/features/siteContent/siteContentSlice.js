@@ -7,8 +7,12 @@ const initialState = {
 };
 
 export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
-  const data = await client.fetch(`*[_type == "site"]`);
-  return data;
+  try {
+    const data = await client.fetch(`*[_type == "site"]`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 const siteContentSlice = createSlice({
