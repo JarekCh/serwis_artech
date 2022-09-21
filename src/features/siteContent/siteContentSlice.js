@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../../client';
 
 const initialState = {
-  result: [],
+  siteResult: [],
   isLoading: true,
 };
 
@@ -25,7 +25,7 @@ const siteContentSlice = createSlice({
     [getSiteContent.fulfilled]: (state, action) => {
       console.log(action);
       state.isLoading = false;
-      state.result = action.payload;
+      state.siteResult = action.payload;
     },
     [getSiteContent.rejected]: (state) => {
       state.isLoading = false;
