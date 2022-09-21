@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 import { languagePL, languageEN } from './features/language/languageSlice';
+import { getSingleTypewriter } from './features/singleTypewriter/singleTypewriterSlice';
 
 function App() {
   const { siteResult, isLoading } = useSelector((store) => store.site);
   const { isEnglish } = useSelector((store) => store.language);
   const { writersResult } = useSelector((store) => store.typewriters);
+  const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
 
   const dispatch = useDispatch();
 
@@ -21,17 +23,16 @@ function App() {
   };
 
   useEffect(() => {
-    dispatch(getSiteContent());
-    dispatch(getTypewriters());
+    // dispatch(getSiteContent());
+    // dispatch(getTypewriters());
+    dispatch(getSingleTypewriter());
   }, []);
 
-  console.log('🚀 ~ file: App.js ~ line 7 ~ App ~ isLoading', isLoading);
-  console.log('🚀 ~ file: App.js ~ line 7 ~ App ~ result', siteResult);
-  console.log('🚀 ~ file: App.js ~ line 9 ~ App ~ isEnglish', isEnglish);
   console.log(
-    '🚀 ~ file: App.js ~ line 11 ~ App ~ writersResult',
-    writersResult
+    '🚀 ~ file: App.js ~ line 13 ~ App ~ singleTypewriter',
+    singleTypewriter
   );
+  console.log('🚀 ~ file: App.js ~ line 11 ~ App ~ isEnglish', isEnglish);
 
   return (
     <div className='App'>
