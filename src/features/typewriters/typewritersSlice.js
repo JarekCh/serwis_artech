@@ -8,7 +8,13 @@ const initialState = {
 
 export const getTypewriters = createAsyncThunk('getTypewriters', async () => {
   try {
-    const data = await client.fetch(`*[_type == "typewriters"]`);
+    const data = await client.fetch(`*[_type == "typewriters"][]
+    { data,      
+      title_pl,
+      body_pl,
+      title_en,
+      body_en,
+      'images':typewritersImgs[]{'url':asset._ref}}`);
     return data;
   } catch (error) {
     console.log(error);

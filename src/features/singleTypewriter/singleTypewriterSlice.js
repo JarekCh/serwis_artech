@@ -10,7 +10,15 @@ export const getSingleTypewriter = createAsyncThunk(
   'getSingleTypewriter',
   async (slug) => {
     try {
-      const data = await client.fetch(`*[slug.current == '${slug}']`);
+      const data = await client.fetch(`*[slug.current == '${slug}']
+      { 'Slug':slug.current,
+        title_pl,
+        body_pl,
+        title_en,
+        body_en,
+        'images':typewritersImgs[]{'url':asset._ref},
+        date,
+      }`);
       return data;
     } catch (error) {
       console.log(error);

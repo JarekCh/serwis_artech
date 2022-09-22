@@ -8,7 +8,12 @@ const initialState = {
 
 export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
   try {
-    const data = await client.fetch(`*[_type == "site"]`);
+    const data = await client.fetch(`*[_type == "site"]
+    {
+      hero,
+      assortment,
+      service,
+    }`);
     return data;
   } catch (error) {
     console.log(error);
