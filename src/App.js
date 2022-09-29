@@ -1,10 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 import { languagePL, languageEN } from './features/language/languageSlice';
 
 import { getSingleTypewriter } from './features/singleTypewriter/singleTypewriterSlice';
+import Typewriters from './pages/Typewriters';
+import Home from './pages/Home';
+import Error from './pages/Error';
+import SingleTypewriter from './pages/SingleTypewriter';
+import SharedLayout from './pages/SharedLayout';
+import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
 function App() {
   const { siteResult, isLoading } = useSelector((store) => store.site);
@@ -32,17 +39,18 @@ function App() {
   console.log('🚀 ~ file: App.js ~ line 11 ~ App ~ isEnglish', isEnglish);
 
   return (
-    <div className='App'>
-      <h1>I'm Alive</h1>
-      <button onClick={handleLanguage}>lang EN/PL</button>
-      <button
-        onClick={() => {
-          console.log(isEnglish);
-        }}
-      >
-        lang EN/PL
-      </button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path='typewriters' element={<SingleTypewriterLayout />}>
+            <Route index element={<Typewriters />} />
+            <Route path=':slug' element={<SingleTypewriter />} />
+          </Route>
+          <Route path='*' element={<Error />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
