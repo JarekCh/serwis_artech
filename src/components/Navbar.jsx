@@ -1,12 +1,11 @@
-import { linkClasses } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Logo from '../assets/logo1.png';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
-  console.log('🚀 ~ file: Navbar.jsx ~ line 8 ~ Navbar ~ showNav', showNav);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
@@ -22,11 +21,15 @@ const Navbar = () => {
   };
 
   // TODO navbar Animation, router links, scroll library
+  // useEffect check window width and change show navBar to false when desktop
+  // add framer motion on nav bar check conditional rendering
 
   return (
     <nav class='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 '>
       <div class='relative container flex flex-wrap justify-between items-center mx-auto'>
-        <a class='flex items-center'>asdadasd</a>
+        <div class='cursor-pointer'>
+          <img src={Logo} alt='' className='w-20 md:w-32' />
+        </div>
         <div class='flex items-center md:order-2'>
           <label for='toggle' class='flex items-center cursor-pointer'>
             <div class='relative'>
@@ -49,7 +52,6 @@ const Navbar = () => {
           type='button'
           class='inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
         >
-          <span class='sr-only'>Open main menu</span>
           <svg
             class='w-6 h-6'
             fill='currentColor'
@@ -66,7 +68,7 @@ const Navbar = () => {
         <div
           class={`${
             showNav ? '' : 'hidden'
-          } justify-between items-center  md:flex md:w-auto md:order-1 md:static absolute top-10 -right-1 transition delay-300`}
+          } justify-between items-center  md:flex md:w-auto md:order-1 md:static absolute top-14 -right-1 transition delay-300`}
         >
           <ul class='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
             <li>
@@ -75,7 +77,7 @@ const Navbar = () => {
                 href='#'
                 class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
               >
-                Home
+                {isEnglish ? 'Home' : 'Strona domowa'}
               </a>
             </li>
             <li>
@@ -84,7 +86,7 @@ const Navbar = () => {
                 href='#'
                 class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
               >
-                About
+                {isEnglish ? 'Typewriters' : 'Maszyny'}
               </a>
             </li>
             <li>
@@ -93,7 +95,7 @@ const Navbar = () => {
                 href='#'
                 class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
               >
-                Services
+                {isEnglish ? 'Service' : 'Naprawy'}
               </a>
             </li>
             <li>
@@ -102,7 +104,7 @@ const Navbar = () => {
                 href='#'
                 class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
               >
-                Pricing
+                {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
               </a>
             </li>
             <li>
@@ -111,7 +113,16 @@ const Navbar = () => {
                 href='#'
                 class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
               >
-                Contact
+                {isEnglish ? 'Assortment' : 'Asortyment'}
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={handleClick}
+                href='#'
+                class='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+              >
+                {isEnglish ? 'Contact' : 'Kontakt'}
               </a>
             </li>
           </ul>
