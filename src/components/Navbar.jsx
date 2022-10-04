@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
-import { motion, useAnimationControls, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
@@ -53,8 +53,8 @@ const Navbar = () => {
   }, []);
 
   // TODO  router links, scroll library
-  // fix close navbar animation
-  // add custome hook for
+  // add custome hook for changeLangAnimation to share across components
+  // add animation on lang change
 
   return (
     <motion.nav
@@ -64,7 +64,7 @@ const Navbar = () => {
     >
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
         <div className='cursor-pointer'>
-          <img src={Logo} alt='' className='w-20 md:w-32 xl:w-44' />
+          <img src={Logo} alt='' className='w-20 md:w-32 xl:w-60' />
         </div>
         <div className='flex items-center xl:order-2'>
           <label htmlFor='toggle' className='flex items-center cursor-pointer'>
