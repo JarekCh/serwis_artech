@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls, useAnimation } from 'framer-motion';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
@@ -11,7 +11,8 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
-  const itemVariants = {
+  const controls = useAnimation();
+  const liVariants = {
     open: {
       opacity: 1,
       y: 0,
@@ -24,11 +25,20 @@ const Navbar = () => {
 
   const handleLanguage = () => {
     if (!isEnglish) {
+      changeLangAnimation();
       return dispatch(languagePL());
     }
     if (isEnglish) {
+      changeLangAnimation();
       return dispatch(languageEN());
     }
+  };
+
+  const changeLangAnimation = () => {
+    controls.start({
+      opacity: [0, 1],
+      transition: { duration: 1.2 },
+    });
   };
 
   useEffect(() => {
@@ -44,7 +54,7 @@ const Navbar = () => {
 
   // TODO  router links, scroll library
   // fix close navbar animation
-  // add animation on language swap
+  // add custome hook for
 
   return (
     <motion.nav
@@ -54,7 +64,7 @@ const Navbar = () => {
     >
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
         <div className='cursor-pointer'>
-          <img src={Logo} alt='' className='w-20 md:w-32' />
+          <img src={Logo} alt='' className='w-20 md:w-32 xl:w-44' />
         </div>
         <div className='flex items-center xl:order-2'>
           <label htmlFor='toggle' className='flex items-center cursor-pointer'>
@@ -72,33 +82,34 @@ const Navbar = () => {
               </div>
             </div>
           </label>
-        </div>
-        <motion.button
-          onClick={handleClick}
-          type='button'
-          className='inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.svg
-            className='w-6 h-6'
-            fill='currentColor'
-            viewBox='0 0 20 20'
-            xmlns='http://www.w3.org/2000/svg'
+
+          <motion.button
+            onClick={handleClick}
+            type='button'
+            className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+            whileTap={{ scale: 0.9 }}
           >
-            <path
-              fillRule='evenodd'
-              d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
-              clipRule='evenodd'
-            ></path>
-          </motion.svg>
-        </motion.button>
+            <motion.svg
+              className='w-6 h-6'
+              fill='currentColor'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                d='M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z'
+                clipRule='evenodd'
+              ></path>
+            </motion.svg>
+          </motion.button>
+        </div>
         <div
           className={`${
-            showNav ? '' : 'hidden'
+            windowWidth < 1280 ? '' : 'hidden'
           } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1`}
         >
           <motion.ul
-            className='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-sm xl:font-medium xl:border-0 xl:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'
+            className='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0 xl:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 '
             variants={{
               open: {
                 clipPath: 'inset(0% 0% 0% 0% round 10px)',
@@ -120,59 +131,65 @@ const Navbar = () => {
               },
             }}
           >
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Home' : 'Strona domowa'}
-              </a>
+              </motion.a>
             </motion.li>
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Typewriters' : 'Maszyny'}
-              </a>
+              </motion.a>
             </motion.li>
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Service' : 'Naprawy'}
-              </a>
+              </motion.a>
             </motion.li>
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white mxld:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-              </a>
+              </motion.a>
             </motion.li>
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Assortment' : 'Asortyment'}
-              </a>
+              </motion.a>
             </motion.li>
-            <motion.li variants={itemVariants}>
-              <a
+            <motion.li variants={liVariants}>
+              <motion.a
                 onClick={handleClick}
                 href='#'
                 className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                animate={controls}
               >
                 {isEnglish ? 'Contact' : 'Kontakt'}
-              </a>
+              </motion.a>
             </motion.li>
           </motion.ul>
         </div>
