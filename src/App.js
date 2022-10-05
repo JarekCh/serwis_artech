@@ -13,15 +13,13 @@ import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
 function App() {
-  const { siteResult, isLoading } = useSelector((store) => store.site);
-
   const { writersResult } = useSelector((store) => store.typewriters);
   const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getSiteContent());
+    dispatch(getSiteContent());
     // dispatch(getTypewriters());
     // dispatch(getSingleTypewriter('asd'));
   }, []);

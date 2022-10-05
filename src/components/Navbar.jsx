@@ -106,7 +106,7 @@ const Navbar = () => {
         <div
           className={`${
             windowWidth < 1280 ? '' : 'hidden'
-          } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1`}
+          } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
         >
           <motion.ul
             className='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0 xl:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 '
@@ -135,7 +135,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Home' : 'Strona domowa'}
@@ -145,7 +145,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Typewriters' : 'Maszyny'}
@@ -155,7 +155,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Service' : 'Naprawy'}
@@ -165,7 +165,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white mxld:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
@@ -175,7 +175,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Assortment' : 'Asortyment'}
@@ -185,7 +185,7 @@ const Navbar = () => {
               <motion.a
                 onClick={handleClick}
                 href='#'
-                className='block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700'
+                className='navbar__li'
                 animate={controls}
               >
                 {isEnglish ? 'Contact' : 'Kontakt'}
