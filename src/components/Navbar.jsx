@@ -5,21 +5,18 @@ import { motion, useAnimation } from 'framer-motion';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
+import { liVariants, motionControlsValue } from '../utils/utils.js';
+
 const Navbar = () => {
   const initialWidth = window.innerWidth;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
+  console.log(
+    '🚀 ~ file: Navbar.jsx ~ line 13 ~ Navbar ~ windowWidth',
+    windowWidth
+  );
   const [showNav, setShowNav] = useState(false);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
-  const controls = useAnimation();
-  const liVariants = {
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'spring', stiffness: 300, damping: 24 },
-    },
-    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-  };
 
   const handleClick = () => setShowNav((prevValue) => !prevValue);
 
@@ -34,11 +31,9 @@ const Navbar = () => {
     }
   };
 
+  const controls = useAnimation();
   const changeLangAnimation = () => {
-    controls.start({
-      opacity: [0, 1],
-      transition: { duration: 1.2 },
-    });
+    controls.start(motionControlsValue);
   };
 
   useEffect(() => {
@@ -54,7 +49,6 @@ const Navbar = () => {
 
   // TODO  router links, scroll library
   // add custome hook for changeLangAnimation to share across components
-  // add animation on lang change
 
   return (
     <motion.nav
@@ -62,10 +56,12 @@ const Navbar = () => {
       initial={false}
       animate={windowWidth < 1280 ? (showNav ? 'open' : 'closed') : 'visible'}
     >
+      {/* LOGO */}
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
         <div className='cursor-pointer'>
           <img src={Logo} alt='' className='w-20 md:w-32 xl:w-60' />
         </div>
+        {/* LANG SLIDER */}
         <div className='flex items-center xl:order-2'>
           <label htmlFor='toggle' className='flex items-center cursor-pointer'>
             <div className='relative'>
@@ -108,6 +104,7 @@ const Navbar = () => {
             windowWidth < 1280 ? '' : 'hidden'
           } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
         >
+          {/* NAVBAR */}
           <motion.ul
             className='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0 xl:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 '
             variants={{
