@@ -7,7 +7,6 @@ import { motionControlsValue } from '../utils/utils.js';
 
 const Hero = () => {
   const { isEnglish } = useSelector((store) => store.language);
-  console.log('🚀 ~ file: Hero.jsx ~ line 10 ~ Hero ~ isEnglish', isEnglish);
   const { siteResult } = useSelector((store) => store.site);
 
   const { isNotify, notification, text_en, text_pl, title_en, title_pl } =
@@ -41,12 +40,12 @@ const Hero = () => {
           </motion.div>
         )}
         <motion.article
-          className='absolute left-3 md:left-20 md:top-20 2xl:left-[20rem] 2xl:top-30 xl:top-40 w-11/12 md:w-7/12 xl:w-5/12 p-2 pt-10 text-white'
+          className={`${
+            isNotify ? 'top-2' : ''
+          }top-2 absolute left-3 md:left-20 md:top-20 2xl:left-[20rem] 2xl:top-30 xl:top-40 w-11/12 md:w-7/12 xl:w-5/12 p-2 pt-10 text-white`}
           animate={controls}
         >
-          <h1 className='text-2xl md:text-4xl xl:text-5xl mb-4'>
-            {isEnglish ? title_en : title_pl}
-          </h1>
+          <h1 className='section_title'>{isEnglish ? title_en : title_pl}</h1>
           <p className='text-base md:text-lg xl:text-xl'>
             {isEnglish ? text_en : text_pl}
           </p>

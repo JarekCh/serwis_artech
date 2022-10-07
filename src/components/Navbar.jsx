@@ -10,10 +10,6 @@ import { liVariants, motionControlsValue } from '../utils/utils.js';
 const Navbar = () => {
   const initialWidth = window.innerWidth;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
-  console.log(
-    '🚀 ~ file: Navbar.jsx ~ line 13 ~ Navbar ~ windowWidth',
-    windowWidth
-  );
   const [showNav, setShowNav] = useState(false);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
