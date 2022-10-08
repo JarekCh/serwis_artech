@@ -58,5 +58,5 @@ input:checked ~ .dot {
 }
 
 .service_img {
-  @apply brightness-50 rounded-xl hover:scale-105 hover:transition hover:brightness-90 max-w-[350px] xl:max-w-[450px];
+  @apply brightness-50 rounded-xl hover:scale-105 hover:transition hover:brightness-90 max-w-[350px] xl:max-w-[450px] shadow-2xl;
 }
