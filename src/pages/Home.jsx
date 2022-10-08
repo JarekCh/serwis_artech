@@ -10,7 +10,9 @@ import { useSelector } from 'react-redux';
 
 const Home = () => {
   const { isLoadingSite } = useSelector((store) => store.site);
+  const { isTypewitersLoading } = useSelector((store) => store.site);
   if (isLoadingSite) return <Loading />;
+  if (isTypewitersLoading) return <Loading />;
 
   return (
     <main>

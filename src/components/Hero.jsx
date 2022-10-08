@@ -46,9 +46,7 @@ const Hero = () => {
           animate={controls}
         >
           <h1 className='section_title'>{isEnglish ? title_en : title_pl}</h1>
-          <p className='text-base md:text-lg xl:text-xl'>
-            {isEnglish ? text_en : text_pl}
-          </p>
+          <p className='section_text'>{isEnglish ? text_en : text_pl}</p>
         </motion.article>
       </div>
     </section>

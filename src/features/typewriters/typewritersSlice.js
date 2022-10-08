@@ -3,7 +3,7 @@ import { client } from '../../client';
 
 const initialState = {
   writersResult: [],
-  isLoading: true,
+  isTypewitersLoading: true,
 };
 
 export const getTypewriters = createAsyncThunk('getTypewriters', async () => {

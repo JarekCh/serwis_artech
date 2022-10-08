@@ -20,9 +20,13 @@ function App() {
 
   useEffect(() => {
     dispatch(getSiteContent());
-    // dispatch(getTypewriters());
+    dispatch(getTypewriters());
     // dispatch(getSingleTypewriter('asd'));
   }, []);
+
+  // TODO at the end of the projest add bluts
+  // find and add font
+  // deploy on netfly with link
 
   return (
     <BrowserRouter>
