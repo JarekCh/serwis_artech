@@ -45,6 +45,7 @@ const Navbar = () => {
 
   // TODO  router links, scroll library
   // add custome hook for changeLangAnimation to share across components
+  // FB icon
 
   return (
     <motion.nav

@@ -27,6 +27,7 @@ function App() {
   // TODO at the end of the projest add bluts
   // find and add font
   // deploy on netfly with link
+  // figure navbar at mobile to work hidden with motion
 
   return (
     <BrowserRouter>

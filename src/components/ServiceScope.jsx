@@ -38,7 +38,7 @@ const ServiceScope = () => {
           <ul className='grid grid-cols-2 section_text -gap-4'>
             {isEnglish
               ? service_en.map((item, i) => (
-                  <li key={i}>
+                  <li key={i} className='flex items-center'>
                     <span className='text-indigo-900 text-3xl'>
                       <BsDot />
                     </span>
@@ -46,7 +46,7 @@ const ServiceScope = () => {
                   </li>
                 ))
               : service_pl.map((item, i) => (
-                  <li key={i} className='flex items-center '>
+                  <li key={i} className='flex items-center'>
                     <span className='text-indigo-900 text-3xl'>
                       <BsDot />
                     </span>

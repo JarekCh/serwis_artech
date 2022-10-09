@@ -6,10 +6,7 @@ import { motionControlsValue } from '../utils/utils.js';
 const SliderTypewriter = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const { writersResult } = useSelector((store) => store.typewriters);
-  console.log(
-    '🚀 ~ file: SliderTypewriter.jsx ~ line 9 ~ SliderTypewriter ~ writersResult',
-    writersResult
-  );
+
   const controls = useAnimation();
   const [writers, setWriters] = useState([]);
   console.log(
@@ -17,10 +14,6 @@ const SliderTypewriter = () => {
     writers
   );
   const [index, setIndex] = useState(0);
-  console.log(
-    '🚀 ~ file: SliderTypewriter.jsx ~ line 9 ~ SliderTypewriter ~ writersResult',
-    writersResult
-  );
 
   // const { images, body_en, body_pl, title_en, title_pl } =
   //   writersResult;
@@ -36,8 +29,16 @@ const SliderTypewriter = () => {
   }, [index, writers]);
 
   useEffect(() => {
-    setWriters(writersResult.slice(0, 5));
-  }, []);
+    const writersForSort = [...writersResult];
+
+    setWriters(
+      writersForSort
+        .sort(
+          (a, b) => Date.parse(new Date(b.date)) - Date.parse(new Date(a.date))
+        )
+        .slice(0, 6)
+    );
+  }, [writersResult]);
 
   useEffect(() => {
     const changeLangAnimation = () => {
@@ -47,8 +48,27 @@ const SliderTypewriter = () => {
   }, [isEnglish]);
 
   return (
-    <section>
-      <div></div>
+    <section className='flex flex-col my-5 w-full p-6 max-w-[1600px] mx-auto'>
+      <div className='section_title text-indigo-900'>
+        {isEnglish ? 'Latest Renovation' : 'Ostatnie Renowacje'}
+      </div>
+      <div className='flex justify-center order-2'>
+        <img
+          src={writers[index]?.images[0]?.url}
+          alt='typewriter'
+          className='service_img'
+        />
+      </div>
+      <div className='order-1'>
+        <article>
+          <h3 className='font-bold section_text'>
+            {isEnglish ? writers[index]?.title_en : writers[index]?.title_pl}
+          </h3>
+          <span>
+            {isEnglish ? writers[index]?.body_en : writers[index]?.body_pl}
+          </span>
+        </article>
+      </div>
     </section>
   );
 };
