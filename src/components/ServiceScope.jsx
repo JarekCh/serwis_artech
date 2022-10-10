@@ -24,9 +24,9 @@ const ServiceScope = () => {
   }, [isEnglish]);
 
   return (
-    <section className='flex flex-col md:flex-row my-5 w-full p-6 max-w-[1600px] mx-auto gap-6'>
+    <section className='flex flex-col md:flex-row w-full p-6 max-w-[1600px] mx-auto '>
       <motion.div
-        className='text-Black flex flex-1 flex-col content-start'
+        className='text-Black flex flex-1 flex-col mr-4'
         animate={controls}
       >
         <h2 className='section_title text-indigo-900'>
@@ -58,10 +58,18 @@ const ServiceScope = () => {
       </motion.div>
       <div className='mt-6 flex flex-col flex-2 gap-4 lg:grid lg:grid-flow-dense lg:grid-row-3 lg:grid-cols-2'>
         <div className='flex content-center justify-center '>
-          <img src={Desk} alt='desk with tools' className='service_img' />
+          <img
+            src={Desk}
+            alt='desk with tools'
+            className='service_img max-w-[350px] xl:max-w-[450px]'
+          />
         </div>
         <div className='flex content-center justify-center'>
-          <img src={Soldering} alt='soldering' className='service_img' />
+          <img
+            src={Soldering}
+            alt='soldering'
+            className='service_img max-w-[350px] xl:max-w-[450px]'
+          />
         </div>
       </div>
     </section>

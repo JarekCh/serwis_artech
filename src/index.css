@@ -58,5 +58,9 @@ input:checked ~ .dot {
 }
 
 .service_img {
-  @apply brightness-50 rounded-xl hover:scale-105 hover:transition hover:brightness-90 max-w-[350px] xl:max-w-[450px] shadow-2xl;
+  @apply brightness-50 rounded-xl hover:scale-105 hover:transition hover:brightness-90 shadow-2xl;
+}
+
+.sliderTypewriter__btns {
+  @apply flex justify-center items-center border-2 rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50 hover:scale-90  transition-all duration-300;
 }
