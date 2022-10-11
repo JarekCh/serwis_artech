@@ -22,6 +22,12 @@ const SliderTypewriter = () => {
     index
   );
 
+  const newWidth = window.innerWidth;
+  console.log(
+    '🚀 ~ file: SliderTypewriter.jsx ~ line 26 ~ SliderTypewriter ~ wisth',
+    newWidth
+  );
+
   // const { images, body_en, body_pl, title_en, title_pl } =
   //   writersResult;
 
@@ -51,6 +57,16 @@ const SliderTypewriter = () => {
       setIndex(0);
     }
   }, [index, writers]);
+
+  // Slider index decrement
+  useEffect(() => {
+    let slider = setInterval(() => {
+      animateSlider();
+      setIndex((prevValue) => prevValue - 1);
+    }, 6000);
+
+    return () => clearInterval(slider);
+  }, [index]);
 
   // SET sorted array of writers
   useEffect(() => {
@@ -90,8 +106,8 @@ const SliderTypewriter = () => {
         </button>
         {/* IMAGE */}
         <div className='relative flex flex-col gap-10 lg:flex-row mx-4'>
-          <div className='hidden xl:visible absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] rounded-xl -top-4 left-4'></div>
-          <div className='hidden xl:visible absolute w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
+          <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6'></div>
+          <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <motion.div
             className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'
             animate={controls}

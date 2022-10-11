@@ -25,6 +25,7 @@ const ServiceScope = () => {
 
   return (
     <section className='flex flex-col md:flex-row w-full p-6 max-w-[1600px] mx-auto '>
+      {/* TEXT SIDE */}
       <motion.div
         className='text-Black flex flex-1 flex-col mr-4'
         animate={controls}
@@ -55,6 +56,7 @@ const ServiceScope = () => {
                 ))}
           </ul>
         </div>
+        {/* IMAGES */}
       </motion.div>
       <div className='mt-6 flex flex-col flex-2 gap-4 lg:grid lg:grid-flow-dense lg:grid-row-3 lg:grid-cols-2'>
         <div className='flex content-center justify-center '>
