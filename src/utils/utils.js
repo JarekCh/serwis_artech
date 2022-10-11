@@ -15,3 +15,8 @@ export const motionControlsValue = {
   opacity: [0, 1],
   transition: { duration: 1.2 },
 };
+
+export const motionSlider = {
+  opacity: [0, 1],
+  transition: { duration: 2 },
+};

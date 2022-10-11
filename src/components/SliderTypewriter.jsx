@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { animationControls, motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { motionControlsValue } from '../utils/utils.js';
+import { motionControlsValue, motionSlider } from '../utils/utils.js';
 import {
   BsChevronCompactLeft,
   BsChevronLeft,
@@ -29,12 +29,19 @@ const SliderTypewriter = () => {
 
   const incrementIndex = () => {
     setIndex((prevValue) => prevValue + 1);
+    animateSlider();
   };
 
   const decrementIndex = () => {
     setIndex((prevValue) => prevValue - 1);
+    animateSlider();
   };
 
+  const animateSlider = () => {
+    controls.start(motionControlsValue);
+  };
+
+  // Slider index seafty
   useEffect(() => {
     const lastIndex = writers.length - 1;
     if (index < 0) {
@@ -45,6 +52,7 @@ const SliderTypewriter = () => {
     }
   }, [index, writers]);
 
+  // SET sorted array of writers
   useEffect(() => {
     const writersForSort = [...writersResult];
 
@@ -57,18 +65,22 @@ const SliderTypewriter = () => {
     );
   }, [writersResult]);
 
+  // Change Lang animations
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
     };
+
     changeLangAnimation();
   }, [isEnglish]);
 
   return (
     <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto'>
+      {/* TITLE */}
       <div className='section_title text-indigo-900'>
         {isEnglish ? 'Latest Renovation' : 'Ostatnie Renowacje'}
       </div>
+      {/* RIGHT BTN DESKTOP */}
       <div className='flex mb-6'>
         <button
           className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl mr-1'
@@ -76,24 +88,35 @@ const SliderTypewriter = () => {
         >
           <BsChevronCompactLeft />
         </button>
-        <div className='flex flex-col lg:flex-row'>
-          <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1 '>
+        {/* IMAGE */}
+        <div className='relative flex flex-col gap-10 lg:flex-row mx-4'>
+          <div className='hidden xl:visible absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] rounded-xl -top-4 left-4'></div>
+          <div className='hidden xl:visible absolute w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
+          <motion.div
+            className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'
+            animate={controls}
+          >
             <img
               src={writers[index]?.images[0]?.url}
               alt='typewriter'
-              className='service_img cursor-pointer w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px]'
+              className='service_img cursor-pointer w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
             />
-          </div>
+          </motion.div>
+          {/* ARTICLE */}
           <div className='flex-1 order-1 lg:order-2 '>
             <article>
-              <h3 className='font-bold section_text mb-2 text-indigo-900'>
+              <motion.h3
+                className='font-bold section_text mb-2 text-indigo-900'
+                animate={controls}
+              >
                 {isEnglish
                   ? writers[index]?.title_en
                   : writers[index]?.title_pl}
-              </h3>
-              <span className='mb-5'>
+              </motion.h3>
+              <motion.span className='mb-5 ' animate={controls}>
                 {isEnglish ? writers[index]?.body_en : writers[index]?.body_pl}
-              </span>
+              </motion.span>
+              {/* BTNS MOBILE */}
               <div className='flex justify-around my-6'>
                 <button
                   className='flex lg:hidden sliderTypewriter__btns border-2 text-2xl w-10 h-10 hover:scale-90'
@@ -114,6 +137,7 @@ const SliderTypewriter = () => {
             </article>
           </div>
         </div>
+        {/* LEFT BTN DESKTOP */}
         <button
           className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl ml-1'
           onClick={incrementIndex}
