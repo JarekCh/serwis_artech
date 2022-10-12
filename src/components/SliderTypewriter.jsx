@@ -14,6 +14,8 @@ const SliderTypewriter = () => {
   const { writersResult } = useSelector((store) => store.typewriters);
 
   const controls = useAnimation();
+  const image = useAnimation();
+  const sliderText = useAnimation();
   const [writers, setWriters] = useState([]);
 
   const [index, setIndex] = useState(0);
@@ -28,10 +30,7 @@ const SliderTypewriter = () => {
     newWidth
   );
 
-  // const { images, body_en, body_pl, title_en, title_pl } =
-  //   writersResult;
-
-  // TODO add animationControls, add useEffect carusel
+  // TODO router
 
   const incrementIndex = () => {
     setIndex((prevValue) => prevValue + 1);
@@ -44,7 +43,8 @@ const SliderTypewriter = () => {
   };
 
   const animateSlider = () => {
-    controls.start(motionControlsValue);
+    image.start(motionSlider);
+    sliderText.start(motionControlsValue);
   };
 
   // Slider index seafty
@@ -93,9 +93,9 @@ const SliderTypewriter = () => {
   return (
     <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto'>
       {/* TITLE */}
-      <div className='section_title text-indigo-900'>
+      <motion.div className='section_title text-indigo-900' animate={controls}>
         {isEnglish ? 'Latest Renovation' : 'Ostatnie Renowacje'}
-      </div>
+      </motion.div>
       {/* RIGHT BTN DESKTOP */}
       <div className='flex mb-6'>
         <button
@@ -110,7 +110,7 @@ const SliderTypewriter = () => {
           <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <motion.div
             className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'
-            animate={controls}
+            animate={image}
           >
             <img
               src={writers[index]?.images[0]?.url}
@@ -120,16 +120,16 @@ const SliderTypewriter = () => {
           </motion.div>
           {/* ARTICLE */}
           <div className='flex-1 order-1 lg:order-2 '>
-            <article>
+            <motion.article animate={controls}>
               <motion.h3
                 className='font-bold section_text mb-2 text-indigo-900'
-                animate={controls}
+                animate={sliderText}
               >
                 {isEnglish
                   ? writers[index]?.title_en
                   : writers[index]?.title_pl}
               </motion.h3>
-              <motion.span className='mb-5 ' animate={controls}>
+              <motion.span className='mb-5 ' animate={sliderText}>
                 {isEnglish ? writers[index]?.body_en : writers[index]?.body_pl}
               </motion.span>
               {/* BTNS MOBILE */}
@@ -150,7 +150,7 @@ const SliderTypewriter = () => {
                   <BsChevronRight />
                 </button>
               </div>
-            </article>
+            </motion.article>
           </div>
         </div>
         {/* LEFT BTN DESKTOP */}
