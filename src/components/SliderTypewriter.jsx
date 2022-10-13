@@ -135,7 +135,7 @@ const SliderTypewriter = () => {
                 </button>
                 <button
                   className='flex lg:hidden sliderTypewriter__btns border-2 hover:scale-90 text-2xl w-10 h-10'
-                  onClick={() => setIndex((prevValue) => prevValue + 1)}
+                  onClick={incrementIndex}
                 >
                   <BsChevronRight />
                 </button>

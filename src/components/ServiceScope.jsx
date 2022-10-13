@@ -24,7 +24,7 @@ const ServiceScope = () => {
   }, [isEnglish]);
 
   return (
-    <section className='flex flex-col md:flex-row w-full p-6 max-w-[1600px] mx-auto '>
+    <section className='flex flex-col md:flex-row w-full p-6 max-w-[1600px] mx-auto'>
       {/* TEXT SIDE */}
       <motion.div
         className='text-Black flex flex-1 flex-col mr-4'
