@@ -54,11 +54,11 @@ input:checked ~ .dot {
 }
 
 .section_text {
-  @apply text-base md:text-lg xl:text-xl;
+  @apply text-base xl:text-xl;
 }
 
 .service_img {
-  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 shadow-2xl;
+  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 shadow-2xl max-h-[500px];
 }
 
 .sliderTypewriter__btns {

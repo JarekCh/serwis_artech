@@ -46,7 +46,7 @@ const Navbar = () => {
   // TODO  router links, scroll library
   // add custome hook for changeLangAnimation to share across components
   // FB icon
-  // add to top btn
+  // add to top btn HOC
 
   return (
     <motion.nav
@@ -164,16 +164,6 @@ const Navbar = () => {
                 animate={controls}
               >
                 {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-              </motion.a>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Assortment' : 'Asortyment'}
               </motion.a>
             </motion.li>
             <motion.li variants={liVariants}>

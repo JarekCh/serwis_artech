@@ -21,5 +21,5 @@ export const motionSlider = {
   rotate: [0, 180, 0],
   scale: [1, 0, 1],
   opacity: [0, 1],
-  transition: { duration: 0.9 },
+  transition: { duration: 1 },
 };

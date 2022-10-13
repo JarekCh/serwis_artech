@@ -19,16 +19,6 @@ const SliderTypewriter = () => {
   const [writers, setWriters] = useState([]);
 
   const [index, setIndex] = useState(0);
-  console.log(
-    '🚀 ~ file: SliderTypewriter.jsx ~ line 23 ~ SliderTypewriter ~ index',
-    index
-  );
-
-  const newWidth = window.innerWidth;
-  console.log(
-    '🚀 ~ file: SliderTypewriter.jsx ~ line 26 ~ SliderTypewriter ~ wisth',
-    newWidth
-  );
 
   // TODO router
 
@@ -106,7 +96,7 @@ const SliderTypewriter = () => {
         </button>
         {/* IMAGE */}
         <div className='relative flex flex-col gap-10 lg:flex-row mx-4'>
-          <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6'></div>
+          <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6 xl:left-5'></div>
           <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <motion.div
             className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'
@@ -122,14 +112,14 @@ const SliderTypewriter = () => {
           <div className='flex-1 order-1 lg:order-2 '>
             <motion.article animate={controls}>
               <motion.h3
-                className='font-bold section_text mb-2 text-indigo-900'
+                className='section_text font-bold section_text mb-2 text-indigo-900'
                 animate={sliderText}
               >
                 {isEnglish
                   ? writers[index]?.title_en
                   : writers[index]?.title_pl}
               </motion.h3>
-              <motion.span className='mb-5 ' animate={sliderText}>
+              <motion.span className='mb-5 section_text' animate={sliderText}>
                 {isEnglish ? writers[index]?.body_en : writers[index]?.body_pl}
               </motion.span>
               {/* BTNS MOBILE */}

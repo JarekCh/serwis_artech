@@ -1,5 +1,4 @@
 import React from 'react';
-import Assortment from '../components/Assortment';
 import Hero from '../components/Hero';
 import ServiceScope from '../components/ServiceScope';
 import SliderTypewriter from '../components/SliderTypewriter';
@@ -14,12 +13,13 @@ const Home = () => {
   if (isLoadingSite) return <Loading />;
   if (isTypewitersLoading) return <Loading />;
 
+  console.log('test');
+
   return (
     <main>
       <Hero />
       <ServiceScope />
       <SliderTypewriter />
-      <Assortment />
       <Contact />
       <GoogleMaps />
     </main>
