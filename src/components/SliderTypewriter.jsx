@@ -95,7 +95,7 @@ const SliderTypewriter = () => {
           <BsChevronCompactLeft />
         </button>
         {/* IMAGE */}
-        <div className='relative flex flex-col gap-10 lg:flex-row mx-4'>
+        <div className='relative flex flex-col gap-2 xl:gap-10 lg:flex-row mx-4'>
           <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6 xl:left-5'></div>
           <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <motion.div
