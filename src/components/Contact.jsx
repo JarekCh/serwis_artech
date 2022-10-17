@@ -102,7 +102,6 @@ const Contact = () => {
         </div>
         {/* FORM */}
         <div className='flex flex-col order-3 flex-1 justify-center'>
-          <p class='text-red-500 text-xs italic invisible'>asds</p>
           <form
             ref={form}
             onSubmit={sendEmail}

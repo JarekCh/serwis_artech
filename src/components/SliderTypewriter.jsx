@@ -108,8 +108,8 @@ const SliderTypewriter = () => {
               className='service_img cursor-pointer w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
             />
           </motion.div>
-          {/* ARTICLE */}
-          <div className='flex-1 order-1 lg:order-2 '>
+          {/* SERVICE TEXT */}
+          <div className='flex-1 order-1 lg:order-2 ml-4'>
             <motion.article animate={controls}>
               <motion.h3
                 className='section_text font-bold section_text mb-2 text-indigo-900'
