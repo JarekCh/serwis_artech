@@ -29,6 +29,7 @@ function App() {
   // deploy on netfly with link
   // figure navbar at mobile to work hidden with motion
   // fonts and font size
+  // error page
 
   return (
     <BrowserRouter>

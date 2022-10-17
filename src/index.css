@@ -64,3 +64,7 @@ input:checked ~ .dot {
 .sliderTypewriter__btns {
   @apply justify-center items-center rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500;
 }
+
+.contact__input {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-900 transition duration-500;
+}
