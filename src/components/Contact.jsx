@@ -52,7 +52,7 @@ const Contact = () => {
         </div>
         {/* COMPANY INFO */}
         <div className='flex flex-1 order-1 lg:order-2 justify-center my-4'>
-          <div className='flex flex-col justify-center gap-3'>
+          <div className='flex flex-col justify-center gap-6'>
             <div className='flex items-center gap-3'>
               <span className='text-2xl text-indigo-900'>
                 <FaHome />
