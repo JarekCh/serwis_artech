@@ -8,6 +8,7 @@ import LocalizationImg from '../assets/artech_lowRes.png';
 
 import { motionControlsValue } from '../utils/utils.js';
 
+// TODO create key for emailjs
 const Contact = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const form = useRef();
