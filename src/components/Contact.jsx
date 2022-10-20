@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import emailjs from '@emailjs/browser';
@@ -34,12 +34,24 @@ const Contact = () => {
       );
   };
 
+  // Change Lang animations
+  useEffect(() => {
+    const changeLangAnimation = () => {
+      controls.start(motionControlsValue);
+    };
+
+    changeLangAnimation();
+  }, [isEnglish]);
+
   return (
     <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto'>
       {/* TITLE */}
-      <div className='section_title w-full lg:text-center text-indigo-900'>
+      <motion.div
+        className='section_title w-full lg:text-center text-indigo-900'
+        animate={controls}
+      >
         {isEnglish ? 'Contact Us' : 'Skontaktuj się z nami'}
-      </div>
+      </motion.div>
       {/* CONTENT CONTAINER */}
       <div className='flex gap-6 flex-col lg:flex-row'>
         {/* SECTION IMAGE */}
@@ -60,7 +72,9 @@ const Contact = () => {
               <ul>
                 <li>Serwis Artech</li>
                 <li>ul. Ogrodowa 50</li>
-                <li>00-873 {isEnglish ? 'Warsaw' : 'Warszawa'}</li>
+                <motion.li animate={controls}>
+                  00-873 {isEnglish ? 'Warsaw' : 'Warszawa'}
+                </motion.li>
               </ul>
             </div>
             <div className='flex items-center gap-3'>
@@ -68,12 +82,14 @@ const Contact = () => {
                 <FaClock />
               </span>
               <ul>
-                <li>{isEnglish ? 'Open hours:' : 'Godziny otwarcia:'}</li>
-                <li>
+                <motion.li animate={controls}>
+                  {isEnglish ? 'Open hours:' : 'Godziny otwarcia:'}
+                </motion.li>
+                <motion.li animate={controls}>
                   {isEnglish
                     ? 'monday-friday 9:00-17:00'
                     : 'poniedziałek-piątek 9:00-17:00'}
-                </li>
+                </motion.li>
               </ul>
             </div>
             <div className='flex items-center gap-3'>

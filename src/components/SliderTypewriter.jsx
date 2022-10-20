@@ -52,7 +52,7 @@ const SliderTypewriter = () => {
   useEffect(() => {
     let slider = setInterval(() => {
       animateSlider();
-      setIndex((prevValue) => prevValue - 1);
+      setIndex((prevValue) => prevValue + 1);
     }, 6000);
 
     return () => clearInterval(slider);
