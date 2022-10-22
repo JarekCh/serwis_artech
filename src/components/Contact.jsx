@@ -9,6 +9,7 @@ import LocalizationImg from '../assets/artech_lowRes.png';
 import { motionControlsValue } from '../utils/utils.js';
 
 // TODO create key for emailjs
+// regexp on input fields
 const Contact = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const form = useRef();

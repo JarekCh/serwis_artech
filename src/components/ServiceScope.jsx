@@ -3,9 +3,13 @@ import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import Soldering from '../assets/soldering_640.jpg';
 import Desk from '../assets/desk_640.jpg';
+import Cartridge from '../assets/cartridges_640.png';
+import Toner from '../assets/toner_640.png';
 import { BsDot } from 'react-icons/bs';
 
 import { motionControlsValue } from '../utils/utils.js';
+
+// TODO add imgs toner and cardrige
 
 const ServiceScope = () => {
   const { isEnglish } = useSelector((store) => store.language);
@@ -58,19 +62,33 @@ const ServiceScope = () => {
         </div>
         {/* IMAGES */}
       </motion.div>
-      <div className='mt-6 flex flex-col flex-2 gap-4 lg:grid lg:grid-flow-dense lg:grid-row-3 lg:grid-cols-2'>
-        <div className='flex content-center justify-center '>
+      <div className='mt-6 flex flex-col flex-2 gap-4 lg:grid lg:grid-flow-dense lg:grid-row-2 lg:grid-cols-2'>
+        <div className='flex content-center justify-center'>
           <img
             src={Desk}
             alt='desk with tools'
-            className='service_img max-w-[350px] xl:max-w-[450px]'
+            className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
           />
         </div>
-        <div className='flex content-center justify-center'>
+        <div className='hidden lg:flex content-center justify-center'>
+          <img
+            src={Cartridge}
+            alt='soldering'
+            className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+          />
+        </div>
+        <div className='flex content-center justify-center '>
+          <img
+            src={Toner}
+            alt='desk with tools'
+            className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+          />
+        </div>
+        <div className='hidden md:flex content-center justify-center'>
           <img
             src={Soldering}
             alt='soldering'
-            className='service_img max-w-[350px] xl:max-w-[450px]'
+            className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
           />
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
 import { motion, useAnimation } from 'framer-motion';
+import { FaFacebook } from 'react-icons/fa';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
@@ -45,7 +46,6 @@ const Navbar = () => {
 
   // TODO  router links, scroll library
   // add custome hook for changeLangAnimation to share across components
-  // FB icon
   // add to top btn HOC
 
   return (
@@ -61,6 +61,14 @@ const Navbar = () => {
         </div>
         {/* LANG SLIDER */}
         <div className='flex items-center xl:order-2'>
+          <a
+            href='https://www.facebook.com/Naprawamaszyndopisania'
+            className='text-4xl mx-4 text-[#4267B2]'
+            target='_blank'
+          >
+            <FaFacebook />
+          </a>
+
           <label htmlFor='toggle' className='flex items-center cursor-pointer'>
             <div className='relative'>
               <input

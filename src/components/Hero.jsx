@@ -29,7 +29,7 @@ const Hero = () => {
       <div className='bg-black/50 w-full h-full flex flex-col justify-center items-center text-slate-200 relative'>
         {isNotify && (
           <motion.div
-            className='absolute p-2 pl-4 top-0 text-red-200 text-xl lg:text-2xl xl:text-3xl'
+            className='absolute p-4 ml-3 top-0 text-red-200 text-md lg:text-2xl xl:text-3xl'
             animate={{ scale: [1.05, 1, 1.05] }}
             transition={{
               repeat: Infinity,
