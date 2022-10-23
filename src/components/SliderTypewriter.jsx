@@ -81,9 +81,12 @@ const SliderTypewriter = () => {
   }, [isEnglish]);
 
   return (
-    <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto'>
+    <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto my-10 lg:my-24 z-5'>
       {/* TITLE */}
-      <motion.div className='section_title text-indigo-900' animate={controls}>
+      <motion.div
+        className='section_title text-indigo-900 pb-4'
+        animate={controls}
+      >
         {isEnglish ? 'Latest Renovation' : 'Ostatnie Renowacje'}
       </motion.div>
       {/* RIGHT BTN DESKTOP */}

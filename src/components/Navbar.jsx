@@ -8,6 +8,8 @@ import { languagePL, languageEN } from '../features/language/languageSlice';
 
 import { liVariants, motionControlsValue } from '../utils/utils.js';
 
+// TODO logo w/o bg
+
 const Navbar = () => {
   const initialWidth = window.innerWidth;
   const [windowWidth, setWindowWidth] = useState(initialWidth);
@@ -50,7 +52,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900'
+      className='bg-slate-50 px-2 sm:px-4 py-2.5 rounded'
       initial={false}
       animate={windowWidth < 1280 ? (showNav ? 'open' : 'closed') : 'visible'}
     >
@@ -63,7 +65,7 @@ const Navbar = () => {
         <div className='flex items-center xl:order-2'>
           <a
             href='https://www.facebook.com/Naprawamaszyndopisania'
-            className='text-4xl mx-4 text-[#4267B2]'
+            className='text-4xl mx-4 text-[#4267B2] transition-all duration-500 hover:scale-90'
             target='_blank'
           >
             <FaFacebook />
@@ -88,7 +90,7 @@ const Navbar = () => {
           <motion.button
             onClick={handleClick}
             type='button'
-            className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+            className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 '
             whileTap={{ scale: 0.9 }}
           >
             <motion.svg
@@ -112,7 +114,7 @@ const Navbar = () => {
           } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
         >
           <motion.ul
-            className='flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0 xl:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 '
+            className='flex flex-col p-4 mt-4 bg-slate-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0'
             variants={{
               open: {
                 clipPath: 'inset(0% 0% 0% 0% round 10px)',

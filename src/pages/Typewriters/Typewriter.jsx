@@ -5,7 +5,7 @@ import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
 
-// TODO  Moment.js
+// TODO router
 
 const Typewriter = ({
   body_en,
@@ -42,7 +42,7 @@ const Typewriter = ({
       <img
         src={images[0]?.url}
         alt={isEnglish ? 'restored typewriter' : 'odrestaurowana maszyna'}
-        className='rounded-xl hover:transition hover:brightness-90 shadow-2xl max-h-[500px]'
+        className='rounded-xl'
       />
       {/* TYPEWRITER TEXT */}
       <motion.p animate={controls}>

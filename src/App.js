@@ -32,6 +32,8 @@ function App() {
   // set bigger margin on sections
   // add isEng(pl and en) to all img alts
   // add resolution control on sanity imges??
+  // add bg colors on section
+  // remove bg form logo, toner and cardride with gimp
   // TODO
 
   return (
