@@ -105,7 +105,7 @@ const SliderTypewriter = () => {
             <img
               src={writers[index]?.images[0]?.url}
               alt='typewriter'
-              className='service_img cursor-pointer w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
+              className='service_img w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
             />
           </motion.div>
           {/* SERVICE TEXT */}
