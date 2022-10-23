@@ -160,7 +160,7 @@ const Contact = () => {
               <button
                 type='button'
                 value='Send'
-                className='rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10'
+                className='rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
               >
                 {isEnglish ? 'Submit' : 'Wyślij'}
               </button>

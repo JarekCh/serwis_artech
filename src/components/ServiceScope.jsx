@@ -29,7 +29,7 @@ const ServiceScope = () => {
 
   return (
     <section className='w-full relative bg-slate-200 p-6'>
-      <div className='hidden lg:block bg-slate-200 absolute -bottom-28 rotate-[4deg] -left-10 w-[120%] h-[40%]'></div>
+      <div className='hidden lg:block bg-slate-200 absolute -bottom-28 rotate-[4deg] -left-10 w-[120%] h-[30%]'></div>
       <div className='flex flex-col md:flex-row w-full pt-12 max-w-[1600px] mx-auto'>
         {/* TEXT SIDE */}
         <motion.div
@@ -40,7 +40,7 @@ const ServiceScope = () => {
             {isEnglish ? title_en : title_pl}
           </h2>
           <span className='section_text'>{isEnglish ? text_en : text_pl}</span>
-          <div className='mt-2'>
+          <div className='mt-2 z-10'>
             <h3 className='font-bold section_text'>Czym się zajmujemy:</h3>
             <ul className='grid grid-cols-2 section_text -gap-4'>
               {isEnglish
@@ -86,7 +86,7 @@ const ServiceScope = () => {
               className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
             />
           </div>
-          <div className='hidden md:flex content-center justify-center'>
+          <div className='hidden lg:flex content-center justify-center'>
             <img
               src={Soldering}
               alt='soldering'
