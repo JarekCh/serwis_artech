@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { animationControls, motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { motionControlsValue, motionSlider } from '../utils/utils.js';
+import { Link } from 'react-router-dom';
 import {
   BsChevronCompactLeft,
   BsChevronLeft,
@@ -19,8 +20,6 @@ const SliderTypewriter = () => {
   const [writers, setWriters] = useState([]);
 
   const [index, setIndex] = useState(0);
-
-  // TODO router
 
   const incrementIndex = () => {
     setIndex((prevValue) => prevValue + 1);
@@ -81,7 +80,10 @@ const SliderTypewriter = () => {
   }, [isEnglish]);
 
   return (
-    <section className='flex flex-col w-full p-6 max-w-[1600px] mx-auto my-10 lg:my-24 z-5'>
+    <section
+      id='renovations'
+      className='flex flex-col w-full p-6 max-w-[1600px] mx-auto my-10 lg:my-24 z-5'
+    >
       {/* TITLE */}
       <motion.div
         className='section_title text-indigo-900 pb-4'
@@ -133,9 +135,11 @@ const SliderTypewriter = () => {
                 >
                   <BsChevronLeft />
                 </button>
-                <button className='flex sliderTypewriter__btns border-2 text-xl w-28 hover:scale-90 h-10'>
-                  {isEnglish ? 'More..' : 'Więcej..'}
-                </button>
+                <Link to={`/typewriters/${writers[index]?.slug.current}`}>
+                  <button className='flex sliderTypewriter__btns border-2 text-xl w-28 hover:scale-90 h-10'>
+                    {isEnglish ? 'More..' : 'Więcej..'}
+                  </button>
+                </Link>
                 <button
                   className='flex lg:hidden sliderTypewriter__btns border-2 hover:scale-90 text-2xl w-10 h-10'
                   onClick={incrementIndex}

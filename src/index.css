@@ -58,7 +58,7 @@ input:checked ~ .dot {
 }
 
 .service_img {
-  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 shadow-xl max-h-[500px];
+  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 max-h-[500px];
 }
 
 .sliderTypewriter__btns {

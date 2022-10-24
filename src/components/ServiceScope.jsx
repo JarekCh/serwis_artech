@@ -28,7 +28,7 @@ const ServiceScope = () => {
   }, [isEnglish]);
 
   return (
-    <section className='w-full relative bg-slate-200 p-6'>
+    <section id='service' className='w-full relative bg-slate-200 p-6'>
       <div className='hidden lg:block bg-slate-200 absolute -bottom-28 rotate-[4deg] -left-10 w-[120%] h-[30%]'></div>
       <div className='flex flex-col md:flex-row w-full pt-12 max-w-[1600px] mx-auto'>
         {/* TEXT SIDE */}
@@ -69,7 +69,7 @@ const ServiceScope = () => {
             <img
               src={Desk}
               alt='desk with tools'
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
             />
           </div>
           <div className='hidden lg:flex content-center justify-center'>
@@ -90,7 +90,7 @@ const ServiceScope = () => {
             <img
               src={Soldering}
               alt='soldering'
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
             />
           </div>
         </div>

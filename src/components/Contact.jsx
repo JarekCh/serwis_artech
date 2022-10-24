@@ -47,7 +47,10 @@ const Contact = () => {
   }, [isEnglish]);
 
   return (
-    <section className='w-full relative bg-slate-200 px-6 pb-14 lg:mt-32'>
+    <section
+      id='contact'
+      className='w-full relative bg-slate-200 px-6 pb-14 lg:mt-32'
+    >
       <div className='hidden lg:block bg-slate-200 absolute -top-20 rotate-[4deg] -left-12 w-[120%] h-[40%] z-0'></div>
       <div className='flex flex-col w-full max-w-[1600px] mx-auto z-2 pt-12'>
         {/* TITLE */}

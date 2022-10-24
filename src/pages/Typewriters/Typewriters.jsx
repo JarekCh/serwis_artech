@@ -7,7 +7,6 @@ import Typewriter from './Typewriter';
 
 const Typewriters = () => {
   const { writersResult } = useSelector((store) => store.typewriters);
-
   const [writers, setWriters] = useState([]);
 
   useEffect(() => {

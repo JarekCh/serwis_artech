@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
 import { motion, useAnimation } from 'framer-motion';
 import { FaFacebook } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
 
 import { liVariants, motionControlsValue } from '../utils/utils.js';
 
 // TODO logo w/o bg
+// check if windowWidth is needed
 
 const Navbar = () => {
   const initialWidth = window.innerWidth;
@@ -17,7 +20,11 @@ const Navbar = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
-  const handleClick = () => setShowNav((prevValue) => !prevValue);
+  const handleClick = () => {
+    if (windowWidth < 1280) {
+      setShowNav((prevValue) => !prevValue);
+    }
+  };
 
   const handleLanguage = () => {
     if (!isEnglish) {
@@ -58,9 +65,9 @@ const Navbar = () => {
     >
       {/* LOGO */}
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
-        <div className='cursor-pointer'>
+        <NavLink to={`/`} className='cursor-pointer'>
           <img src={Logo} alt='' className='w-20 md:w-32 xl:w-60' />
-        </div>
+        </NavLink>
         {/* LANG SLIDER */}
         <div className='flex items-center xl:order-2'>
           <a
@@ -137,54 +144,62 @@ const Navbar = () => {
             }}
           >
             <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Home' : 'Strona domowa'}
-              </motion.a>
+              <NavLink to='/'>
+                <motion.span
+                  onClick={handleClick}
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Home' : 'Strona domowa'}
+                </motion.span>
+              </NavLink>
             </motion.li>
             <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Typewriters' : 'Maszyny'}
-              </motion.a>
+              <NavLink to={`/typewriters`}>
+                <motion.span
+                  onClick={handleClick}
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Typewriters' : 'Maszyny'}
+                </motion.span>
+              </NavLink>
             </motion.li>
             <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Service' : 'Naprawy'}
-              </motion.a>
+              <HashLink to='/#service' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Service' : 'Naprawy'}
+                </motion.span>
+              </HashLink>
             </motion.li>
             <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-              </motion.a>
+              <HashLink to='/#renovations' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
+                </motion.span>
+              </HashLink>
             </motion.li>
             <motion.li variants={liVariants}>
-              <motion.a
-                onClick={handleClick}
-                href='#'
-                className='navbar__li'
-                animate={controls}
-              >
-                {isEnglish ? 'Contact' : 'Kontakt'}
-              </motion.a>
+              <HashLink to='/#contact' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Contact' : 'Kontakt'}
+                </motion.span>
+              </HashLink>
             </motion.li>
           </motion.ul>
         </div>

@@ -4,8 +4,7 @@ import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
-
-// TODO router
+import { Link } from 'react-router-dom';
 
 const Typewriter = ({
   body_en,
@@ -55,12 +54,14 @@ const Typewriter = ({
           : body_pl}
       </motion.p>
       {/* TYPEWRITER BUTTON */}
-      <motion.button
-        animate={controls}
-        className='flex justify-center items-center rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-105 h-10 mx-auto'
-      >
-        {isEnglish ? 'More..' : 'Więcej..'}
-      </motion.button>
+      <Link to={`/typewriters/${slug.current}`}>
+        <motion.button
+          animate={controls}
+          className='flex justify-center items-center rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-200 border-2 text-lg w-28 hover:scale-105 h-10 mx-auto'
+        >
+          {isEnglish ? 'More..' : 'Więcej..'}
+        </motion.button>
+      </Link>
       {/* TYPEWRITER DATE */}
       <motion.p className='text-right' animate={controls}>
         {moment(date)
