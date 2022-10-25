@@ -15,10 +15,3 @@ export const motionControlsValue = {
   opacity: [0, 1],
   transition: { duration: 1.2 },
 };
-
-// Image slider
-export const motionSlider = {
-  scale: [1, 0, 1],
-  opacity: [0, 1],
-  transition: { duration: 1 },
-};

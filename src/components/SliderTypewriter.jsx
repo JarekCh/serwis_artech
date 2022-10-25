@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { motionControlsValue, motionSlider } from '../utils/utils.js';
+import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
 import {
   BsChevronCompactLeft,
@@ -19,43 +19,36 @@ const SliderTypewriter = () => {
   const sliderText = useAnimation();
   const [writers, setWriters] = useState([]);
 
-  const [index, setIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const transition = { type: 'spring', duration: 3 };
 
   const incrementIndex = () => {
-    setIndex((prevValue) => prevValue + 1);
-    animateSlider();
+    setSlideIndex((prevValue) => prevValue + 1);
   };
 
   const decrementIndex = () => {
-    setIndex((prevValue) => prevValue - 1);
-    animateSlider();
+    setSlideIndex((prevValue) => prevValue - 1);
   };
 
-  const animateSlider = () => {
-    image.start(motionSlider);
-    sliderText.start(motionControlsValue);
-  };
-
-  // Slider index seafty
+  // Slider slideIndex seafty
   useEffect(() => {
     const lastIndex = writers.length - 1;
-    if (index < 0) {
-      setIndex(lastIndex);
+    if (slideIndex < 0) {
+      setSlideIndex(lastIndex);
     }
-    if (index > lastIndex) {
-      setIndex(0);
+    if (slideIndex > lastIndex) {
+      setSlideIndex(0);
     }
-  }, [index, writers]);
+  }, [slideIndex, writers]);
 
   // Slider index decrement
   useEffect(() => {
     let slider = setInterval(() => {
-      animateSlider();
-      setIndex((prevValue) => prevValue + 1);
+      setSlideIndex((prevValue) => prevValue + 1);
     }, 6000);
 
     return () => clearInterval(slider);
-  }, [index]);
+  }, [slideIndex]);
 
   // SET sorted array of writers
   useEffect(() => {
@@ -103,30 +96,42 @@ const SliderTypewriter = () => {
         <div className='relative flex flex-col gap-2 xl:gap-10 lg:flex-row mx-4'>
           <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6 xl:left-5'></div>
           <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
-          <motion.div
-            className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'
-            animate={image}
-          >
-            <img
-              src={writers[index]?.images[0]?.url}
+          <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'>
+            <motion.img
+              src={writers[slideIndex]?.images[0]?.url}
               alt='typewriter'
               className='service_img w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
+              key={slideIndex}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 30 }}
+              transition={transition}
             />
-          </motion.div>
+          </div>
           {/* SERVICE TEXT */}
           <div className='flex-1 order-1 lg:order-2 ml-4'>
-            <motion.article animate={controls}>
-              <motion.h3
-                className='section_text font-bold section_text mb-2 text-indigo-900'
-                animate={sliderText}
+            <motion.article>
+              <motion.div
+                key={slideIndex}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={transition}
               >
-                {isEnglish
-                  ? writers[index]?.title_en
-                  : writers[index]?.title_pl}
-              </motion.h3>
-              <motion.span className='mb-5 section_text' animate={sliderText}>
-                {isEnglish ? writers[index]?.body_en : writers[index]?.body_pl}
-              </motion.span>
+                <motion.h3
+                  className='section_text font-bold section_text mb-2 text-indigo-900'
+                  animate={controls}
+                >
+                  {isEnglish
+                    ? writers[slideIndex]?.title_en
+                    : writers[slideIndex]?.title_pl}
+                </motion.h3>
+                <motion.span className='mb-5 section_text' animate={controls}>
+                  {isEnglish
+                    ? writers[slideIndex]?.body_en
+                    : writers[slideIndex]?.body_pl}
+                </motion.span>
+              </motion.div>
               {/* BTNS MOBILE */}
               <div className='flex justify-around my-6'>
                 <button
@@ -135,9 +140,11 @@ const SliderTypewriter = () => {
                 >
                   <BsChevronLeft />
                 </button>
-                <Link to={`/typewriters/${writers[index]?.slug.current}`}>
+                <Link to={`/typewriters/${writers[slideIndex]?.slug.current}`}>
                   <button className='flex sliderTypewriter__btns border-2 text-xl w-28 hover:scale-90 h-10'>
-                    {isEnglish ? 'More..' : 'Więcej..'}
+                    <motion.span animate={controls}>
+                      {isEnglish ? 'More..' : 'Więcej..'}
+                    </motion.span>
                   </button>
                 </Link>
                 <button
