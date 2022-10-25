@@ -16,10 +16,10 @@ export const getSingleTypewriter = createAsyncThunk(
         body_pl,
         title_en,
         body_en,
-        'images':typewritersImgs[]{'url':asset._ref},
+        'images':typewritersImgs[]{'url':asset->url},
         date,
       }`);
-      return data;
+      return data[0];
     } catch (error) {
       console.log(error);
     }

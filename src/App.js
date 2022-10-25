@@ -17,7 +17,6 @@ function App() {
   useEffect(() => {
     dispatch(getSiteContent());
     dispatch(getTypewriters());
-    // dispatch(getSingleTypewriter('asd'));
   }, []);
 
   // TODO
