@@ -21,19 +21,14 @@ function App() {
 
   // TODO
   // at the end of the projest add bluts
-  // find and add font
   // figure navbar at mobile to work hidden with motion
   // fonts and font size
   // change px to rem
-  // set bigger margin on sections
   // add isEng(pl and en) to all img alts
   // add resolution control on sanity imges??
-  // add bg colors on section
-  // remove bg form logo, toner and cardride with gimp
-  // add custome hook for changeLangAnimation to share across components
-  // add to top btn HOC
+  // remove bg form logo with gimp
+  // add custome hook for changeLangAnimation to share across components HOC
   // node.js for secure api keys
-  // change slider animation
   // TODO
 
   return (

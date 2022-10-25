@@ -34,21 +34,17 @@ const SingleTypewriter = () => {
 
   if (isLoading) return <Loading />;
   const { title_en, title_pl, body_en, body_pl, images } = singleTypewriter;
-  console.log(
-    '🚀 ~ file: SingleTypewriter.jsx ~ line 25 ~ SingleTypewriter ~ images',
-    images
-  );
 
   return (
     <section className=' my-6 max-w-[1600px] m-auto'>
       <motion.h2
-        className='text-2xl text-center text-indigo-900 font-bold mb-4 p-4'
+        className='text-3xl 2xl:text-5xl text-center text-indigo-900 font-bold mb-4 p-2'
         animate={controls}
       >
         {isEnglish ? title_en : title_pl}
       </motion.h2>
       {/* LEFT SIDE, TEXT */}
-      <div className='flex flex-col lg:flex-row justify-center gap-8 p-6 m-6'>
+      <div className='flex flex-col justify-center lg:flex-row items-center gap-8 p-4 m-4'>
         <div className='flex flex-2'>
           <img
             src={images[0]?.url}
@@ -56,7 +52,7 @@ const SingleTypewriter = () => {
             className='rounded-xl w-[40rem]'
           />
         </div>
-        <div className='flex flex-col flex-1 max-w-lg'>
+        <div className='flex flex-col flex-1 max-w-lg lg:self-start'>
           <motion.p className='my-6 lg:my-0' animate={controls}>
             {isEnglish ? body_en : body_pl}
           </motion.p>
@@ -86,7 +82,7 @@ const SingleTypewriter = () => {
               key={i}
               src={item.url}
               alt='typewriter'
-              className='rounded-xl w-80 shadow-xl transition-all duration-200 hover:scale-105'
+              className='rounded-xl w-80 shadow-xl transition-all duration-200 hover:scale-105 cursor-pointer'
             />
           ))}
         </div>

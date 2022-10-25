@@ -87,7 +87,7 @@ const SliderTypewriter = () => {
       {/* RIGHT BTN DESKTOP */}
       <div className='flex mb-6'>
         <button
-          className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl mr-1'
+          className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl mr-1 z-10'
           onClick={decrementIndex}
         >
           <BsChevronCompactLeft />
@@ -102,9 +102,9 @@ const SliderTypewriter = () => {
               alt='typewriter'
               className='service_img w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
               key={slideIndex}
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
+              exit={{ opacity: 0, x: 50 }}
               transition={transition}
             />
           </div>
@@ -113,9 +113,9 @@ const SliderTypewriter = () => {
             <motion.article>
               <motion.div
                 key={slideIndex}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
+                exit={{ opacity: 0, x: -50 }}
                 transition={transition}
               >
                 <motion.h3
@@ -159,7 +159,7 @@ const SliderTypewriter = () => {
         </div>
         {/* LEFT BTN DESKTOP */}
         <button
-          className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl ml-1'
+          className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl ml-1 z-10'
           onClick={incrementIndex}
         >
           <BsChevronCompactRight />
