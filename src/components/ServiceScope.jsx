@@ -9,8 +9,6 @@ import { BsDot } from 'react-icons/bs';
 
 import { motionControlsValue } from '../utils/utils.js';
 
-// TODO add imgs toner and cardrige w/o bg
-
 const ServiceScope = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const { siteResult } = useSelector((store) => store.site);

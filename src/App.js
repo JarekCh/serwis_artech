@@ -4,17 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 
-import { getSingleTypewriter } from './features/singleTypewriter/singleTypewriterSlice';
 import Typewriters from './pages/Typewriters/Typewriters';
 import Home from './pages/Home';
 import Error from './pages/Error';
-import SingleTypewriter from './pages/SingleTypewriter';
+import SingleTypewriter from './pages/SingleTypwriter/SingleTypewriter';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
 function App() {
-  const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +31,10 @@ function App() {
   // add resolution control on sanity imges??
   // add bg colors on section
   // remove bg form logo, toner and cardride with gimp
+  // add custome hook for changeLangAnimation to share across components
+  // add to top btn HOC
+  // node.js for secure api keys
+  // change slider animation
   // TODO
 
   return (

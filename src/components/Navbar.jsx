@@ -38,6 +38,7 @@ const Navbar = () => {
   };
 
   const controls = useAnimation();
+
   const changeLangAnimation = () => {
     controls.start(motionControlsValue);
   };
@@ -52,10 +53,6 @@ const Navbar = () => {
 
     return () => window.removeEventListener('resize', updateWindowDimensions);
   }, []);
-
-  // TODO  router links, scroll library
-  // add custome hook for changeLangAnimation to share across components
-  // add to top btn HOC
 
   return (
     <motion.nav
