@@ -29,6 +29,7 @@ function App() {
   // remove bg form logo with gimp
   // add custome hook for changeLangAnimation to share across components HOC
   // node.js for secure api keys
+  // check classes and styling at the end
   // TODO
 
   return (

@@ -111,7 +111,7 @@ const Navbar = () => {
             </motion.svg>
           </motion.button>
         </div>
-        {/* NAVBAR */}
+        {/* NAV LINKS */}
         <div
           className={`${
             windowWidth < 1280 ? '' : 'hidden'

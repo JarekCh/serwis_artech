@@ -15,8 +15,6 @@ const SliderTypewriter = () => {
   const { writersResult } = useSelector((store) => store.typewriters);
 
   const controls = useAnimation();
-  const image = useAnimation();
-  const sliderText = useAnimation();
   const [writers, setWriters] = useState([]);
 
   const [slideIndex, setSlideIndex] = useState(0);
@@ -119,7 +117,7 @@ const SliderTypewriter = () => {
                 transition={transition}
               >
                 <motion.h3
-                  className='section_text font-bold section_text mb-2 text-indigo-900'
+                  className='text-xl 2xl:text-2xl font-bold mb-2 text-indigo-900'
                   animate={controls}
                 >
                   {isEnglish

@@ -63,7 +63,7 @@ const Typewriter = ({
         </motion.button>
       </Link>
       {/* TYPEWRITER DATE */}
-      <motion.p className='text-right' animate={controls}>
+      <motion.p className='text-right mt-6' animate={controls}>
         {moment(date)
           .locale(`${isEnglish ? 'en' : 'pl'}`)
           .format('MMMM Do YYYY, h:mma')}

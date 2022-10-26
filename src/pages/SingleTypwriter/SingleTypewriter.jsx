@@ -1,23 +1,70 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motionControlsValue } from '../../utils/utils.js';
+import GalleryModal from './GalleryModal';
 
 import Loading from '../../components/Loading';
 
 import { getSingleTypewriter } from '../../features/singleTypewriter/singleTypewriterSlice';
 
 const SingleTypewriter = () => {
+  const [clickedImg, setClickedImg] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
   const { isEnglish } = useSelector((store) => store.language);
   const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
-
   const { isLoading } = useSelector((store) => store.singleTypewriter);
 
   const { slug } = useParams();
   const controls = useAnimation();
+
+  // GALLARY LOGIC
+
+  // store url and index by click on img
+  const handleClick = (item, i) => {
+    setCurrentIndex(i);
+    setClickedImg(item.url);
+    setShowModal(true);
+  };
+
+  const handelRotationRight = () => {
+    const totalLength = images.length;
+    if (currentIndex + 1 >= totalLength) {
+      setCurrentIndex(0);
+      const newUrl = images[0].url;
+      setClickedImg(newUrl);
+      return;
+    }
+    const newIndex = currentIndex + 1;
+    const newUrl = images.filter((item) => {
+      return images.indexOf(item) === newIndex;
+    });
+    const newItem = newUrl[0].url;
+    setClickedImg(newItem);
+    setCurrentIndex(newIndex);
+  };
+
+  const handelRotationLeft = () => {
+    const totalLength = images.length;
+    if (currentIndex === 0) {
+      setCurrentIndex(totalLength - 1);
+      const newUrl = images[totalLength - 1].url;
+      setClickedImg(newUrl);
+      return;
+    }
+    const newIndex = currentIndex - 1;
+    const newUrl = images.filter((item) => {
+      return images.indexOf(item) === newIndex;
+    });
+    const newItem = newUrl[0].url;
+    setClickedImg(newItem);
+    setCurrentIndex(newIndex);
+  };
 
   // Change Lang animations
   useEffect(() => {
@@ -37,6 +84,15 @@ const SingleTypewriter = () => {
 
   return (
     <section className=' my-6 max-w-[1600px] m-auto'>
+      {showModal && (
+        <GalleryModal
+          clickedImg={clickedImg}
+          handelRotationRight={handelRotationRight}
+          handelRotationLeft={handelRotationLeft}
+          setClickedImg={setClickedImg}
+          setShowModal={setShowModal}
+        />
+      )}
       <motion.h2
         className='text-3xl 2xl:text-5xl text-center text-indigo-900 font-bold mb-4 p-2'
         animate={controls}
@@ -82,7 +138,8 @@ const SingleTypewriter = () => {
               key={i}
               src={item.url}
               alt='typewriter'
-              className='rounded-xl w-80 shadow-xl transition-all duration-200 hover:scale-105 cursor-pointer'
+              className='rounded-xl w-80 h-60 shadow-xl transition-all duration-200 hover:scale-105 cursor-pointer'
+              onClick={() => handleClick(item, i)}
             />
           ))}
         </div>
