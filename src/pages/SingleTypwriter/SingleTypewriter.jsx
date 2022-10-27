@@ -16,6 +16,7 @@ const SingleTypewriter = () => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [direction, setDirection] = useState(0);
 
   const dispatch = useDispatch();
   const { isEnglish } = useSelector((store) => store.language);
@@ -36,6 +37,7 @@ const SingleTypewriter = () => {
 
   // change url and idex passed to modal with seafty
   const handelRotationRight = () => {
+    setDirection(1);
     const totalLength = images.length;
     if (currentIndex + 1 >= totalLength) {
       setCurrentIndex(0);
@@ -54,6 +56,7 @@ const SingleTypewriter = () => {
 
   // change url and idex passed to modal with seafty
   const handelRotationLeft = () => {
+    setDirection(-1);
     const totalLength = images.length;
     if (currentIndex === 0) {
       setCurrentIndex(totalLength - 1);
@@ -97,6 +100,7 @@ const SingleTypewriter = () => {
           handelRotationLeft={handelRotationLeft}
           setClickedImg={setClickedImg}
           setShowModal={setShowModal}
+          direction={direction}
         />
       )}
       {/* SINGLE TYPEWRITER PAGE */}

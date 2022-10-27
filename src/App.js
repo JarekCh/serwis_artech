@@ -30,6 +30,7 @@ function App() {
   // add custome hook for changeLangAnimation to share across components HOC
   // node.js for secure api keys
   // check classes and styling at the end
+  // try fit content with vh on imgs
   // TODO
 
   return (
