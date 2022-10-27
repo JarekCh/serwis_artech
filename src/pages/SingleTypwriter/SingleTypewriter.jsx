@@ -10,6 +10,8 @@ import Loading from '../../components/Loading';
 
 import { getSingleTypewriter } from '../../features/singleTypewriter/singleTypewriterSlice';
 
+// TODO animation on modal
+
 const SingleTypewriter = () => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -25,13 +27,14 @@ const SingleTypewriter = () => {
 
   // GALLARY LOGIC
 
-  // store url and index by click on img
+  // get url and index by click on img
   const handleClick = (item, i) => {
     setCurrentIndex(i);
     setClickedImg(item.url);
     setShowModal(true);
   };
 
+  // change url and idex passed to modal with seafty
   const handelRotationRight = () => {
     const totalLength = images.length;
     if (currentIndex + 1 >= totalLength) {
@@ -49,6 +52,7 @@ const SingleTypewriter = () => {
     setCurrentIndex(newIndex);
   };
 
+  // change url and idex passed to modal with seafty
   const handelRotationLeft = () => {
     const totalLength = images.length;
     if (currentIndex === 0) {
@@ -75,6 +79,7 @@ const SingleTypewriter = () => {
     changeLangAnimation();
   }, [isEnglish]);
 
+  // get typewriter by id from store
   useEffect(() => {
     dispatch(getSingleTypewriter(slug));
   }, []);
@@ -84,6 +89,7 @@ const SingleTypewriter = () => {
 
   return (
     <section className=' my-6 max-w-[1600px] m-auto'>
+      {/* MODAL */}
       {showModal && (
         <GalleryModal
           clickedImg={clickedImg}
@@ -93,6 +99,7 @@ const SingleTypewriter = () => {
           setShowModal={setShowModal}
         />
       )}
+      {/* SINGLE TYPEWRITER PAGE */}
       <motion.h2
         className='text-3xl 2xl:text-5xl text-center text-indigo-900 font-bold mb-4 p-2'
         animate={controls}

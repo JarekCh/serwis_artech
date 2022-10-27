@@ -7,6 +7,8 @@ import GoogleMaps from '../components/GoogleMaps';
 import Loading from '../components/Loading';
 import { useSelector } from 'react-redux';
 
+// TODO modal,animation, stroe for mail with logic
+
 const Home = () => {
   const { isLoadingSite } = useSelector((store) => store.site);
   const { isTypewitersLoading } = useSelector((store) => store.site);
