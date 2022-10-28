@@ -1,6 +1,6 @@
 // MOTION VARIABLE
 
-// Nav Links
+// Nav Links animation
 export const liVariants = {
   open: {
     opacity: 1,

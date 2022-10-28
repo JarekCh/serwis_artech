@@ -12,7 +12,6 @@ import { liVariants, motionControlsValue } from '../utils/utils.js';
 
 // TODO logo w/o bg
 // check if windowWidth is needed
-// refactor li and use utils
 
 const Navbar = () => {
   const initialWidth = window.innerWidth;
@@ -20,6 +19,20 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
+
+  const navLinks = [
+    { to: '/', lang: isEnglish ? 'Home' : 'Strona domowa' },
+    { to: '/typewriters', lang: isEnglish ? 'Typewriters' : 'Maszyny' },
+  ];
+
+  const hashLinks = [
+    { to: '/#service', lang: isEnglish ? 'Service' : 'Naprawy' },
+    {
+      to: '/#renovations',
+      lang: isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje',
+    },
+    { to: '/#contact', lang: isEnglish ? 'Contact' : 'Kontakt' },
+  ];
 
   const handleClick = () => {
     if (windowWidth < 1280) {
@@ -142,64 +155,36 @@ const Navbar = () => {
               },
             }}
           >
-            <motion.li variants={liVariants}>
-              <NavLink to='/'>
-                <motion.span
-                  onClick={handleClick}
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Home' : 'Strona domowa'}
-                </motion.span>
-              </NavLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <NavLink to={`/typewriters`}>
-                <motion.span
-                  onClick={handleClick}
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Typewriters' : 'Maszyny'}
-                </motion.span>
-              </NavLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#service' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Service' : 'Naprawy'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#renovations' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#contact' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Contact' : 'Kontakt'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
+            {navLinks.map((item, i) => {
+              return (
+                <motion.li key={i} variants={liVariants}>
+                  <NavLink to={item.to}>
+                    <motion.span
+                      onClick={handleClick}
+                      className='navbar__li'
+                      animate={controls}
+                    >
+                      {item.lang}
+                    </motion.span>
+                  </NavLink>
+                </motion.li>
+              );
+            })}
+            {hashLinks.map((item, i) => {
+              return (
+                <motion.li key={i} variants={liVariants}>
+                  <HashLink to={item.to} smooth>
+                    <motion.span
+                      onClick={handleClick}
+                      className='navbar__li'
+                      animate={controls}
+                    >
+                      {item.lang}
+                    </motion.span>
+                  </HashLink>
+                </motion.li>
+              );
+            })}
           </motion.ul>
         </div>
       </div>
