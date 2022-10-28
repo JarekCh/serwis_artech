@@ -10,8 +10,6 @@ import Loading from '../../components/Loading';
 
 import { getSingleTypewriter } from '../../features/singleTypewriter/singleTypewriterSlice';
 
-// TODO animation on modal
-
 const SingleTypewriter = () => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);

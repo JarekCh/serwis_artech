@@ -31,6 +31,7 @@ function App() {
   // node.js for secure api keys
   // check classes and styling at the end
   // try fit content with vh on imgs
+  // change hoovers from lg size
   // TODO
 
   return (

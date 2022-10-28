@@ -12,6 +12,7 @@ import { liVariants, motionControlsValue } from '../utils/utils.js';
 
 // TODO logo w/o bg
 // check if windowWidth is needed
+// refactor li and use utils
 
 const Navbar = () => {
   const initialWidth = window.innerWidth;
@@ -112,96 +113,95 @@ const Navbar = () => {
           </motion.button>
         </div>
         {/* NAV LINKS */}
-        <AnimatePresence>
-          <div
-            className={`${
-              windowWidth < 1280 ? '' : 'hidden'
-            } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
+
+        <div
+          className={`${
+            windowWidth < 1280 ? '' : 'hidden'
+          } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
+        >
+          <motion.ul
+            className='flex flex-col p-4 mt-4 bg-slate-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0'
+            variants={{
+              open: {
+                clipPath: 'inset(0% 0% 0% 0% round 10px)',
+                transition: {
+                  type: 'spring',
+                  bounce: 0,
+                  duration: 0.7,
+                  delayChildren: 0.3,
+                  staggerChildren: 0.05,
+                },
+              },
+              closed: {
+                clipPath: 'inset(10% 50% 90% 50% round 10px)',
+                transition: {
+                  type: 'spring',
+                  bounce: 0,
+                  duration: 0.3,
+                },
+              },
+            }}
           >
-            <motion.ul
-              className='flex flex-col p-4 mt-4 bg-slate-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0'
-              variants={{
-                open: {
-                  clipPath: 'inset(0% 0% 0% 0% round 10px)',
-                  transition: {
-                    type: 'spring',
-                    bounce: 0,
-                    duration: 0.7,
-                    delayChildren: 0.3,
-                    staggerChildren: 0.05,
-                  },
-                },
-                closed: {
-                  clipPath: 'inset(10% 50% 90% 50% round 10px)',
-                  transition: {
-                    type: 'spring',
-                    bounce: 0,
-                    duration: 0.3,
-                  },
-                },
-              }}
-            >
-              <motion.li variants={liVariants}>
-                <NavLink to='/'>
-                  <motion.span
-                    onClick={handleClick}
-                    className='navbar__li'
-                    animate={controls}
-                  >
-                    {isEnglish ? 'Home' : 'Strona domowa'}
-                  </motion.span>
-                </NavLink>
-              </motion.li>
-              <motion.li variants={liVariants}>
-                <NavLink to={`/typewriters`}>
-                  <motion.span
-                    onClick={handleClick}
-                    className='navbar__li'
-                    animate={controls}
-                  >
-                    {isEnglish ? 'Typewriters' : 'Maszyny'}
-                  </motion.span>
-                </NavLink>
-              </motion.li>
-              <motion.li variants={liVariants}>
-                <HashLink to='/#service' smooth>
-                  <motion.span
-                    onClick={handleClick}
-                    href='#'
-                    className='navbar__li'
-                    animate={controls}
-                  >
-                    {isEnglish ? 'Service' : 'Naprawy'}
-                  </motion.span>
-                </HashLink>
-              </motion.li>
-              <motion.li variants={liVariants}>
-                <HashLink to='/#renovations' smooth>
-                  <motion.span
-                    onClick={handleClick}
-                    href='#'
-                    className='navbar__li'
-                    animate={controls}
-                  >
-                    {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-                  </motion.span>
-                </HashLink>
-              </motion.li>
-              <motion.li variants={liVariants}>
-                <HashLink to='/#contact' smooth>
-                  <motion.span
-                    onClick={handleClick}
-                    href='#'
-                    className='navbar__li'
-                    animate={controls}
-                  >
-                    {isEnglish ? 'Contact' : 'Kontakt'}
-                  </motion.span>
-                </HashLink>
-              </motion.li>
-            </motion.ul>
-          </div>
-        </AnimatePresence>
+            <motion.li variants={liVariants}>
+              <NavLink to='/'>
+                <motion.span
+                  onClick={handleClick}
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Home' : 'Strona domowa'}
+                </motion.span>
+              </NavLink>
+            </motion.li>
+            <motion.li variants={liVariants}>
+              <NavLink to={`/typewriters`}>
+                <motion.span
+                  onClick={handleClick}
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Typewriters' : 'Maszyny'}
+                </motion.span>
+              </NavLink>
+            </motion.li>
+            <motion.li variants={liVariants}>
+              <HashLink to='/#service' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Service' : 'Naprawy'}
+                </motion.span>
+              </HashLink>
+            </motion.li>
+            <motion.li variants={liVariants}>
+              <HashLink to='/#renovations' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
+                </motion.span>
+              </HashLink>
+            </motion.li>
+            <motion.li variants={liVariants}>
+              <HashLink to='/#contact' smooth>
+                <motion.span
+                  onClick={handleClick}
+                  href='#'
+                  className='navbar__li'
+                  animate={controls}
+                >
+                  {isEnglish ? 'Contact' : 'Kontakt'}
+                </motion.span>
+              </HashLink>
+            </motion.li>
+          </motion.ul>
+        </div>
       </div>
     </motion.nav>
   );

@@ -8,12 +8,14 @@ const GalleryModal = ({
   handelRotationLeft,
   direction,
 }) => {
+  // HIDE GALLERY
   const handleClick = (e) => {
     if (e.target.classList.contains('dismiss')) {
       setShowModal(false);
     }
   };
 
+  // MOTION IMG ANIMATION SETTING
   const variants = {
     initial: (direction) => {
       return {
