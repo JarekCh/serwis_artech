@@ -7,7 +7,8 @@ import GoogleMaps from '../components/GoogleMaps';
 import Loading from '../components/Loading';
 import { useSelector } from 'react-redux';
 
-// TODO modal,animation, stroe for mail with logic
+// TODO modal,animation, store for email js with logic
+// secure button from multiclick
 
 const Home = () => {
   const { isLoadingSite } = useSelector((store) => store.site);

@@ -89,7 +89,7 @@ const SingleTypewriter = () => {
   const { title_en, title_pl, body_en, body_pl, images } = singleTypewriter;
 
   return (
-    <section className=' my-6 max-w-[1600px] m-auto'>
+    <section className=' my-6 max-w-[100rem] m-auto'>
       {/* MODAL */}
       {showModal && (
         <GalleryModal
@@ -123,7 +123,7 @@ const SingleTypewriter = () => {
           </motion.p>
           <Link to={`/typewriters`}>
             <motion.button
-              className='flex justify-center items-center rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-200 border-2 text-lg w-28 hover:scale-105 h-10 mx-auto mt-6'
+              className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 xl:hover:scale-105 h-10 mx-auto mt-6'
               animate={controls}
             >
               {isEnglish ? 'Back' : 'Cofnij'}
@@ -147,7 +147,7 @@ const SingleTypewriter = () => {
               key={i}
               src={item.url}
               alt='typewriter'
-              className='rounded-xl w-80 h-60 shadow-xl transition-all duration-200 hover:scale-105 cursor-pointer'
+              className='rounded-xl w-80 h-60 shadow-xl transition-all duration-200 xl:hover:scale-105 cursor-pointer'
               onClick={() => handleClick(item, i)}
             />
           ))}

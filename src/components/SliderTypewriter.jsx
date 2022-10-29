@@ -73,7 +73,7 @@ const SliderTypewriter = () => {
   return (
     <section
       id='renovations'
-      className='flex flex-col w-full p-6 max-w-[1600px] mx-auto my-10 lg:my-24 z-5'
+      className='flex flex-col w-full p-6 max-w-[100rem] mx-auto my-10 lg:my-24 z-5'
     >
       {/* TITLE */}
       <motion.div
@@ -92,13 +92,13 @@ const SliderTypewriter = () => {
         </button>
         {/* IMAGE */}
         <div className='relative flex flex-col gap-2 xl:gap-10 lg:flex-row mx-4'>
-          <div className='hidden xl:block absolute border-2 border-indigo-900 w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[540px] 2xl:w-[650px] rounded-xl -top-4 left-6 xl:left-5'></div>
-          <div className='hidden xl:block absolute lg:h-[400px]  lg:w-[410px] xl:w-[530px] 2xl:w-[650px] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
+          <div className='hidden xl:block absolute border-2 border-indigo-900 w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[33.75rem] 2xl:w-[40.625rem] rounded-xl -top-4 left-6 xl:left-5'></div>
+          <div className='hidden xl:block absolute lg:h-[25rem]  lg:w-[25.625rem] xl:w-[33.125rem] 2xl:w-[40.625rem] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'>
             <motion.img
               src={writers[slideIndex]?.images[0]?.url}
               alt='typewriter'
-              className='service_img w-[400px] lg:h-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[650px] hover:scale-100'
+              className='service_img w-[25rem] lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
               key={slideIndex}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -133,20 +133,20 @@ const SliderTypewriter = () => {
               {/* BTNS MOBILE */}
               <div className='flex justify-around my-6'>
                 <button
-                  className='flex lg:hidden sliderTypewriter__btns border-2 text-2xl w-10 h-10 hover:scale-90'
+                  className='flex lg:hidden sliderTypewriter__btns border-2 text-2xl w-10 h-10'
                   onClick={decrementIndex}
                 >
                   <BsChevronLeft />
                 </button>
                 <Link to={`/typewriters/${writers[slideIndex]?.slug.current}`}>
-                  <button className='flex sliderTypewriter__btns border-2 text-xl w-28 hover:scale-90 h-10'>
+                  <button className='flex sliderTypewriter__btns border-2 text-xl w-28 h-10 xl:hover:scale-105'>
                     <motion.span animate={controls}>
                       {isEnglish ? 'More..' : 'Więcej..'}
                     </motion.span>
                   </button>
                 </Link>
                 <button
-                  className='flex lg:hidden sliderTypewriter__btns border-2 hover:scale-90 text-2xl w-10 h-10'
+                  className='flex lg:hidden sliderTypewriter__btns border-2  text-2xl w-10 h-10'
                   onClick={incrementIndex}
                 >
                   <BsChevronRight />

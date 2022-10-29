@@ -20,7 +20,7 @@ const Typewriters = () => {
   }, [writersResult]);
 
   return (
-    <section className='my-6 mx-auto p-6 max-w-[1600px]'>
+    <section className='my-6 mx-auto p-6 max-w-[100rem]'>
       <div className='flex flex-col justify-center items-center lg:grid lg:grid-cols-2 2xl:grid-cols-3'>
         {writers.map((writer) => {
           const { slug } = writer;

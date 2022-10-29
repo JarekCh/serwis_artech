@@ -52,7 +52,7 @@ const Contact = () => {
       className='w-full relative bg-slate-200 px-6 pb-14 lg:mt-32'
     >
       <div className='hidden lg:block bg-slate-200 absolute -top-20 rotate-[4deg] -left-12 w-[120%] h-[40%] z-0'></div>
-      <div className='flex flex-col w-full max-w-[1600px] mx-auto z-2 pt-12'>
+      <div className='flex flex-col w-full max-w-[100rem] mx-auto z-2 pt-12'>
         {/* TITLE */}
         <motion.div
           className='section_title w-full lg:text-center text-indigo-900 z-10'
@@ -67,7 +67,7 @@ const Contact = () => {
             <img
               src={LocalizationImg}
               alt='witryna serwisu'
-              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[550px]'
+              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[34.375rem]'
             />
           </div>
           {/* COMPANY INFO */}
@@ -163,7 +163,7 @@ const Contact = () => {
               <button
                 type='button'
                 value='Send'
-                className='rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
+                className='rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
               >
                 {isEnglish ? 'Submit' : 'Wyślij'}
               </button>
