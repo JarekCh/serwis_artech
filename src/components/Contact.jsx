@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import emailjs from '@emailjs/browser';
 import { FaPhoneVolume, FaHome, FaClock, FaEnvelope } from 'react-icons/fa';
 
 import LocalizationImg from '../assets/artech_lowRes.png';
@@ -17,24 +16,9 @@ const Contact = () => {
 
   const controls = useAnimation();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e, form) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        form.current,
-        'YOUR_PUBLIC_KEY'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    sendEmail(form);
   };
 
   // Change Lang animations
