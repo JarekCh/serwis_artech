@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 // TODO check if its working
 
 const initialState = {
-  isOpen: false,
+  isOpen: true,
 };
 
 export const sendEmail = createAsyncThunk('sendEmail', async (form) => {

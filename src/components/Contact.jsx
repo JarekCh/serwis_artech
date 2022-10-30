@@ -16,7 +16,7 @@ const Contact = () => {
 
   const controls = useAnimation();
 
-  const sendEmail = (e, form) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     sendEmail(form);
   };

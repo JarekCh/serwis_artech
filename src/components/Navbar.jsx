@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { FaFacebook } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
