@@ -5,7 +5,7 @@ import Typewriter from './Typewriter';
 // TODO
 // lazy Loading, IntersectionObserver
 
-const Typewriters = () => {
+const Typewriters = ({ isEnglish }) => {
   const { writersResult } = useSelector((store) => store.typewriters);
   const [writers, setWriters] = useState([]);
 
@@ -24,7 +24,9 @@ const Typewriters = () => {
       <div className='flex flex-col justify-center items-center lg:grid lg:grid-cols-2 2xl:grid-cols-3'>
         {writers.map((writer) => {
           const { slug } = writer;
-          return <Typewriter key={slug.current} {...writer} />;
+          return (
+            <Typewriter key={slug.current} {...writer} isEnglish={isEnglish} />
+          );
         })}
       </div>
     </section>

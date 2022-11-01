@@ -12,6 +12,7 @@ import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
 function App() {
+  const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,10 +36,13 @@ function App() {
         <Route path='/' element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path='typewriters' element={<SingleTypewriterLayout />}>
-            <Route index element={<Typewriters />} />
-            <Route path=':slug' element={<SingleTypewriter />} />
+            <Route index element={<Typewriters isEnglish={isEnglish} />} />
+            <Route
+              path=':slug'
+              element={<SingleTypewriter isEnglish={isEnglish} />}
+            />
           </Route>
-          <Route path='*' element={<Error />} />
+          <Route path='*' element={<Error isEnglish={isEnglish} />} />
         </Route>
       </Routes>
     </BrowserRouter>
