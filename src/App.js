@@ -26,6 +26,7 @@ function App() {
   // node.js for secure api keys
   // check classes and styling at the end
   // at the end of the projest add bluts
+  // fix images in slidertypewriter
   // TODO
 
   return (

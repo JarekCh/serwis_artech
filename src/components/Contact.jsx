@@ -17,6 +17,7 @@ const Contact = ({ isEnglish }) => {
   const controls = useAnimation();
 
   const handleEmail = (e) => {
+    console.log('dzaiła');
     e.preventDefault();
     dispatch(sendEmail(form));
   };

@@ -4,25 +4,27 @@ import emailjs from '@emailjs/browser';
 // TODO check if its working
 
 const initialState = {
-  isOpen: true,
+  isOpen: false,
 };
 
 export const sendEmail = createAsyncThunk('sendEmail', async (form) => {
-  emailjs
-    .sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      form.current,
-      'YOUR_PUBLIC_KEY'
-    )
-    .then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+  console.log('🚀 ~ file: emailSlice.js ~ line 11 ~ sendEmail ~ form', form);
+
+  // emailjs
+  //   .sendForm(
+  //     'YOUR_SERVICE_ID',
+  //     'YOUR_TEMPLATE_ID',
+  //     form.current,
+  //     'YOUR_PUBLIC_KEY'
+  //   )
+  //   .then(
+  //     (result) => {
+  //       console.log(result.text);
+  //     },
+  //     (error) => {
+  //       console.log(error.text);
+  //     }
+  //   );
 });
 
 const emailSlice = createSlice({
