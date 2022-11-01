@@ -33,7 +33,7 @@ const Error = () => {
           {isEnglish ? "This page doesn't exist." : 'Nie ma takiej strony.'}
         </motion.div>
         <Link to='/'>
-          <button className='flex justify-center items-center rounded-md hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-70 transition-all duration-500 border-indigo-900 border-2 text-lg xl:text-3xl hover:scale-90 h-10 p-6'>
+          <button className='flex justify-center items-center rounded-md xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-70 transition-all duration-500 border-indigo-900 border-2 text-lg xl:text-3xl xl:hover:scale-90 h-10 p-6'>
             <motion.span animate={controls}>
               {isEnglish ? 'Home page' : 'Strona domowa'}
             </motion.span>

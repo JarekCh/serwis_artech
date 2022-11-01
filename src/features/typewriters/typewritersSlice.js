@@ -30,7 +30,6 @@ const typewritersSlice = createSlice({
       state.isLoading = true;
     },
     [getTypewriters.fulfilled]: (state, action) => {
-      console.log(action);
       state.isLoading = false;
       state.writersResult = action.payload;
     },

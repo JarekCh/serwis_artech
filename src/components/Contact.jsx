@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { useSelector } from 'react-redux';
-import emailjs from '@emailjs/browser';
 import { FaPhoneVolume, FaHome, FaClock, FaEnvelope } from 'react-icons/fa';
+import { sendEmail } from '../features/EmailJS/emailSlice';
+import { useDispatch } from 'react-redux';
 
 import LocalizationImg from '../assets/artech_lowRes.png';
 
@@ -11,30 +11,15 @@ import { motionControlsValue } from '../utils/utils.js';
 // TODO create key for emailjs
 // regexp on input fields
 
-const Contact = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const Contact = ({ isEnglish }) => {
+  const dispatch = useDispatch();
   const form = useRef();
-
   const controls = useAnimation();
 
-  const sendEmail = (e) => {
+  const handleEmail = (e) => {
+    console.log('dzaiła');
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        form.current,
-        'YOUR_PUBLIC_KEY'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    dispatch(sendEmail(form));
   };
 
   // Change Lang animations
@@ -52,7 +37,7 @@ const Contact = () => {
       className='w-full relative bg-slate-200 px-6 pb-14 lg:mt-32'
     >
       <div className='hidden lg:block bg-slate-200 absolute -top-20 rotate-[4deg] -left-12 w-[120%] h-[40%] z-0'></div>
-      <div className='flex flex-col w-full max-w-[1600px] mx-auto z-2 pt-12'>
+      <div className='flex flex-col w-full max-w-[100rem] mx-auto z-2 pt-12'>
         {/* TITLE */}
         <motion.div
           className='section_title w-full lg:text-center text-indigo-900 z-10'
@@ -67,7 +52,7 @@ const Contact = () => {
             <img
               src={LocalizationImg}
               alt='witryna serwisu'
-              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[400px] lg:h-[400px] lg:w-[450px] xl:w-[550px]'
+              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[34.375rem]'
             />
           </div>
           {/* COMPANY INFO */}
@@ -128,7 +113,7 @@ const Contact = () => {
           <div className='flex flex-col order-3 flex-1 justify-center z-10'>
             <form
               ref={form}
-              onSubmit={sendEmail}
+              onSubmit={handleEmail}
               className='flex flex-col gap-2 items-center p-2 w-full'
             >
               <input
@@ -163,7 +148,7 @@ const Contact = () => {
               <button
                 type='button'
                 value='Send'
-                className='rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
+                className='rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
               >
                 {isEnglish ? 'Submit' : 'Wyślij'}
               </button>

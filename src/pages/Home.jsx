@@ -6,21 +6,26 @@ import Contact from '../components/Contact';
 import GoogleMaps from '../components/GoogleMaps';
 import Loading from '../components/Loading';
 import { useSelector } from 'react-redux';
+import ContactModal from '../components/ContactModal';
 
-// TODO modal,animation, stroe for mail with logic
+// TODO modal,animation, store for email js with logic
+// secure button from multiclick
 
 const Home = () => {
-  const { isLoadingSite } = useSelector((store) => store.site);
+  const { isSiteLoading } = useSelector((store) => store.site);
   const { isTypewitersLoading } = useSelector((store) => store.site);
-  if (isLoadingSite) return <Loading />;
+  const { isOpen } = useSelector((store) => store.email);
+  const { isEnglish } = useSelector((store) => store.language);
+  if (isSiteLoading) return <Loading />;
   if (isTypewitersLoading) return <Loading />;
 
   return (
     <main>
-      <Hero />
-      <ServiceScope />
-      <SliderTypewriter />
-      <Contact />
+      {isOpen && <ContactModal isEnglish={isEnglish} />}
+      <Hero isEnglish={isEnglish} />
+      <ServiceScope isEnglish={isEnglish} />
+      <SliderTypewriter isEnglish={isEnglish} />
+      <Contact isEnglish={isEnglish} />
       <GoogleMaps />
     </main>
   );

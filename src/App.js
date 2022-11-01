@@ -20,18 +20,13 @@ function App() {
   }, []);
 
   // TODO
-  // at the end of the projest add bluts
-  // figure navbar at mobile to work hidden with motion
-  // fonts and font size
-  // change px to rem
-  // add isEng(pl and en) to all img alts
   // add resolution control on sanity imges??
-  // remove bg form logo with gimp
+  // add isEng(pl and en) to all img alts
   // add custome hook for changeLangAnimation to share across components HOC
   // node.js for secure api keys
   // check classes and styling at the end
-  // try fit content with vh on imgs
-  // change hoovers from lg size
+  // at the end of the projest add bluts
+  // fix images in slidertypewriter
   // TODO
 
   return (

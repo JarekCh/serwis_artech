@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Logo from '../assets/logo1.png';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { FaFacebook } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -10,19 +10,28 @@ import { languagePL, languageEN } from '../features/language/languageSlice';
 
 import { liVariants, motionControlsValue } from '../utils/utils.js';
 
-// TODO logo w/o bg
-// check if windowWidth is needed
-// refactor li and use utils
-
 const Navbar = () => {
   const initialWidth = window.innerWidth;
-  const [windowWidth, setWindowWidth] = useState(initialWidth);
   const [showNav, setShowNav] = useState(false);
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
+  const navLinks = [
+    { to: '/', lang: isEnglish ? 'Home' : 'Strona domowa' },
+    { to: '/typewriters', lang: isEnglish ? 'Typewriters' : 'Maszyny' },
+  ];
+
+  const hashLinks = [
+    { to: '/#service', lang: isEnglish ? 'Service' : 'Naprawy' },
+    {
+      to: '/#renovations',
+      lang: isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje',
+    },
+    { to: '/#contact', lang: isEnglish ? 'Contact' : 'Kontakt' },
+  ];
+
   const handleClick = () => {
-    if (windowWidth < 1280) {
+    if (initialWidth < 1280) {
       setShowNav((prevValue) => !prevValue);
     }
   };
@@ -45,21 +54,23 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const updateWindowDimensions = () => {
-      const newWidth = window.innerWidth;
-      setWindowWidth(newWidth);
-    };
-
-    window.addEventListener('resize', updateWindowDimensions);
-
-    return () => window.removeEventListener('resize', updateWindowDimensions);
-  }, []);
+    const navbar = document.getElementById('nav');
+    if (showNav) {
+      navbar.classList.remove('hidden');
+    }
+    if (!showNav) {
+      const interval = setInterval(() => {
+        navbar.classList.add('hidden');
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [showNav]);
 
   return (
     <motion.nav
       className='bg-slate-50 px-2 sm:px-4 py-2.5 rounded'
       initial={false}
-      animate={windowWidth < 1280 ? (showNav ? 'open' : 'closed') : 'visible'}
+      animate={initialWidth < 1280 ? (showNav ? 'open' : 'closed') : ''}
     >
       {/* LOGO */}
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
@@ -70,7 +81,7 @@ const Navbar = () => {
         <div className='flex items-center xl:order-2'>
           <a
             href='https://www.facebook.com/Naprawamaszyndopisania'
-            className='text-4xl mx-4 text-[#4267B2] transition-all duration-500 hover:scale-90'
+            className='text-4xl mx-4 text-[#4267B2] transition-all duration-500 xl:hover:scale-90'
             target='_blank'
           >
             <FaFacebook />
@@ -95,7 +106,7 @@ const Navbar = () => {
           <motion.button
             onClick={handleClick}
             type='button'
-            className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 '
+            className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden xl:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 '
             whileTap={{ scale: 0.9 }}
           >
             <motion.svg
@@ -112,18 +123,17 @@ const Navbar = () => {
             </motion.svg>
           </motion.button>
         </div>
-        {/* NAV LINKS */}
 
+        {/* NAV LINKS */}
         <div
-          className={`${
-            windowWidth < 1280 ? '' : 'hidden'
-          } justify-between items-center xl:flex xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10`}
+          id='nav'
+          className='xl:flex justify-between items-center xl:w-auto xl:order-1 xl:static absolute top-14 md:top-24 -right-1 z-10'
         >
           <motion.ul
             className='flex flex-col p-4 mt-4 bg-slate-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-lg xl:font-medium xl:border-0'
             variants={{
               open: {
-                clipPath: 'inset(0% 0% 0% 0% round 10px)',
+                clipPath: 'inset(0% 0% 0% 0% round 0.625rem)',
                 transition: {
                   type: 'spring',
                   bounce: 0,
@@ -133,7 +143,7 @@ const Navbar = () => {
                 },
               },
               closed: {
-                clipPath: 'inset(10% 50% 90% 50% round 10px)',
+                clipPath: 'inset(10% 50% 90% 50% round 0.625rem)',
                 transition: {
                   type: 'spring',
                   bounce: 0,
@@ -142,64 +152,36 @@ const Navbar = () => {
               },
             }}
           >
-            <motion.li variants={liVariants}>
-              <NavLink to='/'>
-                <motion.span
-                  onClick={handleClick}
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Home' : 'Strona domowa'}
-                </motion.span>
-              </NavLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <NavLink to={`/typewriters`}>
-                <motion.span
-                  onClick={handleClick}
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Typewriters' : 'Maszyny'}
-                </motion.span>
-              </NavLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#service' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Service' : 'Naprawy'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#renovations' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Latest Renovations' : 'Ostatnie renowacje'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
-            <motion.li variants={liVariants}>
-              <HashLink to='/#contact' smooth>
-                <motion.span
-                  onClick={handleClick}
-                  href='#'
-                  className='navbar__li'
-                  animate={controls}
-                >
-                  {isEnglish ? 'Contact' : 'Kontakt'}
-                </motion.span>
-              </HashLink>
-            </motion.li>
+            {navLinks.map((item, i) => {
+              return (
+                <motion.li key={i} variants={liVariants}>
+                  <NavLink to={item.to}>
+                    <motion.span
+                      onClick={handleClick}
+                      className='navbar__li'
+                      animate={controls}
+                    >
+                      {item.lang}
+                    </motion.span>
+                  </NavLink>
+                </motion.li>
+              );
+            })}
+            {hashLinks.map((item, i) => {
+              return (
+                <motion.li key={i} variants={liVariants}>
+                  <HashLink to={item.to} smooth>
+                    <motion.span
+                      onClick={handleClick}
+                      className='navbar__li'
+                      animate={controls}
+                    >
+                      {item.lang}
+                    </motion.span>
+                  </HashLink>
+                </motion.li>
+              );
+            })}
           </motion.ul>
         </div>
       </div>

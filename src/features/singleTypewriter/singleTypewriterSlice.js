@@ -34,7 +34,6 @@ const singleTypewriterSlice = createSlice({
       state.isLoading = true;
     },
     [getSingleTypewriter.fulfilled]: (state, action) => {
-      console.log(action);
       state.isLoading = false;
       state.singleTypewriter = action.payload;
     },

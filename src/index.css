@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
 /* 
 ====== 
 Variables 
@@ -25,9 +27,7 @@ Global Styles
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -44,7 +44,7 @@ input:checked ~ .dot {
 }
 
 .navbar__li {
-  @apply block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-200 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0 dark:text-gray-400 xl:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white xl:dark:hover:bg-transparent dark:border-gray-700;
+  @apply block py-2 pr-4 pl-3 text-gray-700 rounded xl:hover:bg-gray-200 xl:hover:bg-transparent xl:hover:text-blue-700 xl:p-0;
 }
 
 .section_title {
@@ -56,11 +56,11 @@ input:checked ~ .dot {
 }
 
 .service_img {
-  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 max-h-[500px];
+  @apply brightness-50 rounded-xl hover:transition hover:brightness-90 max-h-[31.25rem];
 }
 
 .sliderTypewriter__btns {
-  @apply justify-center items-center rounded-md border-indigo-900 hover:border-none hover:bg-indigo-900 hover:border-transparent hover:bg-opacity-50  transition-all duration-500;
+  @apply justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500;
 }
 
 .contact__input {

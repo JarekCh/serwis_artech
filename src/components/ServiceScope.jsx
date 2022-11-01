@@ -9,8 +9,7 @@ import { BsDot } from 'react-icons/bs';
 
 import { motionControlsValue } from '../utils/utils.js';
 
-const ServiceScope = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const ServiceScope = ({ isEnglish }) => {
   const { siteResult } = useSelector((store) => store.site);
 
   const { service_en, service_pl, text_en, text_pl, title_en, title_pl } =
@@ -28,7 +27,7 @@ const ServiceScope = () => {
   return (
     <section id='service' className='w-full relative bg-slate-200 p-6'>
       <div className='hidden lg:block bg-slate-200 absolute -bottom-28 rotate-[4deg] -left-10 w-[120%] h-[30%]'></div>
-      <div className='flex flex-col md:flex-row w-full pt-12 max-w-[1600px] mx-auto'>
+      <div className='flex flex-col md:flex-row w-full pt-12 max-w-[100rem] mx-auto'>
         {/* TEXT SIDE */}
         <motion.div
           className='text-Black flex flex-1 flex-col mr-4'
