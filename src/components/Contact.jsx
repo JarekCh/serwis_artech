@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { useSelector } from 'react-redux';
 import { FaPhoneVolume, FaHome, FaClock, FaEnvelope } from 'react-icons/fa';
+import { sendEmail } from '../features/EmailJS/emailSlice';
+import { useDispatch } from 'react-redux';
 
 import LocalizationImg from '../assets/artech_lowRes.png';
 
@@ -10,15 +11,14 @@ import { motionControlsValue } from '../utils/utils.js';
 // TODO create key for emailjs
 // regexp on input fields
 
-const Contact = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const Contact = ({ isEnglish }) => {
+  const dispatch = useDispatch();
   const form = useRef();
-
   const controls = useAnimation();
 
-  const sendEmail = (e) => {
+  const handleEmail = (e) => {
     e.preventDefault();
-    sendEmail(form);
+    dispatch(sendEmail(form));
   };
 
   // Change Lang animations
@@ -112,7 +112,7 @@ const Contact = () => {
           <div className='flex flex-col order-3 flex-1 justify-center z-10'>
             <form
               ref={form}
-              onSubmit={sendEmail}
+              onSubmit={handleEmail}
               className='flex flex-col gap-2 items-center p-2 w-full'
             >
               <input

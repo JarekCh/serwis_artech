@@ -5,8 +5,7 @@ import heroImg from '../assets/hero1920.jpg';
 
 import { motionControlsValue } from '../utils/utils.js';
 
-const Hero = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const Hero = ({ isEnglish }) => {
   const { siteResult } = useSelector((store) => store.site);
 
   const { isNotify, notification, text_en, text_pl, title_en, title_pl } =
@@ -29,8 +28,8 @@ const Hero = () => {
       <div className='bg-black/50 w-full h-full flex flex-col justify-center items-center text-slate-200 relative'>
         {isNotify && (
           <motion.div
-            className='absolute p-4 ml-3 top-0 text-red-200 text-md lg:text-2xl xl:text-3xl'
-            animate={{ scale: [1.05, 1, 1.05] }}
+            className='absolute m-4 top-0 text-red-200 text-sm lg:text-2xl xl:text-3xl'
+            animate={{ scale: [0.95, 1, 0.95] }}
             transition={{
               repeat: Infinity,
               duration: 4,

@@ -12,19 +12,20 @@ import ContactModal from '../components/ContactModal';
 // secure button from multiclick
 
 const Home = () => {
-  const { isLoadingSite } = useSelector((store) => store.site);
+  const { isSiteLoading } = useSelector((store) => store.site);
   const { isTypewitersLoading } = useSelector((store) => store.site);
   const { isOpen } = useSelector((store) => store.email);
-  if (isLoadingSite) return <Loading />;
+  const { isEnglish } = useSelector((store) => store.language);
+  if (isSiteLoading) return <Loading />;
   if (isTypewitersLoading) return <Loading />;
 
   return (
     <main>
-      {isOpen && <ContactModal />}
-      <Hero />
-      <ServiceScope />
-      <SliderTypewriter />
-      <Contact />
+      {isOpen && <ContactModal isEnglish={isEnglish} />}
+      <Hero isEnglish={isEnglish} />
+      <ServiceScope isEnglish={isEnglish} />
+      <SliderTypewriter isEnglish={isEnglish} />
+      <Contact isEnglish={isEnglish} />
       <GoogleMaps />
     </main>
   );

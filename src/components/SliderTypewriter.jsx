@@ -10,8 +10,7 @@ import {
   BsChevronRight,
 } from 'react-icons/bs';
 
-const SliderTypewriter = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const SliderTypewriter = ({ isEnglish }) => {
   const { writersResult } = useSelector((store) => store.typewriters);
 
   const controls = useAnimation();
@@ -100,9 +99,9 @@ const SliderTypewriter = () => {
               alt='typewriter'
               className='service_img w-[25rem] lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
               key={slideIndex}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
+              exit={{ opacity: 0, x: 30 }}
               transition={transition}
             />
           </div>
@@ -111,9 +110,9 @@ const SliderTypewriter = () => {
             <motion.article>
               <motion.div
                 key={slideIndex}
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                exit={{ opacity: 0, x: -30 }}
                 transition={transition}
               >
                 <motion.h3

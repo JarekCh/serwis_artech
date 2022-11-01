@@ -9,8 +9,7 @@ import { BsDot } from 'react-icons/bs';
 
 import { motionControlsValue } from '../utils/utils.js';
 
-const ServiceScope = () => {
-  const { isEnglish } = useSelector((store) => store.language);
+const ServiceScope = ({ isEnglish }) => {
   const { siteResult } = useSelector((store) => store.site);
 
   const { service_en, service_pl, text_en, text_pl, title_en, title_pl } =

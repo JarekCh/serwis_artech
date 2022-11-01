@@ -3,7 +3,7 @@ import { client } from '../../client';
 
 const initialState = {
   siteResult: [],
-  isLoadingSite: true,
+  isSiteLoading: true,
 };
 
 export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
@@ -25,14 +25,14 @@ const siteContentSlice = createSlice({
   initialState,
   extraReducers: {
     [getSiteContent.pending]: (state) => {
-      state.isLoadingSite = true;
+      state.isSiteLoading = true;
     },
     [getSiteContent.fulfilled]: (state, action) => {
-      state.isLoadingSite = false;
+      state.isSiteLoading = false;
       state.siteResult = action.payload;
     },
     [getSiteContent.rejected]: (state) => {
-      state.isLoadingSite = false;
+      state.isSiteLoading = false;
     },
   },
 });
