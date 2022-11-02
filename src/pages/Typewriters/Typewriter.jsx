@@ -3,8 +3,9 @@ import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
+
 import { Link } from 'react-router-dom';
-import { AnimationWrap } from '../../wrapper/AnimationWrap';
+import { ToTopWrap } from '../../wrapper/index';
 
 const Typewriter = ({
   body_en,
@@ -17,6 +18,7 @@ const Typewriter = ({
   isEnglish,
 }) => {
   const controls = useAnimation();
+  console.log('🚀 ~ file: Typewriter.jsx ~ line 20 ~ images', images);
 
   // Change Lang animations
   useEffect(() => {

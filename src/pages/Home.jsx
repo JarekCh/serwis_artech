@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import ServiceScope from '../components/ServiceScope';
 import SliderTypewriter from '../components/SliderTypewriter';
@@ -7,6 +7,7 @@ import GoogleMaps from '../components/GoogleMaps';
 import Loading from '../components/Loading';
 import { useSelector } from 'react-redux';
 import ContactModal from '../components/ContactModal';
+import { ToTopWrap } from '../wrapper/index';
 
 // TODO modal,animation, store for email js with logic
 // secure button from multiclick
@@ -16,11 +17,12 @@ const Home = () => {
   const { isTypewitersLoading } = useSelector((store) => store.site);
   const { isOpen } = useSelector((store) => store.email);
   const { isEnglish } = useSelector((store) => store.language);
+
   if (isSiteLoading) return <Loading />;
   if (isTypewitersLoading) return <Loading />;
 
   return (
-    <main>
+    <main className='relative'>
       {isOpen && <ContactModal isEnglish={isEnglish} />}
       <Hero isEnglish={isEnglish} />
       <ServiceScope isEnglish={isEnglish} />
@@ -31,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ToTopWrap(Home);

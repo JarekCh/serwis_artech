@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motionControlsValue } from '../../utils/utils.js';
 import GalleryModal from './GalleryModal';
+import { ToTopWrap } from '../../wrapper/index';
 
 import Loading from '../../components/Loading';
 
@@ -157,4 +158,4 @@ const SingleTypewriter = ({ isEnglish }) => {
   );
 };
 
-export default SingleTypewriter;
+export default ToTopWrap(SingleTypewriter);

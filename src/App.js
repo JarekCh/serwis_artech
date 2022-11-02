@@ -28,6 +28,7 @@ function App() {
   // check classes and styling at the end
   // at the end of the projest add bluts
   // fix images in slidertypewriter
+  // add to reduce variable thats change on GET if respons is null show error page , single typewriter
   // TODO
 
   return (

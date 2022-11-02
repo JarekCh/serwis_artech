@@ -1,4 +1,4 @@
-import AppWrap from './AppWrap.jsx';
+import ToTopWrap from './ToTopWrap.jsx';
 import AnimationWrap from './AnimationWrap.jsx';
 
-export { AppWrap, AnimationWrap };
+export { ToTopWrap, AnimationWrap };
