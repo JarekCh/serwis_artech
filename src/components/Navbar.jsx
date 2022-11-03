@@ -7,10 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import { languagePL, languageEN } from '../features/language/languageSlice';
-
 import { liVariants, motionControlsValue } from '../utils/utils.js';
-
-// TODO comments on func and section
 
 const Navbar = () => {
   const initialWidth = window.innerWidth;
@@ -18,11 +15,12 @@ const Navbar = () => {
   const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
+  // NAVIGATIONS LINKS WITH NAVLINKS
   const navLinks = [
     { to: '/', lang: isEnglish ? 'Home' : 'Strona domowa' },
     { to: '/typewriters', lang: isEnglish ? 'Typewriters' : 'Maszyny' },
   ];
-
+  // NAVIGATIONS LINKS WITH HASHLINKS
   const hashLinks = [
     { to: '/#service', lang: isEnglish ? 'Service' : 'Naprawy' },
     {
@@ -32,12 +30,14 @@ const Navbar = () => {
     { to: '/#contact', lang: isEnglish ? 'Contact' : 'Kontakt' },
   ];
 
+  // SHOW NAVBAR - STATE HANDLE FUNCTION
   const handleClick = () => {
     if (initialWidth < 1280) {
       setShowNav((prevValue) => !prevValue);
     }
   };
 
+  // HANDLE GLOBAL LANGUAGE VARIABLE
   const handleLanguage = () => {
     if (!isEnglish) {
       changeLangAnimation();
@@ -49,12 +49,15 @@ const Navbar = () => {
     }
   };
 
+  // LANGUAGE CHANGE ANIMATION
+
   const controls = useAnimation();
 
   const changeLangAnimation = () => {
     controls.start(motionControlsValue);
   };
 
+  // HIDE NAVBAR CONTAINER IN DOM
   useEffect(() => {
     const navbar = document.getElementById('nav');
     if (showNav) {
@@ -81,6 +84,7 @@ const Navbar = () => {
         </NavLink>
         {/* LANG SLIDER */}
         <div className='flex items-center xl:order-2'>
+          {/* FACEBOOK ICON */}
           <a
             href='https://www.facebook.com/Naprawamaszyndopisania'
             className='text-4xl mx-4 text-[#4267B2] transition-all duration-500 xl:hover:scale-90'
@@ -157,6 +161,7 @@ const Navbar = () => {
               },
             }}
           >
+            {/* NAVLINKS */}
             {navLinks.map((item, i) => {
               return (
                 <motion.li key={i} variants={liVariants}>
@@ -172,6 +177,7 @@ const Navbar = () => {
                 </motion.li>
               );
             })}
+            {/* HASHLINKS */}
             {hashLinks.map((item, i) => {
               return (
                 <motion.li key={i} variants={liVariants}>

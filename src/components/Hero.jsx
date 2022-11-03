@@ -11,6 +11,7 @@ const Hero = ({ isEnglish }) => {
   const { isNotify, notification, text_en, text_pl, title_en, title_pl } =
     siteResult[0]?.hero;
 
+  // LANGUAGE CHANGE ANIMATION
   const controls = useAnimation();
 
   useEffect(() => {

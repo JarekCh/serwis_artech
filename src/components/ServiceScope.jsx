@@ -15,6 +15,8 @@ const ServiceScope = ({ isEnglish }) => {
   const { service_en, service_pl, text_en, text_pl, title_en, title_pl } =
     siteResult[0]?.service;
 
+  // LANGUAGE CHANGE ANIMATION
+
   const controls = useAnimation();
 
   useEffect(() => {

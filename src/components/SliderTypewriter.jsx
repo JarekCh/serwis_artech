@@ -27,7 +27,7 @@ const SliderTypewriter = ({ isEnglish }) => {
     setSlideIndex((prevValue) => prevValue - 1);
   };
 
-  // Slider slideIndex seafty
+  // SLIDER slideIndex SAFTY
   useEffect(() => {
     const lastIndex = writers.length - 1;
     if (slideIndex < 0) {
@@ -38,7 +38,7 @@ const SliderTypewriter = ({ isEnglish }) => {
     }
   }, [slideIndex, writers]);
 
-  // Slider index decrement
+  // SLIDER INDEX INCREMENT
   useEffect(() => {
     let slider = setInterval(() => {
       setSlideIndex((prevValue) => prevValue + 1);
@@ -47,7 +47,7 @@ const SliderTypewriter = ({ isEnglish }) => {
     return () => clearInterval(slider);
   }, [slideIndex]);
 
-  // SET sorted array of writers
+  // SET SORTE ARRAY OF WRITERS
   useEffect(() => {
     const writersForSort = [...writersResult];
 
@@ -60,7 +60,7 @@ const SliderTypewriter = ({ isEnglish }) => {
     );
   }, [writersResult]);
 
-  // Change Lang animations
+  // LANGUAGE CHANGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);

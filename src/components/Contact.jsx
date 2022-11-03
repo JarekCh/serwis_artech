@@ -22,7 +22,7 @@ const Contact = ({ isEnglish }) => {
     dispatch(sendEmail(form));
   };
 
-  // Change Lang animations
+  // LANGUAGE CHANGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
@@ -55,7 +55,7 @@ const Contact = ({ isEnglish }) => {
               className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[34.375rem]'
             />
           </div>
-          {/* COMPANY INFO */}
+          {/* CONTACT INFO */}
           <div className='flex flex-1 order-1 lg:order-2 justify-center my-4'>
             <div className='flex flex-col justify-center gap-6'>
               <div className='flex items-center gap-3'>
@@ -109,7 +109,7 @@ const Contact = ({ isEnglish }) => {
               </div>
             </div>
           </div>
-          {/* FORM */}
+          {/*EMAIL FORM */}
           <div className='flex flex-col order-3 flex-1 justify-center z-10'>
             <form
               ref={form}

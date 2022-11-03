@@ -109,7 +109,7 @@ const SingleTypewriter = ({ isEnglish }) => {
       >
         {isEnglish ? title_en : title_pl}
       </motion.h2>
-      {/* LEFT SIDE, TEXT */}
+      {/* LEFT SIDE, IMG */}
       <div className='flex flex-col justify-center lg:flex-row items-center gap-8 p-4 m-4'>
         <div className='flex flex-2'>
           <img
@@ -118,6 +118,7 @@ const SingleTypewriter = ({ isEnglish }) => {
             className='rounded-xl w-[40rem]'
           />
         </div>
+        {/* RIGHT SIDE, TEXT */}
         <div className='flex flex-col flex-1 max-w-lg lg:self-start'>
           <motion.p className='my-6 lg:my-0' animate={controls}>
             {isEnglish ? body_en : body_pl}
@@ -134,7 +135,7 @@ const SingleTypewriter = ({ isEnglish }) => {
       </div>
       <hr className='m-auto w-40 xl:w-[20rem] border-black'></hr>
 
-      {/* RIGHT SIDE, GALLERY */}
+      {/* GALLERY */}
       <div className='flex flex-col p-4 m-6 '>
         <motion.h3
           className='text-xl font-medium mb-4 text-indigo-900 text-center'
