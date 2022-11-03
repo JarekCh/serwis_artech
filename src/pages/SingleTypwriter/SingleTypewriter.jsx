@@ -5,19 +5,20 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motionControlsValue } from '../../utils/utils.js';
 import GalleryModal from './GalleryModal';
+import { ToTopWrap } from '../../wrapper/index';
 
 import Loading from '../../components/Loading';
 
 import { getSingleTypewriter } from '../../features/singleTypewriter/singleTypewriterSlice';
 
-const SingleTypewriter = () => {
+const SingleTypewriter = ({ isEnglish }) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [direction, setDirection] = useState(0);
 
   const dispatch = useDispatch();
-  const { isEnglish } = useSelector((store) => store.language);
+
   const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
   const { isLoading } = useSelector((store) => store.singleTypewriter);
 
@@ -157,4 +158,4 @@ const SingleTypewriter = () => {
   );
 };
 
-export default SingleTypewriter;
+export default ToTopWrap(SingleTypewriter);

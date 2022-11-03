@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import errorPage from '../assets/error_page.jpg';
 import { motion, useAnimation } from 'framer-motion';
-import { useSelector } from 'react-redux';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
 
-const Error = () => {
-  const { isEnglish } = useSelector((store) => store.language);
-
+const Error = ({ isEnglish }) => {
   const controls = useAnimation();
 
   useEffect(() => {

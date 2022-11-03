@@ -12,6 +12,7 @@ import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
 function App() {
+  const { isEnglish } = useSelector((store) => store.language);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
   // check classes and styling at the end
   // at the end of the projest add bluts
   // fix images in slidertypewriter
+  // add to reduce variable thats change on GET if respons is null show error page , single typewriter
   // TODO
 
   return (
@@ -35,10 +37,13 @@ function App() {
         <Route path='/' element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path='typewriters' element={<SingleTypewriterLayout />}>
-            <Route index element={<Typewriters />} />
-            <Route path=':slug' element={<SingleTypewriter />} />
+            <Route index element={<Typewriters isEnglish={isEnglish} />} />
+            <Route
+              path=':slug'
+              element={<SingleTypewriter isEnglish={isEnglish} />}
+            />
           </Route>
-          <Route path='*' element={<Error />} />
+          <Route path='*' element={<Error isEnglish={isEnglish} />} />
         </Route>
       </Routes>
     </BrowserRouter>

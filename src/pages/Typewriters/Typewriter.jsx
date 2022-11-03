@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
+
 import { Link } from 'react-router-dom';
+import { ToTopWrap } from '../../wrapper/index';
 
 const Typewriter = ({
   body_en,
@@ -14,8 +15,8 @@ const Typewriter = ({
   title_en,
   title_pl,
   slug,
+  isEnglish,
 }) => {
-  const { isEnglish } = useSelector((store) => store.language);
   const controls = useAnimation();
 
   // Change Lang animations
@@ -72,4 +73,4 @@ const Typewriter = ({
   );
 };
 
-export default Typewriter;
+export default ToTopWrap(Typewriter);
