@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { motionControlsValue } from '../utils/utils';
 
-const ToTopWrap = (Component) =>
-  function HOC() {
+export default (Component) =>
+  ({ ...props }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
       goToTop();
     }, []);
+
+    const goToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     useEffect(() => {
       const updatePosition = () => {
@@ -20,15 +23,11 @@ const ToTopWrap = (Component) =>
       return () => window.removeEventListener('scroll', updatePosition);
     }, []);
 
-    const goToTop = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
     return (
       <>
-        <Component />
+        <Component {...props} />
         <AnimatePresence>
-          {scrollPosition > 200 && (
+          {scrollPosition > 150 && (
             <motion.button
               onClick={goToTop}
               className='fixed z-90 bottom-8 right-8 border-0 w-12 h-12 rounded-full drop-shadow-md bg-indigo-500 text-white text-3xl font-bold z-50 hover:xl:scale-110 transition-all duration-300'
@@ -48,5 +47,3 @@ const ToTopWrap = (Component) =>
       </>
     );
   };
-
-export default ToTopWrap;

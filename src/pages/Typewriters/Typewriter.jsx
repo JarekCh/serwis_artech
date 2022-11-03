@@ -18,7 +18,6 @@ const Typewriter = ({
   isEnglish,
 }) => {
   const controls = useAnimation();
-  console.log('🚀 ~ file: Typewriter.jsx ~ line 20 ~ images', images);
 
   // Change Lang animations
   useEffect(() => {
@@ -74,4 +73,4 @@ const Typewriter = ({
   );
 };
 
-export default Typewriter;
+export default ToTopWrap(Typewriter);

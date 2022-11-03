@@ -10,6 +10,8 @@ import { languagePL, languageEN } from '../features/language/languageSlice';
 
 import { liVariants, motionControlsValue } from '../utils/utils.js';
 
+// TODO comments on func and section
+
 const Navbar = () => {
   const initialWidth = window.innerWidth;
   const [showNav, setShowNav] = useState(false);
@@ -97,9 +99,12 @@ const Navbar = () => {
                 onChange={handleLanguage}
               />
               <div className='block bg-gray-500 w-14 h-8 rounded-full'></div>
-              <div className='flex justify-center items-center dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition delay-150 text-sm'>
+              <motion.div
+                className='flex justify-center items-center dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition delay-150 text-sm'
+                animate={controls}
+              >
                 {isEnglish ? 'EN' : 'PL'}
-              </div>
+              </motion.div>
             </div>
           </label>
 
