@@ -23,7 +23,6 @@ function App() {
   // TODO
   // add resolution control on sanity imges??
   // add isEng(pl and en) to all img alts
-  // add custome hook for changeLangAnimation to share across components HOC
   // node.js for secure api keys
   // check classes and styling at the end
   // at the end of the projest add bluts

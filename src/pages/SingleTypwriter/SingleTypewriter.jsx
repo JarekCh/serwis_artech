@@ -113,7 +113,7 @@ const SingleTypewriter = ({ isEnglish }) => {
       <div className='flex flex-col justify-center lg:flex-row items-center gap-8 p-4 m-4'>
         <div className='flex flex-2'>
           <img
-            src={images[0]?.url}
+            src={`${images[0]?.url}?h=520&w=680`}
             alt='typewriter after renowation'
             className='rounded-xl w-[40rem]'
           />
@@ -147,7 +147,7 @@ const SingleTypewriter = ({ isEnglish }) => {
           {images.map((item, i) => (
             <img
               key={i}
-              src={item.url}
+              src={`${item.url}?h=320&w=480`}
               alt='typewriter'
               className='rounded-xl w-80 h-60 shadow-xl transition-all duration-200 xl:hover:scale-105 cursor-pointer'
               onClick={() => handleClick(item, i)}

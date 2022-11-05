@@ -40,7 +40,7 @@ const Typewriter = ({
       </motion.h2>
       {/* TYPEWRITER IMG */}
       <img
-        src={images[0]?.url}
+        src={`${images[0]?.url}?h=360&w=560`}
         alt={isEnglish ? 'restored typewriter' : 'odrestaurowana maszyna'}
         className='rounded-xl'
       />

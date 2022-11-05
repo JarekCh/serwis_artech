@@ -4,12 +4,13 @@ import { FaPhoneVolume, FaHome, FaClock, FaEnvelope } from 'react-icons/fa';
 import { sendEmail } from '../features/EmailJS/emailSlice';
 import { useDispatch } from 'react-redux';
 
-import LocalizationImg from '../assets/artech_lowRes.png';
+import LocalizationImg from '../assets/artech_lowRes.jpg';
 
 import { motionControlsValue } from '../utils/utils.js';
 
 // TODO create key for emailjs
 // regexp on input fields
+// secure button from multiclick
 
 const Contact = ({ isEnglish }) => {
   const dispatch = useDispatch();

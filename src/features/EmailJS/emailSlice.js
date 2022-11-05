@@ -8,8 +8,6 @@ const initialState = {
 };
 
 export const sendEmail = createAsyncThunk('sendEmail', async (form) => {
-  console.log('🚀 ~ file: emailSlice.js ~ line 11 ~ sendEmail ~ form', form);
-
   // emailjs
   //   .sendForm(
   //     'YOUR_SERVICE_ID',

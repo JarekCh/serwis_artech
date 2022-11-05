@@ -95,7 +95,7 @@ const SliderTypewriter = ({ isEnglish }) => {
           <div className='hidden xl:block absolute lg:h-[25rem]  lg:w-[25.625rem] xl:w-[33.125rem] 2xl:w-[40.625rem] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
           <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'>
             <motion.img
-              src={writers[slideIndex]?.images[0]?.url}
+              src={`${writers[slideIndex]?.images[0]?.url}?h=400&w=650`}
               alt='typewriter'
               className='service_img w-[25rem] lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
               key={slideIndex}

@@ -8,6 +8,7 @@ const GalleryModal = ({
   handelRotationLeft,
   direction,
 }) => {
+  console.log('🚀 ~ file: GalleryModal.jsx ~ line 11 ~ clickedImg', clickedImg);
   // HIDE GALLERY
   const handleClick = (e) => {
     if (e.target.classList.contains('dismiss')) {
@@ -47,7 +48,7 @@ const GalleryModal = ({
   return (
     // BACKGROUND
     <div
-      className='dismiss fixed top-0 left-0 right-0 w-full h-full flex justify-center items-center bg-black bg-opacity-60 z-10'
+      className='dismiss fixed top-0 left-0 right-0 w-full h-full flex justify-center items-center bg-black bg-opacity-60 z-[999]'
       onClick={handleClick}
     >
       <motion.div
@@ -66,7 +67,9 @@ const GalleryModal = ({
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             className='absolute top-0 left-0 w-full h-full object-cover object-center rounded-xl z-30'
-            src={clickedImg}
+            src={`${clickedImg}${
+              window.innerWidth < 1024 ? '?w=800&h=600' : '?w=1920&h=1280'
+            }`}
             alt='typewriter'
             variants={variants}
             animate='animate'
@@ -78,7 +81,7 @@ const GalleryModal = ({
         </AnimatePresence>
         {/* ARROWS */}
         <button
-          className='transition-all duration-500 absolute left-4 top-1/2 flex items-center justify-center w-10 md:w-16 xl:w-20 text-4xl md:text-6xl xl:text-7xl z-40 xl:hover:scale-110 text-white'
+          className='transition-all duration-500 absolute left-4 top-1/2 flex items-center justify-center w-10 md:w-16 xl:w-20 text-4xl md:text-6xl xl:text-7xl z-[40] xl:hover:scale-110 text-white'
           onClick={handelRotationLeft}
         >
           &#10092;

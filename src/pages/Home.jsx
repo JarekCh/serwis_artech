@@ -9,9 +9,6 @@ import { useSelector } from 'react-redux';
 import ContactModal from '../components/ContactModal';
 import { ToTopWrap } from '../wrapper/index';
 
-// TODO modal,animation, store for email js with logic
-// secure button from multiclick
-
 const Home = () => {
   const { isSiteLoading } = useSelector((store) => store.site);
   const { isTypewitersLoading } = useSelector((store) => store.site);
