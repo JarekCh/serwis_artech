@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import heroImg from '../assets/hero1920.jpg';
+import heroImgLowRes from '../assets/hero1280.jpg';
 
 import { motionControlsValue } from '../utils/utils.js';
 
@@ -24,7 +25,11 @@ const Hero = ({ isEnglish }) => {
   return (
     <section
       className=' w-full bg-cover bg-center h-[22rem] md:h-[40rem] xl:h-[54rem] 2xl:h-[65rem]'
-      style={{ backgroundImage: `url(${heroImg})` }}
+      style={{
+        backgroundImage: `url(${
+          window.innerWidth <= 1280 ? heroImgLowRes : heroImg
+        })`,
+      }}
     >
       <div className='bg-black/50 w-full h-full flex flex-col justify-center items-center text-slate-200 relative'>
         {isNotify && (

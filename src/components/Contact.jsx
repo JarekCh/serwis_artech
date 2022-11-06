@@ -103,8 +103,8 @@ const Contact = ({ isEnglish }) => {
                 </span>
                 <span>
                   <ul>
-                    <li>serwis@artech.waw.pl</li>
                     <li>biuro@serwisartech.pl</li>
+                    <li>serwis@artech.waw.pl</li>
                   </ul>
                 </span>
               </div>
