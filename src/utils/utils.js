@@ -44,26 +44,3 @@ export const galleryVariants = {
     };
   },
 };
-
-export const sliderVariants = {
-  initial: () => {
-    return {
-      opacity: 0,
-      x: 30,
-    };
-  },
-  animate: {
-    opacity: 1,
-    x: 0,
-  },
-  exit: () => {
-    return {
-      opacity: 0,
-      x: -30,
-    };
-  },
-  transition: {
-    x: { type: 'spring', stiffness: 300, damping: 300 },
-    opacity: { duration: 1 },
-  },
-};
