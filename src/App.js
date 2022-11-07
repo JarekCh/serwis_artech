@@ -30,9 +30,10 @@ function App() {
   // add isEng(pl and en) to all img alts
   // node.js for secure api keys
   // check classes and styling at the end
+  // check func logic
   // at the end of the projest add bluts
-  // fix images in slidertypewriter
   // add to reduce variable thats change on GET if respons is null show error page , single typewriter
+  // fix margins beetween sections
   // TODO
 
   return (

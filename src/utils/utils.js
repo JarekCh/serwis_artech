@@ -15,3 +15,32 @@ export const motionControlsValue = {
   opacity: [0, 1],
   transition: { duration: 1.2 },
 };
+
+// GALLERY ANIMATION SETTING
+export const galleryVariants = {
+  initial: (direction) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+      // scale: 0.5,
+    };
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      x: { type: 'spring', stiffness: 300, damping: 30 },
+      opacity: { duration: 0.2 },
+    },
+  },
+  exit: (direction) => {
+    return {
+      x: direction > 0 ? -1000 : 1000,
+      opacity: 0,
+      transition: {
+        x: { type: 'spring', stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 },
+      },
+    };
+  },
+};

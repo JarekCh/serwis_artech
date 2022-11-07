@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
@@ -12,12 +12,15 @@ import {
 
 const SliderTypewriter = ({ isEnglish }) => {
   const { writersResult } = useSelector((store) => store.typewriters);
-
   const controls = useAnimation();
   const [writers, setWriters] = useState([]);
-
   const [slideIndex, setSlideIndex] = useState(0);
-  const transition = { type: 'spring', duration: 3 };
+  const [sliderText, setSliderText] = useState('');
+
+  const transition = {
+    x: { type: 'spring', stiffness: 100, damping: 50 },
+    opacity: { duration: 0.5 },
+  };
 
   const incrementIndex = () => {
     setSlideIndex((prevValue) => prevValue + 1);
@@ -69,10 +72,20 @@ const SliderTypewriter = ({ isEnglish }) => {
     changeLangAnimation();
   }, [isEnglish]);
 
+  useEffect(() => {
+    setSliderText(() => {
+      if (isEnglish) {
+        return writers[slideIndex]?.body_en;
+      } else {
+        return writers[slideIndex]?.body_pl;
+      }
+    });
+  }, [[], isEnglish, slideIndex]);
+
   return (
     <section
       id='renovations'
-      className='flex flex-col w-full p-6 max-w-[100rem] mx-auto my-10 lg:my-24 z-5'
+      className='flex flex-col w-full p-6 max-w-[100rem] mx-auto my-10 lg:my-24 z-5 min-h-[42rem]'
     >
       {/* TITLE */}
       <motion.div
@@ -97,7 +110,7 @@ const SliderTypewriter = ({ isEnglish }) => {
             <motion.img
               src={`${writers[slideIndex]?.images[0]?.url}?h=400&w=650`}
               alt='typewriter'
-              className='service_img w-[25rem] lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
+              className='service_img w-[28rem]  lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
               key={slideIndex}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -124,11 +137,12 @@ const SliderTypewriter = ({ isEnglish }) => {
                     : writers[slideIndex]?.title_pl}
                 </motion.h3>
                 <motion.span className='mb-5 section_text' animate={controls}>
-                  {isEnglish
-                    ? writers[slideIndex]?.body_en
-                    : writers[slideIndex]?.body_pl}
+                  {sliderText?.length > 250
+                    ? `${sliderText.substring(0, 250)}...`
+                    : sliderText}
                 </motion.span>
               </motion.div>
+
               {/* BTNS MOBILE */}
               <div className='flex justify-around my-6'>
                 <button
