@@ -8,6 +8,7 @@ import GalleryModal from './GalleryModal';
 import { ToTopWrap } from '../../wrapper/index';
 
 import Loading from '../../components/Loading';
+import Error from '../Error.jsx';
 
 import { getSingleTypewriter } from '../../features/singleTypewriter/singleTypewriterSlice';
 
@@ -20,6 +21,10 @@ const SingleTypewriter = ({ isEnglish }) => {
   const dispatch = useDispatch();
 
   const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
+  console.log(
+    '🚀 ~ file: SingleTypewriter.jsx ~ line 23 ~ SingleTypewriter ~ singleTypewriter',
+    singleTypewriter
+  );
   const { isLoading } = useSelector((store) => store.singleTypewriter);
 
   const { slug } = useParams();
@@ -87,6 +92,7 @@ const SingleTypewriter = ({ isEnglish }) => {
   }, []);
 
   if (isLoading) return <Loading />;
+  if (singleTypewriter === undefined) return <Error />;
   const { title_en, title_pl, body_en, body_pl, images } = singleTypewriter;
 
   return (

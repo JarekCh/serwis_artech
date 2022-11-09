@@ -32,8 +32,8 @@ function App() {
   // check classes and styling at the end
   // check func logic
   // at the end of the projest add bluts
-  // add to reduce variable thats change on GET if respons is null show error page , single typewriter
   // fix margins beetween sections
+  // LAZY LOAD
   // TODO
 
   return (

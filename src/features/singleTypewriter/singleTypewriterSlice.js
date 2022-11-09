@@ -5,6 +5,10 @@ const initialState = {
   singleTypewriter: [],
   isLoading: true,
 };
+console.log(
+  '🚀 ~ file: singleTypewriterSlice.js ~ line 8 ~ initialState',
+  initialState
+);
 
 export const getSingleTypewriter = createAsyncThunk(
   'getSingleTypewriter',

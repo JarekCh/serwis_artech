@@ -4,6 +4,8 @@ import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
 
+// TODO dynamic height
+
 const Error = ({ isEnglish }) => {
   // LANGUAGE CHANGE ANIMATION
   const controls = useAnimation();
@@ -17,7 +19,7 @@ const Error = ({ isEnglish }) => {
 
   return (
     <div
-      className='w-full h-[80vh] lg:h-[85vh] xl:h-[80vh] bg-cover bg-center '
+      className='w-full h-[85vh] lg:h-[85vh] xl:h-[80vh] bg-cover bg-center '
       style={{ backgroundImage: `url(${errorPage})` }}
     >
       <article className='text-white bg-black/60 w-full h-full flex flex-col justify-center items-center gap-6'>
