@@ -87,7 +87,7 @@ const Navbar = () => {
           {/* FACEBOOK ICON */}
           <a
             href='https://www.facebook.com/Naprawamaszyndopisania'
-            className='text-4xl mx-4 text-[#4267B2] transition-all duration-500 xl:hover:scale-90'
+            className='text-4xl mx-4 text-[#4267B2] xl:transition-all xl:duration-500 xl:hover:scale-90'
             target='_blank'
           >
             <FaFacebook />
