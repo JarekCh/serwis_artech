@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motionControlsValue } from '../../utils/utils.js';
 import GalleryModal from './GalleryModal';
+import SingleImage from './SingleImage';
 import { ToTopWrap } from '../../wrapper/index';
 
 import Loading from '../../components/Loading';
@@ -21,10 +22,6 @@ const SingleTypewriter = ({ isEnglish }) => {
   const dispatch = useDispatch();
 
   const { singleTypewriter } = useSelector((store) => store.singleTypewriter);
-  console.log(
-    '🚀 ~ file: SingleTypewriter.jsx ~ line 23 ~ SingleTypewriter ~ singleTypewriter',
-    singleTypewriter
-  );
   const { isLoading } = useSelector((store) => store.singleTypewriter);
 
   const { slug } = useParams();
@@ -150,13 +147,11 @@ const SingleTypewriter = ({ isEnglish }) => {
           {isEnglish ? 'Gallery' : 'Galeria'}
         </motion.h3>
         <div className='flex flex-wrap gap-4 items-center justify-center'>
-          {images.map((item, i) => (
-            <img
+          {images.map((image, i) => (
+            <SingleImage
               key={i}
-              src={`${item.url}?h=320&w=480`}
-              alt='typewriter'
-              className='rounded-xl w-80 h-60 shadow-xl transition-all duration-200 xl:hover:scale-105 cursor-pointer'
-              onClick={() => handleClick(item, i)}
+              image={image}
+              handleClick={() => handleClick(image, i)}
             />
           ))}
         </div>
