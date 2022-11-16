@@ -8,6 +8,7 @@ export const SingleImage = ({ image, handleClick }) => {
   const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 200px' });
   const animatedEntry = useObserver(imageRef, { rootMargin: '0px' });
 
+  // LAZY LOAD OBSERVER
   useEffect(() => {
     if (!entry) return;
     if (entry.isIntersecting) {
@@ -15,6 +16,7 @@ export const SingleImage = ({ image, handleClick }) => {
     }
   }, [entry]);
 
+  // LAZY LOAD ANIMATION OBSERVER
   useEffect(() => {
     if (animatedEntry?.isIntersecting) {
       setIsVisible(true);

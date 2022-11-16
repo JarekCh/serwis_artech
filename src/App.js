@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 
-// import Home from './pages/Home';
 import Loading from './components/Loading';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
@@ -32,7 +31,7 @@ function App() {
   // check func logic
   // at the end of the projest add bluts
   // fix margins beetween sections
-  // LAZY LOAD
+  // LAZY LOAD, lazy load gogle maps
   // TODO
 
   return (

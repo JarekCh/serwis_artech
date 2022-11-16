@@ -29,14 +29,14 @@ const SingleTypewriter = ({ isEnglish }) => {
 
   // GALLARY LOGIC
 
-  // get url and index by click on img
+  // SET STATE FUNCTION
   const handleClick = (item, i) => {
     setCurrentIndex(i);
     setClickedImg(item.url);
     setShowModal(true);
   };
 
-  // change url and idex passed to modal with seafty
+  // IMAGE CARUSEL RIGHT LOGIC WITH SAFETY
   const handelRotationRight = () => {
     setDirection(1);
     const totalLength = images.length;
@@ -55,7 +55,7 @@ const SingleTypewriter = ({ isEnglish }) => {
     setCurrentIndex(newIndex);
   };
 
-  // change url and idex passed to modal with seafty
+  // IMAGE CARUSEL LEFT LOGIC WITH SAFETY WITH SAFETY
   const handelRotationLeft = () => {
     setDirection(-1);
     const totalLength = images.length;
@@ -74,7 +74,7 @@ const SingleTypewriter = ({ isEnglish }) => {
     setCurrentIndex(newIndex);
   };
 
-  // Change Lang animations
+  // CHANGE LANG ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
@@ -83,7 +83,7 @@ const SingleTypewriter = ({ isEnglish }) => {
     changeLangAnimation();
   }, [isEnglish]);
 
-  // get typewriter by id from store
+  // GET TYPEWRITER BY ID FROM STORE
   useEffect(() => {
     dispatch(getSingleTypewriter(slug));
   }, []);

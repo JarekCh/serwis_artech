@@ -3,6 +3,7 @@ import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
+import { useObserver } from '../../utils/useObserver';
 
 import { Link } from 'react-router-dom';
 import { ToTopWrap } from '../../wrapper/index';
