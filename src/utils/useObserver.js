@@ -8,7 +8,6 @@ export const useObserver = (ref, options) => {
       ([entry]) => {
         setObserverEntry(entry);
         if (entry.isIntersecting) {
-          console.log('jestem');
           observer.unobserve(entry.target);
         }
       },

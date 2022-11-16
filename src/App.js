@@ -4,18 +4,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 
-// import Typewriters from './pages/Typewriters/Typewriters';
-import Home from './pages/Home';
-import Error from './pages/Error';
+// import Home from './pages/Home';
 import Loading from './components/Loading';
-// import SingleTypewriter from './pages/SingleTypwriter/SingleTypewriter';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
+const Home = lazy(() => import('./pages/Home'));
 const Typewriters = lazy(() => import('./pages/Typewriters/Typewriters'));
 const SingleTypewriter = lazy(() =>
   import('./pages/SingleTypwriter/SingleTypewriter')
 );
+const Error = lazy(() => import('./pages/Error'));
 
 function App() {
   const { isEnglish } = useSelector((store) => store.language);
