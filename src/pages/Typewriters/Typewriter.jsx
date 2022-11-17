@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
@@ -19,6 +19,26 @@ const Typewriter = ({
   isEnglish,
 }) => {
   const controls = useAnimation();
+  const imageRef = useRef();
+  const [imageUrl, setImageUrl] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 200px' });
+  const animatedEntry = useObserver(imageRef, { rootMargin: '0px' });
+
+  // LAZY LOAD OBSERVER
+  useEffect(() => {
+    if (!entry) return;
+    if (entry.isIntersecting) {
+      setImageUrl(entry.target.dataset.src);
+    }
+  }, [entry]);
+
+  // LAZY LOAD ANIMATION OBSERVER
+  useEffect(() => {
+    if (animatedEntry?.isIntersecting) {
+      setIsVisible(true);
+    }
+  }, [animatedEntry]);
 
   // Change Lang animations
   useEffect(() => {
@@ -41,9 +61,13 @@ const Typewriter = ({
       </motion.h2>
       {/* TYPEWRITER IMG */}
       <img
-        src={`${images[0]?.url}?h=360&w=560`}
+        ref={imageRef}
+        src={imageUrl}
+        data-src={`${images[0]?.url}?h=360&w=560`}
         alt={isEnglish ? 'restored typewriter' : 'odrestaurowana maszyna'}
-        className='rounded-xl'
+        className={`${
+          isVisible ? 'blur-none duration-500' : 'blur-md clip-insert'
+        } rounded-xl`}
       />
       {/* TYPEWRITER TEXT */}
       <motion.p animate={controls}>
