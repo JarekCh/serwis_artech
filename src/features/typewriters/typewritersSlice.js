@@ -22,6 +22,16 @@ export const getTypewriters = createAsyncThunk('getTypewriters', async () => {
   }
 });
 
+// lazy fetch
+// *[_type == "typewriters" ] | order(date desc) [0...6]
+//     { date,
+//       title_pl,
+//       body_pl,
+//       title_en,
+//       body_en,
+//       slug{current},
+//       'images':typewritersImgs[]{'url':asset->url}}
+
 const typewritersSlice = createSlice({
   name: 'typewriters',
   initialState,

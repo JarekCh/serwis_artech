@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Typewriter from './Typewriter';
 
-// TODO
-// lazy Loading, IntersectionObserver
-
 const Typewriters = ({ isEnglish }) => {
   const { writersResult } = useSelector((store) => store.typewriters);
   const [writers, setWriters] = useState([]);

@@ -103,6 +103,7 @@ const SingleTypewriter = ({ isEnglish }) => {
           setClickedImg={setClickedImg}
           setShowModal={setShowModal}
           direction={direction}
+          isEnglish={isEnglish}
         />
       )}
       {/* SINGLE TYPEWRITER PAGE */}
@@ -117,7 +118,11 @@ const SingleTypewriter = ({ isEnglish }) => {
         <div className='flex flex-2'>
           <img
             src={`${images[0]?.url}?h=520&w=680`}
-            alt='typewriter after renowation'
+            alt={
+              isEnglish
+                ? 'Restored typewriter'
+                : 'Odrestaurowana maszyna do pisania'
+            }
             className='rounded-xl w-[40rem]'
           />
         </div>
@@ -151,6 +156,7 @@ const SingleTypewriter = ({ isEnglish }) => {
             <SingleImage
               key={i}
               image={image}
+              isEnglish={isEnglish}
               handleClick={() => handleClick(image, i)}
             />
           ))}

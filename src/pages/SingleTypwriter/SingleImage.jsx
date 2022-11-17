@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { useObserver } from '../../utils/useObserver';
 
-export const SingleImage = ({ image, handleClick }) => {
+export const SingleImage = ({ image, handleClick, isEnglish }) => {
   const imageRef = useRef();
   const [imageUrl, setImageUrl] = useState('');
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +31,7 @@ export const SingleImage = ({ image, handleClick }) => {
       ref={imageRef}
       src={imageUrl}
       data-src={`${image.url}?h=320&w=480`}
-      alt='renovated typewriter'
+      alt={isEnglish ? 'typewriter' : 'drukarka'}
       onClick={() => handleClick()}
     />
   );

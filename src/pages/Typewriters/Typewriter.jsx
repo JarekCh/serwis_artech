@@ -64,7 +64,11 @@ const Typewriter = ({
         ref={imageRef}
         src={imageUrl}
         data-src={`${images[0]?.url}?h=360&w=560`}
-        alt={isEnglish ? 'restored typewriter' : 'odrestaurowana maszyna'}
+        alt={
+          isEnglish
+            ? 'Restored typewriter'
+            : 'Odrestaurowana maszyna do pisania'
+        }
         className={`${
           isVisible ? 'blur-none duration-500' : 'blur-md clip-insert'
         } rounded-xl`}

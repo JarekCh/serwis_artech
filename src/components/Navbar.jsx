@@ -80,7 +80,7 @@ const Navbar = () => {
       {/* LOGO */}
       <div className='relative container flex flex-wrap justify-between items-center mx-auto'>
         <NavLink to={`/`} className='cursor-pointer'>
-          <img src={Logo} alt='' className='w-20 md:w-32 xl:w-60' />
+          <img src={Logo} alt='Logo' className='w-20 md:w-32 xl:w-60' />
         </NavLink>
         {/* LANG SLIDER */}
         <div className='flex items-center xl:order-2'>

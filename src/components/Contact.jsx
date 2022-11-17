@@ -8,7 +8,7 @@ import LocalizationImg from '../assets/artech_lowRes.jpg';
 
 import { motionControlsValue } from '../utils/utils.js';
 
-// TODO create key for emailjs
+// TODO
 // regexp on input fields
 // secure button from multiclick
 
@@ -52,7 +52,7 @@ const Contact = ({ isEnglish }) => {
           <div className='flex flex-1 order-2 lg:order-1 justify-center'>
             <img
               src={LocalizationImg}
-              alt='witryna serwisu'
+              alt={isEnglish ? 'Service advertise' : 'Witryna serwisu'}
               className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[34.375rem]'
             />
           </div>
@@ -149,7 +149,7 @@ const Contact = ({ isEnglish }) => {
               <button
                 type='button'
                 value='Send'
-                className='rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-90 h-10 mt-2'
+                className='rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 hover:scale-105 h-10 mt-2'
               >
                 {isEnglish ? 'Submit' : 'Wyślij'}
               </button>

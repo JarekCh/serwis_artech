@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 
+import Home from './pages/Home';
 import Loading from './components/Loading';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 
-const Home = lazy(() => import('./pages/Home'));
 const Typewriters = lazy(() => import('./pages/Typewriters/Typewriters'));
 const SingleTypewriter = lazy(() =>
   import('./pages/SingleTypwriter/SingleTypewriter')
@@ -24,19 +24,15 @@ function App() {
     dispatch(getTypewriters());
   }, []);
 
-  // TODO  //
-  // add isEng(pl and en) to all img alts
+  // TODO
+  // paggination, lazy load gogle maps
   // node.js for secure api keys
-  // check classes and styling at the end
-  // check func logic
-  // at the end of the projest add bluts
-  // fix margins beetween sections
-  // LAZY LOAD, lazy load gogle maps
+  // Code revie/refactor logic, css
   // TODO
 
   return (
     <BrowserRouter>
-      <Suspense fallback={Loading}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path='/' element={<SharedLayout />}>
             <Route index element={<Home />} />

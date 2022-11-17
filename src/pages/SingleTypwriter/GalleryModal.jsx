@@ -8,6 +8,7 @@ const GalleryModal = ({
   handelRotationRight,
   handelRotationLeft,
   direction,
+  isEnglish,
 }) => {
   // HIDE GALLERY
   const handleClick = (e) => {
@@ -41,7 +42,7 @@ const GalleryModal = ({
             src={`${clickedImg}${
               window.innerWidth < 1024 ? '?w=800&h=600' : '?w=1920&h=1280'
             }`}
-            alt='typewriter'
+            alt={isEnglish ? 'Typewriter' : 'Drukarka'}
             variants={galleryVariants}
             animate='animate'
             initial='initial'

@@ -83,10 +83,7 @@ const SliderTypewriter = ({ isEnglish }) => {
   }, [[], isEnglish, slideIndex]);
 
   return (
-    <section
-      id='renovations'
-      className=' w-full p-6 my-10 lg:my-24 z-5 min-h-[42rem]'
-    >
+    <section id='renovations' className=' w-full p-6 my-10 lg:my-24 z-5'>
       <div className='max-w-[100rem] mx-auto flex flex-col'>
         {/* TITLE */}
         <motion.div
@@ -107,11 +104,11 @@ const SliderTypewriter = ({ isEnglish }) => {
           <div className='relative flex flex-col gap-2 xl:gap-10 lg:flex-row mx-4'>
             <div className='hidden xl:block absolute border-2 border-indigo-900 w-[25rem] lg:h-[25rem] lg:w-[28.125rem] xl:w-[33.75rem] 2xl:w-[40.625rem] rounded-xl -top-4 left-6 xl:left-5'></div>
             <div className='hidden xl:block absolute lg:h-[25rem]  lg:w-[25.625rem] xl:w-[33.125rem] 2xl:w-[40.625rem] rounded-xl top-4 -left-4 bg-gradient-to-r from-indigo-900 via-indigo-400 to-indigo-200'></div>
-            <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1'>
+            <div className='flex flex-1 justify-center lg:justify-start order-2 lg:order-1 w-[28rem] lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'>
               <motion.img
                 src={`${writers[slideIndex]?.images[0]?.url}?h=400&w=650`}
-                alt='typewriter'
-                className='service_img w-[28rem]  lg:h-[25rem] lg:w-[31.25rem] xl:w-[34.375rem] 2xl:w-[40.625rem]'
+                alt={isEnglish ? 'Typewriter' : 'Drukarka'}
+                className='service_img'
                 key={slideIndex}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
