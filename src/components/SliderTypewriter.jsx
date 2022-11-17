@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';

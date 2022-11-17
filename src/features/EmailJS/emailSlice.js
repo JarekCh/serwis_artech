@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import emailjs from '@emailjs/browser';
 
-// TODO check if its working
-
 const initialState = {
   isOpen: false,
 };

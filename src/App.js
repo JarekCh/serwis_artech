@@ -27,6 +27,7 @@ function App() {
   // TODO
   // paggination, lazy load gogle maps
   // node.js for secure api keys
+  // fix problems from lighthouse
   // Code revie/refactor logic, css
   // TODO
 

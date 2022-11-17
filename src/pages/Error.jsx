@@ -4,8 +4,6 @@ import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
 
-// TODO dynamic height
-
 const Error = ({ isEnglish }) => {
   // LANGUAGE CHANGE ANIMATION
   const controls = useAnimation();
