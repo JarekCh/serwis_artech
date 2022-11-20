@@ -17,11 +17,15 @@ const Error = lazy(() => import('./pages/Error'));
 
 function App() {
   const { isEnglish } = useSelector((store) => store.language);
+  const { lowRangeFilter, highRangeFilter } = useSelector(
+    (store) => store.typewriters
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSiteContent());
-    dispatch(getTypewriters());
+    dispatch(getTypewriters({ lowRangeFilter, highRangeFilter }));
   }, []);
 
   // TODO
