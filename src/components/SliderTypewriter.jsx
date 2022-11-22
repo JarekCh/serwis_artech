@@ -12,6 +12,7 @@ import {
 
 const SliderTypewriter = ({ isEnglish }) => {
   const { writersResult } = useSelector((store) => store.typewriters);
+
   const controls = useAnimation();
   const [writers, setWriters] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -50,14 +51,15 @@ const SliderTypewriter = ({ isEnglish }) => {
     return () => clearInterval(slider);
   }, [slideIndex]);
 
-  // SET SORTE ARRAY OF WRITERS
+  // SET SORTED ARRAY OF WRITERS
   useEffect(() => {
     const writersForSort = [...writersResult];
 
     setWriters(
       writersForSort
         .sort(
-          (a, b) => Date.parse(new Date(b.date)) - Date.parse(new Date(a.date))
+          (a, b) =>
+            Date?.parse(new Date(b.date)) - Date?.parse(new Date(a.date))
         )
         .slice(0, 6)
     );

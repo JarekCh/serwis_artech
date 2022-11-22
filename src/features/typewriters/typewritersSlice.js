@@ -10,11 +10,11 @@ const initialState = {
 
 export const getTypewriters = createAsyncThunk(
   'getTypewriters',
-  async (params) => {
-    const { lowRangeFilter, highRangeFilter } = params;
+  async (params, { getState }) => {
+    const state = getState().typewriters;
     try {
       const data =
-        await client.fetch(`*[_type == "typewriters" ] | order(date desc) [${lowRangeFilter}...${highRangeFilter}]
+        await client.fetch(`*[_type == "typewriters" ] | order(date desc) [${state.lowRangeFilter}...${state.highRangeFilter}]
         { date,
           title_pl,
           body_pl,
@@ -47,8 +47,14 @@ const typewritersSlice = createSlice({
       state.isLoading = true;
     },
     [getTypewriters.fulfilled]: (state, action) => {
+      const prevState = state.writersResult;
       state.isLoading = false;
-      state.writersResult = action.payload;
+      if (state.highRangeFilter === 6) {
+        state.writersResult = action.payload;
+      }
+      if (state.highRangeFilter > 7) {
+        state.writersResult = prevState.concat(action.payload);
+      }
     },
     [getTypewriters.rejected]: (state) => {
       state.isLoading = false;

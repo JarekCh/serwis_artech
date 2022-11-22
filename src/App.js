@@ -25,11 +25,11 @@ function App() {
 
   useEffect(() => {
     dispatch(getSiteContent());
-    dispatch(getTypewriters({ lowRangeFilter, highRangeFilter }));
+    dispatch(getTypewriters());
   }, []);
 
   // TODO
-  // paggination, lazy load gogle maps
+  // paggination
   // node.js for secure api keys
   // fix problems from lighthouse
   // Code revie/refactor logic, css
