@@ -35,11 +35,11 @@ const typewritersSlice = createSlice({
   reducers: {
     increaseHighRange: (state) => {
       const prevState = state.highRangeFilter;
-      state.highRangeFilter = prevState + 6;
+      state.highRangeFilter = prevState + 3;
     },
     increaseLowRange: (state) => {
       const prevState = state.lowRangeFilter;
-      state.lowRangeFilter = prevState + 6;
+      state.lowRangeFilter = prevState + 3;
     },
   },
   extraReducers: {

@@ -17,21 +17,26 @@ const Typewriter = ({
   title_pl,
   slug,
   isEnglish,
+  isLast,
+  nextPage,
 }) => {
   const controls = useAnimation();
   const imageRef = useRef();
   const [imageUrl, setImageUrl] = useState('');
   const [isVisible, setIsVisible] = useState(false);
-  const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 200px' });
+  const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 100px' });
   const animatedEntry = useObserver(imageRef, { rootMargin: '0px' });
 
-  // LAZY LOAD OBSERVER
+  // LAZY LOAD IMG OBSERVER
   useEffect(() => {
     if (!entry) return;
+    if (isLast && entry.isIntersecting) {
+      nextPage();
+    }
     if (entry.isIntersecting) {
       setImageUrl(entry.target.dataset.src);
     }
-  }, [entry]);
+  }, [entry, isLast]);
 
   // LAZY LOAD ANIMATION OBSERVER
   useEffect(() => {
@@ -51,7 +56,7 @@ const Typewriter = ({
 
   return (
     // TYPEWRITER
-    <article className='flex flex-col gap-4 my-6 rounded-xl shadow-xl bg-slate-300 p-6 transition-all duration-500 xl:hover:scale-95 m-4'>
+    <article className='flex flex-col gap-4 my-6 rounded-xl shadow-xl bg-slate-300 p-6 transition-all duration-500 xl:hover:scale-95 m-4 min-h-[40rem]'>
       {/* TYPEWRITER TITLE */}
       <motion.h2
         animate={controls}
@@ -84,10 +89,10 @@ const Typewriter = ({
           : body_pl}
       </motion.p>
       {/* TYPEWRITER BUTTON */}
-      <Link to={`/typewriters/${slug.current}`}>
+      <Link className='w-28 mx-auto' to={`/typewriters/${slug.current}`}>
         <motion.button
           animate={controls}
-          className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 xl:hover:scale-105 h-10 mx-auto'
+          className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-full h-10 xl:hover:scale-105'
         >
           {isEnglish ? 'More..' : 'Więcej..'}
         </motion.button>

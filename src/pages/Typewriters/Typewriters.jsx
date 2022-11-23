@@ -8,12 +8,15 @@ import Typewriter from './Typewriter';
 import { getTypewriters } from '../../features/typewriters/typewritersSlice';
 
 const Typewriters = ({ isEnglish }) => {
-  const { writersResult, lowRangeFilter, highRangeFilter } = useSelector(
-    (store) => store.typewriters
-  );
-
+  const { writersResult } = useSelector((store) => store.typewriters);
   const dispatch = useDispatch();
   const [writers, setWriters] = useState([]);
+
+  const nextPage = () => {
+    dispatch(increaseHighRange());
+    dispatch(increaseLowRange());
+    dispatch(getTypewriters());
+  };
 
   useEffect(() => {
     const writersForSort = [...writersResult];
@@ -27,21 +30,17 @@ const Typewriters = ({ isEnglish }) => {
 
   return (
     <section className='my-6 mx-auto p-6 max-w-[100rem]'>
-      <button
-        className='w-10 h-10 m-6'
-        onClick={() => {
-          dispatch(increaseHighRange());
-          dispatch(increaseLowRange());
-          dispatch(getTypewriters());
-        }}
-      >
-        incHig
-      </button>
       <div className='flex flex-col justify-center items-center lg:grid lg:grid-cols-2 2xl:grid-cols-3'>
-        {writers.map((writer) => {
+        {writers.map((writer, i) => {
           const { slug } = writer;
           return (
-            <Typewriter key={slug.current} {...writer} isEnglish={isEnglish} />
+            <Typewriter
+              key={slug.current}
+              {...writer}
+              isEnglish={isEnglish}
+              isLast={i === writers.length - 1}
+              nextPage={nextPage}
+            />
           );
         })}
       </div>

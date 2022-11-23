@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../../client';
 
 const initialState = {
-  paginationResult: [],
+  shopResult: [],
   isShopLoading: true,
 };
 
@@ -28,14 +28,14 @@ const shopSlice = createSlice({
   initialState,
   extraReducers: {
     [getShop.pending]: (state) => {
-      state.isPaginationLoading = true;
+      state.isShopLoading = true;
     },
     [getShop.fulfilled]: (state, action) => {
-      state.isPaginationLoading = false;
-      state.paginationResult = action.payload;
+      state.isShopLoading = false;
+      state.shopResult = action.payload;
     },
     [getShop.rejected]: (state) => {
-      state.isPaginationLoading = false;
+      state.isShopLoading = false;
     },
   },
 });
