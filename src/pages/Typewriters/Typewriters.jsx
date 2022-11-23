@@ -13,8 +13,8 @@ const Typewriters = ({ isEnglish }) => {
   const [writers, setWriters] = useState([]);
 
   const nextPage = () => {
-    dispatch(increaseHighRange());
     dispatch(increaseLowRange());
+    dispatch(increaseHighRange());
     dispatch(getTypewriters());
   };
 

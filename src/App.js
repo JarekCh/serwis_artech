@@ -17,9 +17,6 @@ const Error = lazy(() => import('./pages/Error'));
 
 function App() {
   const { isEnglish } = useSelector((store) => store.language);
-  const { lowRangeFilter, highRangeFilter } = useSelector(
-    (store) => store.typewriters
-  );
 
   const dispatch = useDispatch();
 
@@ -29,7 +26,7 @@ function App() {
   }, []);
 
   // TODO
-  // paggination
+  // fix totopwrap from rerendering
   // node.js for secure api keys
   // fix problems from lighthouse
   // Code revie/refactor logic, css

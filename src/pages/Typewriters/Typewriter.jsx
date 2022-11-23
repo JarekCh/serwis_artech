@@ -27,7 +27,7 @@ const Typewriter = ({
   const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 100px' });
   const animatedEntry = useObserver(imageRef, { rootMargin: '0px' });
 
-  // LAZY LOAD IMG OBSERVER
+  // LAZY LOAD OBSERVER
   useEffect(() => {
     if (!entry) return;
     if (isLast && entry.isIntersecting) {
