@@ -8,8 +8,8 @@ import Typewriter from './Typewriter';
 import { getTypewriters } from '../../features/typewriters/typewritersSlice';
 
 const Typewriters = ({ isEnglish }) => {
-  const { writersResult } = useSelector((store) => store.typewriters);
   const dispatch = useDispatch();
+  const { writersResult } = useSelector((store) => store.typewriters);
   const [writers, setWriters] = useState([]);
 
   const nextPage = () => {
@@ -20,7 +20,6 @@ const Typewriters = ({ isEnglish }) => {
 
   useEffect(() => {
     const writersForSort = [...writersResult];
-
     setWriters(
       writersForSort.sort(
         (a, b) => Date.parse(new Date(b.date)) - Date.parse(new Date(a.date))
@@ -29,7 +28,7 @@ const Typewriters = ({ isEnglish }) => {
   }, [writersResult]);
 
   return (
-    <section className='my-6 mx-auto p-6 max-w-[100rem]'>
+    <section className='my-6 mx-auto p-6 max-w-[100rem] overflow-y: auto'>
       <div className='flex flex-col justify-center items-center lg:grid lg:grid-cols-2 2xl:grid-cols-3'>
         {writers.map((writer, i) => {
           const { slug } = writer;

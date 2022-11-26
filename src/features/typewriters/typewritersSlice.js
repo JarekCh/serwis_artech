@@ -35,7 +35,7 @@ const typewritersSlice = createSlice({
   reducers: {
     increaseHighRange: (state) => {
       const prevState = state.highRangeFilter;
-      state.highRangeFilter = prevState + 3;
+      state.highRangeFilter = prevState + 2;
     },
     increaseLowRange: (state) => {
       const prevState = state.highRangeFilter;
@@ -47,7 +47,6 @@ const typewritersSlice = createSlice({
       state.isLoading = true;
     },
     [getTypewriters.fulfilled]: (state, action) => {
-      console.log('🚀 ~ file: typewritersSlice.js ~ line 50 ~ action', action);
       const prevState = state.writersResult;
       state.isLoading = false;
       if (state.highRangeFilter === 6) {

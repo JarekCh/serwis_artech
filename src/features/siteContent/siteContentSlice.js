@@ -4,6 +4,7 @@ import { client } from '../../client';
 const initialState = {
   siteResult: [],
   isSiteLoading: true,
+  scrollPossition: 0,
 };
 
 export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
@@ -23,6 +24,11 @@ export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
 const siteContentSlice = createSlice({
   name: 'site',
   initialState,
+  reducers: {
+    scrollState: (state, action) => {
+      state.scrollPossition = action.payload;
+    },
+  },
   extraReducers: {
     [getSiteContent.pending]: (state) => {
       state.isSiteLoading = true;
@@ -36,5 +42,8 @@ const siteContentSlice = createSlice({
     },
   },
 });
+
+export const { scrollState, showBackToTopBtn, hideBackToTopBtn } =
+  siteContentSlice.actions;
 
 export default siteContentSlice.reducer;

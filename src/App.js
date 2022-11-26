@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Loading from './components/Loading';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
+import ScrollToTop from './utils/ScrollToTop';
 
 const Typewriters = lazy(() => import('./pages/Typewriters/Typewriters'));
 const SingleTypewriter = lazy(() =>
@@ -28,6 +29,8 @@ function App() {
   // TODO
   // fix totopwrap from rerendering
   // node.js for secure api keys
+  // add button component
+  // safety for api calls
   // fix problems from lighthouse
   // Code revie/refactor logic, css
   // TODO
@@ -35,19 +38,21 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path='/' element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path='typewriters' element={<SingleTypewriterLayout />}>
-              <Route index element={<Typewriters isEnglish={isEnglish} />} />
-              <Route
-                path=':slug'
-                element={<SingleTypewriter isEnglish={isEnglish} />}
-              />
+        <ScrollToTop>
+          <Routes>
+            <Route path='/' element={<SharedLayout />}>
+              <Route index element={<Home />} />
+              <Route path='typewriters' element={<SingleTypewriterLayout />}>
+                <Route index element={<Typewriters isEnglish={isEnglish} />} />
+                <Route
+                  path=':slug'
+                  element={<SingleTypewriter isEnglish={isEnglish} />}
+                />
+              </Route>
+              <Route path='*' element={<Error isEnglish={isEnglish} />} />
             </Route>
-            <Route path='*' element={<Error isEnglish={isEnglish} />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </ScrollToTop>
       </Suspense>
     </BrowserRouter>
   );

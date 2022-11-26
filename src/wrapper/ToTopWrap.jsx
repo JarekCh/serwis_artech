@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ToTopBtn from './ToTopBtn';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { scrollState } from '../features/siteContent/siteContentSlice';
 
 export default (Component) =>
   ({ ...props }) => {
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    useEffect(() => {
-      goToTop();
-    }, []);
+    const { scrollPossition } = useSelector((store) => store.site);
+    const dispatch = useDispatch();
 
     const goToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -15,35 +16,16 @@ export default (Component) =>
 
     useEffect(() => {
       const updatePosition = () => {
-        setScrollPosition(window.pageYOffset);
+        dispatch(scrollState(window.pageYOffset));
       };
-
       window.addEventListener('scroll', updatePosition);
-
       return () => window.removeEventListener('scroll', updatePosition);
     }, []);
 
     return (
       <>
         <Component {...props} />
-        <AnimatePresence>
-          {scrollPosition > 150 && (
-            <motion.button
-              onClick={goToTop}
-              className='fixed z-90 bottom-8 right-8 border-0 w-12 h-12 rounded-full drop-shadow-md bg-indigo-500 text-white text-3xl font-bold z-40 hover:xl:scale-110 xl:transition-all xl:duration-300 flex justify-center items-center'
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1, transition: { duration: 0.6 } }}
-              exit={{ y: 100, opacity: 0, transition: { duration: 0.6 } }}
-              whileHover={{
-                scale: 1.2,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 1 }}
-            >
-              &uarr;
-            </motion.button>
-          )}
-        </AnimatePresence>
+        <ToTopBtn scrollPossition={scrollPossition} goToTop={goToTop} />
       </>
     );
   };
