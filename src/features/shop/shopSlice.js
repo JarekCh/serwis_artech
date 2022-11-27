@@ -6,22 +6,22 @@ const initialState = {
   isShopLoading: true,
 };
 
-export const getShop = createAsyncThunk(
-  'getShop',
-  async (params, { getState }) => {
-    const { lowRangeFilter, highRangeFilter } = params;
-    const state = getState().shop;
-    try {
-      const data = await client.fetch(
-        `*[_type == "shop" | order(date desc)
-          { }`
-      );
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const getShop = createAsyncThunk('getShop', async () => {
+  try {
+    const data = await client.fetch(
+      `*[_type == "shop" | order(date desc)
+          {
+          title_pl,
+          body_pl,
+          title_en,
+          body_en,
+          'image':shopImg{'url':asset->url}, }`
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 const shopSlice = createSlice({
   name: 'shop',
@@ -31,6 +31,7 @@ const shopSlice = createSlice({
       state.isShopLoading = true;
     },
     [getShop.fulfilled]: (state, action) => {
+      console.log('🚀 ~ file: shopSlice.js ~ line 34 ~ action', action);
       state.isShopLoading = false;
       state.shopResult = action.payload;
     },

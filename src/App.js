@@ -27,7 +27,6 @@ function App() {
   }, []);
 
   // TODO
-  // fix totopwrap from rerendering
   // node.js for secure api keys
   // add button component
   // safety for api calls?
