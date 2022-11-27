@@ -4,9 +4,7 @@ import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
 import { useObserver } from '../../utils/useObserver';
-
 import { Link } from 'react-router-dom';
-import { ToTopWrap } from '../../wrapper/index';
 
 const Typewriter = ({
   body_en,
@@ -27,7 +25,7 @@ const Typewriter = ({
   const entry = useObserver(imageRef, { rootMargin: '0px 0px 0px 100px' });
   const animatedEntry = useObserver(imageRef, { rootMargin: '0px' });
 
-  // LAZY LOAD OBSERVER
+  // LAZY LOAD CONTENT OBSERVER
   useEffect(() => {
     if (!entry) return;
     if (isLast && entry.isIntersecting) {
@@ -45,7 +43,7 @@ const Typewriter = ({
     }
   }, [animatedEntry]);
 
-  // Change Lang animations
+  // CHANGE LANGUAGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
@@ -107,4 +105,4 @@ const Typewriter = ({
   );
 };
 
-export default ToTopWrap(Typewriter);
+export default Typewriter;

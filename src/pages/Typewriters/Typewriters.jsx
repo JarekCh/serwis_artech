@@ -6,18 +6,21 @@ import {
 } from '../../features/typewriters/typewritersSlice';
 import Typewriter from './Typewriter';
 import { getTypewriters } from '../../features/typewriters/typewritersSlice';
+import { ToTopWrap } from '../../wrapper/index';
 
 const Typewriters = ({ isEnglish }) => {
-  const dispatch = useDispatch();
   const { writersResult } = useSelector((store) => store.typewriters);
   const [writers, setWriters] = useState([]);
+  const dispatch = useDispatch();
 
+  // CALL FOR NEW RECORDS
   const nextPage = () => {
     dispatch(increaseLowRange());
     dispatch(increaseHighRange());
     dispatch(getTypewriters());
   };
 
+  // SORT WRITERS BY DATE
   useEffect(() => {
     const writersForSort = [...writersResult];
     setWriters(
@@ -47,4 +50,4 @@ const Typewriters = ({ isEnglish }) => {
   );
 };
 
-export default Typewriters;
+export default ToTopWrap(Typewriters);

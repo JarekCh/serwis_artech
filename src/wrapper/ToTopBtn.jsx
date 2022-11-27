@@ -1,10 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { memo } from 'react';
 
-const ToTopBtn = ({ scrollPossition, goToTop }) => {
+const ToTopBtn = memo(({ scrollPosition, goToTop }) => {
   return (
     <AnimatePresence>
-      {scrollPossition && (
+      {scrollPosition && (
         <motion.button
           onClick={goToTop}
           className='fixed z-90 bottom-8 right-8 border-0 w-12 h-12 rounded-full drop-shadow-md bg-indigo-500 text-white text-3xl font-bold z-40 hover:xl:scale-110 xl:transition-all xl:duration-300 flex justify-center items-center'
@@ -22,6 +22,6 @@ const ToTopBtn = ({ scrollPossition, goToTop }) => {
       )}
     </AnimatePresence>
   );
-};
+});
 
-export default memo(ToTopBtn);
+export default ToTopBtn;

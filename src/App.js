@@ -4,12 +4,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getSiteContent } from './features/siteContent/siteContentSlice';
 import { getTypewriters } from './features/typewriters/typewritersSlice';
 
-import Home from './pages/Home';
 import Loading from './components/Loading';
 import SharedLayout from './pages/SharedLayout';
 import SingleTypewriterLayout from './pages/SingleTypewriterLayout';
 import ScrollToTop from './utils/ScrollToTop';
 
+const Home = lazy(() => import('./pages/Home'));
 const Typewriters = lazy(() => import('./pages/Typewriters/Typewriters'));
 const SingleTypewriter = lazy(() =>
   import('./pages/SingleTypwriter/SingleTypewriter')
@@ -30,7 +30,7 @@ function App() {
   // fix totopwrap from rerendering
   // node.js for secure api keys
   // add button component
-  // safety for api calls
+  // safety for api calls?
   // fix problems from lighthouse
   // Code revie/refactor logic, css
   // TODO

@@ -1,5 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
 import ToTopBtn from './ToTopBtn';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +6,7 @@ import { scrollState } from '../features/siteContent/siteContentSlice';
 
 export default (Component) =>
   ({ ...props }) => {
-    const { scrollPossition } = useSelector((store) => store.site);
+    const { scrollPosition } = useSelector((store) => store.site);
     const dispatch = useDispatch();
 
     const goToTop = () => {
@@ -25,7 +24,7 @@ export default (Component) =>
     return (
       <>
         <Component {...props} />
-        <ToTopBtn scrollPossition={scrollPossition} goToTop={goToTop} />
+        <ToTopBtn scrollPosition={scrollPosition} goToTop={goToTop} />
       </>
     );
   };
