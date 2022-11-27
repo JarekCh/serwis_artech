@@ -83,10 +83,10 @@ const SingleTypewriter = ({ isEnglish }) => {
     changeLangAnimation();
   }, [isEnglish]);
 
-  // GET TYPEWRITER BY ID FROM STORE
+  // GET TYPEWRITER BY ID FROM BACKEND
   useEffect(() => {
     dispatch(getSingleTypewriter(slug));
-  }, []);
+  }, [slug]);
 
   if (isLoading) return <Loading />;
   if (singleTypewriter === undefined) return <Error />;

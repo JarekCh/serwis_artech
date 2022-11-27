@@ -9,13 +9,16 @@ const initialState = {
 export const getShop = createAsyncThunk('getShop', async () => {
   try {
     const data = await client.fetch(
-      `*[_type == "shop" | order(date desc)
-          {
+      `*[_type == "shop" ] | order(date desc) {        
           title_pl,
           body_pl,
           title_en,
           body_en,
-          'image':shopImg{'url':asset->url}, }`
+          'image':shopImg{'url':asset->url},
+          date,
+          auction_link,
+          'slug':slug.current,
+      }`
     );
     return data;
   } catch (error) {
@@ -31,7 +34,7 @@ const shopSlice = createSlice({
       state.isShopLoading = true;
     },
     [getShop.fulfilled]: (state, action) => {
-      console.log('🚀 ~ file: shopSlice.js ~ line 34 ~ action', action);
+      console.log('🚀 ~ file: shopSlice.js ~ line 37 ~ action', action.payload);
       state.isShopLoading = false;
       state.shopResult = action.payload;
     },
@@ -40,7 +43,5 @@ const shopSlice = createSlice({
     },
   },
 });
-
-export const { increaseHighRange, increaseLowRange } = shopSlice.actions;
 
 export default shopSlice.reducer;

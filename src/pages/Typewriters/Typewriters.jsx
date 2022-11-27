@@ -31,7 +31,7 @@ const Typewriters = ({ isEnglish }) => {
   }, [writersResult]);
 
   return (
-    <section className='my-6 mx-auto p-6 max-w-[100rem] overflow-y: auto'>
+    <section className='my-6 mx-auto p-6 max-w-[100rem]'>
       <div className='flex flex-col justify-center items-center lg:grid lg:grid-cols-2 2xl:grid-cols-3'>
         {writers.map((writer, i) => {
           const { slug } = writer;

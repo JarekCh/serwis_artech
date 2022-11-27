@@ -19,6 +19,7 @@ const Navbar = () => {
   const navLinks = [
     { to: '/', lang: isEnglish ? 'Home' : 'Strona domowa' },
     { to: '/typewriters', lang: isEnglish ? 'Typewriters' : 'Maszyny' },
+    { to: '/shop', lang: isEnglish ? 'Shop' : 'Sklep' },
   ];
   // NAVIGATIONS LINKS WITH HASHLINKS
   const hashLinks = [

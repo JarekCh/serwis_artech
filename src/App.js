@@ -15,6 +15,7 @@ const SingleTypewriter = lazy(() =>
   import('./pages/SingleTypwriter/SingleTypewriter')
 );
 const Error = lazy(() => import('./pages/Error'));
+const Shop = lazy(() => import('./pages/Shop/Shop'));
 
 function App() {
   const { isEnglish } = useSelector((store) => store.language);
@@ -48,6 +49,10 @@ function App() {
                   element={<SingleTypewriter isEnglish={isEnglish} />}
                 />
               </Route>
+              <Route
+                path='shop'
+                element={<Shop isEnglish={isEnglish} />}
+              ></Route>
               <Route path='*' element={<Error isEnglish={isEnglish} />} />
             </Route>
           </Routes>
