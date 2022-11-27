@@ -11,7 +11,7 @@ export const getSingleTypewriter = createAsyncThunk(
   async (slug) => {
     try {
       const data = await client.fetch(`*[slug.current == '${slug}']
-      { 'Slug':slug.current,
+      { 'slug':slug.current,
         title_pl,
         body_pl,
         title_en,

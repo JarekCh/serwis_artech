@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ToTopWrap } from '../../wrapper/index';
 import { getShop } from '../../features/shop/shopSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,16 +7,11 @@ import Loading from '../../components/Loading';
 
 function Shop({ isEnglish }) {
   const dispatch = useDispatch();
-  // const [shop, setShop] = useState([]);
   const { shopResult, isShopLoading } = useSelector((store) => store.shop);
 
   useEffect(() => {
     dispatch(getShop());
   }, []);
-
-  // useEffect(() => {
-  //   setShop(shopResult);
-  // }, [shopResult]);
 
   if (isShopLoading) return <Loading />;
 

@@ -3,7 +3,7 @@ import moment from 'moment';
 import 'moment/locale/pl';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../../utils/utils.js';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const ShopItem = ({
   body_en,
@@ -13,6 +13,7 @@ const ShopItem = ({
   title_en,
   title_pl,
   isEnglish,
+  auction_link,
 }) => {
   const controls = useAnimation();
 
@@ -43,15 +44,25 @@ const ShopItem = ({
       />
       {/* TYPEWRITER TEXT */}
       <motion.p animate={controls}>{isEnglish ? body_en : body_pl}</motion.p>
-      {/* TYPEWRITER BUTTON */}
-      <Link className='w-28 mx-auto' to={`/typewriters/`}>
-        <motion.button
+      {/* NAV BUTTONS */}
+      <div className='flex gap-4 mx-auto justify-center'>
+        <HashLink to='/#contact' smooth>
+          <motion.button
+            animate={controls}
+            className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg h-10 xl:hover:scale-105 w-28'
+          >
+            {isEnglish ? 'Contact' : 'Kontakt'}
+          </motion.button>
+        </HashLink>
+        <motion.a
           animate={controls}
-          className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-full h-10 xl:hover:scale-105'
+          className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg h-10 xl:hover:scale-105 w-28 cursor-pointer'
+          target='_blank'
+          href={auction_link}
         >
-          {isEnglish ? 'More..' : 'Więcej..'}
-        </motion.button>
-      </Link>
+          {isEnglish ? 'Auction' : 'Aukcja'}
+        </motion.a>
+      </div>
       {/* TYPEWRITER DATE */}
       <motion.p className='text-right mt-6' animate={controls}>
         {moment(date)
