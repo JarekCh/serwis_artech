@@ -4,6 +4,7 @@ import languageReducer from '../features/language/languageSlice';
 import typewritersReducer from '../features/typewriters/typewritersSlice';
 import singleTypewriterReducer from '../features/singleTypewriter/singleTypewriterSlice';
 import emailReducer from '../features/EmailJS/emailSlice';
+import shopReducer from '../features/shop/shopSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     typewriters: typewritersReducer,
     singleTypewriter: singleTypewriterReducer,
     email: emailReducer,
+    shop: shopReducer,
   },
 });

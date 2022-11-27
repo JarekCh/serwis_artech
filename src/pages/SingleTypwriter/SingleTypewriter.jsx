@@ -131,9 +131,9 @@ const SingleTypewriter = ({ isEnglish }) => {
           <motion.p className='my-6 lg:my-0' animate={controls}>
             {isEnglish ? body_en : body_pl}
           </motion.p>
-          <Link to={`/typewriters`}>
+          <Link className='w-28 mx-auto' to={`/typewriters`}>
             <motion.button
-              className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 xl:hover:scale-105 h-10 mx-auto mt-6'
+              className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50 transition-all duration-500 border-2 text-lg xl:hover:scale-105 h-10 w-full mt-6'
               animate={controls}
             >
               {isEnglish ? 'Back' : 'Cofnij'}
