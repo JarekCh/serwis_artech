@@ -154,9 +154,7 @@ const SliderTypewriter = ({ isEnglish }) => {
                   >
                     <BsChevronLeft />
                   </button>
-                  <Link
-                    to={`/typewriters/${writers[slideIndex]?.slug.current}`}
-                  >
+                  <Link to={`/typewriters/${writers[slideIndex]?.slug}`}>
                     <button className='flex sliderTypewriter__btns border-2 text-xl w-28 h-10 xl:hover:scale-105'>
                       <motion.span animate={controls}>
                         {isEnglish ? 'More..' : 'Więcej..'}

@@ -20,7 +20,7 @@ export const getTypewriters = createAsyncThunk(
           body_pl,
           title_en,
           body_en,
-          slug{current},
+          'slug':slug.current,
           'images':typewritersImgs[]{'url':asset->url}}`);
       return data;
     } catch (error) {

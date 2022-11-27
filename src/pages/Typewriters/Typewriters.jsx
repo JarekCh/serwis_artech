@@ -37,7 +37,7 @@ const Typewriters = ({ isEnglish }) => {
           const { slug } = writer;
           return (
             <Typewriter
-              key={slug.current}
+              key={slug}
               {...writer}
               isEnglish={isEnglish}
               isLast={i === writers.length - 1}

@@ -87,7 +87,7 @@ const Typewriter = ({
           : body_pl}
       </motion.p>
       {/* TYPEWRITER BUTTON */}
-      <Link className='w-28 mx-auto' to={`/typewriters/${slug.current}`}>
+      <Link className='w-28 mx-auto' to={`/typewriters/${slug}`}>
         <motion.button
           animate={controls}
           className='flex justify-center items-center rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-full h-10 xl:hover:scale-105'
