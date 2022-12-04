@@ -30,6 +30,7 @@ function App() {
   // TODO
   // node.js for secure api keys
   // add button component
+  // onPointerOver add to slider
   // safety for api calls?
   // fix problems from lighthouse
   // Code revie/refactor logic, css
