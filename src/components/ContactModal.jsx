@@ -24,7 +24,7 @@ const ContactModal = ({ isEnglish }) => {
         <p className='text-center'>
           {isEnglish
             ? 'Your message has been sent, expect our reply shortly.'
-            : 'Twoja wiadomość została wysłana, oczekuj naszej odpowiedzi w najblizszym czasie'}
+            : 'Twoja wiadomość została wysłana, oczekuj naszej odpowiedzi w najbliższym czasie.'}
         </p>
         <button
           className='dismiss rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 xl:hover:scale-90 h-10 mt-2'
