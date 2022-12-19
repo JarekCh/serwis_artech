@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../client';
+import { fetchTypewriters } from '../api/index.js';
 
 const initialState = {
   writersResult: [],
@@ -13,16 +13,13 @@ export const getTypewriters = createAsyncThunk(
   async (params, { getState }) => {
     const state = getState().typewriters;
     try {
-      const data =
-        await client.fetch(`*[_type == "typewriters" ] | order(date desc) [${state.lowRangeFilter}...${state.highRangeFilter}]
-        { date,
-          title_pl,
-          body_pl,
-          title_en,
-          body_en,
-          'slug':slug.current,
-          'images':typewritersImgs[]{'url':asset->url}}`);
-      return data;
+      const data = await fetchTypewriters(
+        state.lowRangeFilter,
+        state.highRangeFilter
+      );
+      const serializedData = JSON.parse(JSON.stringify(data));
+
+      return serializedData;
     } catch (error) {
       console.log(error);
     }
@@ -50,10 +47,10 @@ const typewritersSlice = createSlice({
       const prevState = state.writersResult;
       state.isLoading = false;
       if (state.highRangeFilter === 6) {
-        state.writersResult = action.payload;
+        state.writersResult = action.payload.data;
       }
       if (state.highRangeFilter > 7) {
-        state.writersResult = prevState.concat(action.payload);
+        state.writersResult = prevState.concat(action.payload.data);
       }
     },
     [getTypewriters.rejected]: (state) => {

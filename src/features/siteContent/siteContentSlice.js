@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../client';
+import { fetchSiteContent } from '../api/index.js';
 
 const initialState = {
   siteResult: [],
@@ -9,13 +9,10 @@ const initialState = {
 
 export const getSiteContent = createAsyncThunk('getSiteContent', async () => {
   try {
-    const data = await client.fetch(`*[_type == "site"]
-    {
-      hero,
-      assortment,
-      service,
-    }`);
-    return data;
+    const data = await fetchSiteContent();
+    const serializedData = JSON.parse(JSON.stringify(data));
+
+    return serializedData;
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +32,7 @@ const siteContentSlice = createSlice({
     },
     [getSiteContent.fulfilled]: (state, action) => {
       state.isSiteLoading = false;
-      state.siteResult = action.payload;
+      state.siteResult = action.payload.data;
     },
     [getSiteContent.rejected]: (state) => {
       state.isSiteLoading = false;
@@ -43,7 +40,6 @@ const siteContentSlice = createSlice({
   },
 });
 
-export const { scrollState, showBackToTopBtn, hideBackToTopBtn } =
-  siteContentSlice.actions;
+export const { scrollState } = siteContentSlice.actions;
 
 export default siteContentSlice.reducer;
