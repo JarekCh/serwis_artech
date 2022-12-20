@@ -1,26 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import emailjs from '@emailjs/browser';
+import { createEmail } from '../api/index.js';
 
 const initialState = {
   isOpen: false,
 };
 
-export const sendEmail = createAsyncThunk('sendEmail', async (form) => {
-  // emailjs
-  //   .sendForm(
-  //     'YOUR_SERVICE_ID',
-  //     'YOUR_TEMPLATE_ID',
-  //     form.current,
-  //     'YOUR_PUBLIC_KEY'
-  //   )
-  //   .then(
-  //     (result) => {
-  //       console.log(result.text);
-  //     },
-  //     (error) => {
-  //       console.log(error.text);
-  //     }
-  //   );
+export const sendEmail = createAsyncThunk('sendEmail', async (formData) => {
+  try {
+    const { data } = await createEmail(formData);
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 const emailSlice = createSlice({

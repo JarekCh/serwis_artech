@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../client';
+import { fetchSingleWriter } from '../api/index.js';
 
 const initialState = {
   singleTypewriter: [],
@@ -10,16 +10,10 @@ export const getSingleTypewriter = createAsyncThunk(
   'getSingleTypewriter',
   async (slug) => {
     try {
-      const data = await client.fetch(`*[slug.current == '${slug}']
-      { 'slug':slug.current,
-        title_pl,
-        body_pl,
-        title_en,
-        body_en,
-        'images':typewritersImgs[]{'url':asset->url},
-        date,
-      }`);
-      return data[0];
+      const data = await fetchSingleWriter(slug);
+      const serializedData = JSON.parse(JSON.stringify(data));
+
+      return serializedData;
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +29,7 @@ const singleTypewriterSlice = createSlice({
     },
     [getSingleTypewriter.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.singleTypewriter = action.payload;
+      state.singleTypewriter = action.payload.data[0];
     },
     [getSingleTypewriter.rejected]: (state) => {
       state.isLoading = false;

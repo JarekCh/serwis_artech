@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../client';
+import { fetchShop } from '../api/index.js';
 
 const initialState = {
   shopResult: [],
@@ -8,19 +8,10 @@ const initialState = {
 
 export const getShop = createAsyncThunk('getShop', async () => {
   try {
-    const data = await client.fetch(
-      `*[_type == "shop" ] | order(date desc) {        
-          title_pl,
-          body_pl,
-          title_en,
-          body_en,
-          'image':shopImg{'url':asset->url},
-          date,
-          auction_link,
-          'slug':slug.current,
-      }`
-    );
-    return data;
+    const data = await fetchShop();
+    const serializedData = JSON.parse(JSON.stringify(data));
+
+    return serializedData;
   } catch (error) {
     console.log(error);
   }
@@ -34,9 +25,8 @@ const shopSlice = createSlice({
       state.isShopLoading = true;
     },
     [getShop.fulfilled]: (state, action) => {
-      console.log('🚀 ~ file: shopSlice.js ~ line 37 ~ action', action.payload);
       state.isShopLoading = false;
-      state.shopResult = action.payload;
+      state.shopResult = action.payload.data;
     },
     [getShop.rejected]: (state) => {
       state.isShopLoading = false;
