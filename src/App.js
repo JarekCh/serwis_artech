@@ -28,10 +28,10 @@ function App() {
   }, []);
 
   // TODO
-  // node.js for secure api keys
+  // privacy policy component
   // add button component
   // onPointerOver add to slider
-  // safety for api calls?
+  // safety for api calls on lazy?
   // fix problems from lighthouse
   // Code revie/refactor logic, css
   // TODO

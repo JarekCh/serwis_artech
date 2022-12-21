@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { FaPhoneVolume, FaHome, FaClock, FaEnvelope } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { sendEmail } from '../features/EmailJS/emailSlice';
+import { sendEmail, setModalName } from '../features/EmailJS/emailSlice';
 
 import LocalizationImg from '../assets/artech_lowRes.jpg';
 
@@ -47,6 +47,7 @@ const Contact = ({ isEnglish }) => {
   // SUBMIT FORM
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setModalName(formData.name));
     dispatch(sendEmail(formData));
     clearForm();
   };

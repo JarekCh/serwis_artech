@@ -3,6 +3,7 @@ import { createEmail } from '../api/index.js';
 
 const initialState = {
   isOpen: false,
+  name: '',
 };
 
 export const sendEmail = createAsyncThunk('sendEmail', async (formData) => {
@@ -20,6 +21,9 @@ const emailSlice = createSlice({
     closeEmailModal: (state, action) => {
       state.isOpen = false;
     },
+    setModalName: (state, action) => {
+      state.name = action.payload;
+    },
   },
   extraReducers: {
     [sendEmail.pending]: (state) => {
@@ -27,6 +31,7 @@ const emailSlice = createSlice({
     },
     [sendEmail.fulfilled]: (state, action) => {
       state.isOpen = true;
+      console.log('🚀 ~ file: emailSlice.js ~ line 33 ~ action', state.name);
     },
     [sendEmail.rejected]: (state, action) => {
       state.isOpen = false;
@@ -34,6 +39,6 @@ const emailSlice = createSlice({
   },
 });
 
-export const { closeEmailModal } = emailSlice.actions;
+export const { closeEmailModal, setModalName } = emailSlice.actions;
 
 export default emailSlice.reducer;

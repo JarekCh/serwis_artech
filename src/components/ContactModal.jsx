@@ -1,9 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeEmailModal } from '../features/EmailJS/emailSlice';
 
 const ContactModal = ({ isEnglish }) => {
   const dispatch = useDispatch();
+  const { name } = useSelector((store) => store.email);
 
   // HIDE MODAL
   const handleClick = (e) => {
@@ -23,8 +24,8 @@ const ContactModal = ({ isEnglish }) => {
         </h3>
         <p className='text-center'>
           {isEnglish
-            ? 'Your message has been sent, expect our reply shortly.'
-            : 'Twoja wiadomość została wysłana, oczekuj naszej odpowiedzi w najbliższym czasie.'}
+            ? `${name} your message has been sent, expect our reply shortly.`
+            : `${name} twoja wiadomość została wysłana, oczekuj naszej odpowiedzi w najbliższym czasie.`}
         </p>
         <button
           className='dismiss rounded-md border-indigo-900 xl:hover:border-none xl:hover:bg-indigo-900 xl:hover:border-transparent xl:hover:bg-opacity-50  transition-all duration-500 border-2 text-lg w-28 xl:hover:scale-90 h-10 mt-2'
