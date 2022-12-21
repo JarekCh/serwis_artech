@@ -16,6 +16,7 @@ const SingleTypewriter = lazy(() =>
 );
 const Error = lazy(() => import('./pages/Error'));
 const Shop = lazy(() => import('./pages/Shop/Shop'));
+const Privacy = lazy(() => import('./pages/PrivacyPolicy'));
 
 function App() {
   const { isEnglish } = useSelector((store) => store.language);
@@ -30,11 +31,9 @@ function App() {
   // TODO
   // privacy policy component
   // add button component
-  // onPointerOver add to slider
   // safety for api calls on lazy?
   // fix problems from lighthouse
-  // Code revie/refactor logic, css
-  // TODO
+  // Code review/refactor logic, css
 
   return (
     <BrowserRouter>
@@ -50,10 +49,11 @@ function App() {
                   element={<SingleTypewriter isEnglish={isEnglish} />}
                 />
               </Route>
+              <Route path='shop' element={<Shop isEnglish={isEnglish} />} />
               <Route
-                path='shop'
-                element={<Shop isEnglish={isEnglish} />}
-              ></Route>
+                path='privacy-policy'
+                element={<Privacy isEnglish={isEnglish} />}
+              />
               <Route path='*' element={<Error isEnglish={isEnglish} />} />
             </Route>
           </Routes>
