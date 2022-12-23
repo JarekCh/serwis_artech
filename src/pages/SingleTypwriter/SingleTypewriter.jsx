@@ -86,7 +86,7 @@ const SingleTypewriter = ({ isEnglish }) => {
   // GET TYPEWRITER BY ID FROM BACKEND
   useEffect(() => {
     dispatch(getSingleTypewriter(slug));
-  }, [slug]);
+  }, [slug, dispatch]);
 
   if (isLoading) return <Loading />;
   if (singleTypewriter === undefined) return <Error />;

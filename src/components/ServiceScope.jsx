@@ -15,16 +15,14 @@ const ServiceScope = ({ isEnglish }) => {
   const { service_en, service_pl, text_en, text_pl, title_en, title_pl } =
     siteResult[0]?.service;
 
-  // LANGUAGE CHANGE ANIMATION
-
   const controls = useAnimation();
-
+  // CHANGE LANGUAGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
     };
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     <section id='service' className='w-full relative bg-slate-200 p-6'>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { motionControlsValue } from '../utils/utils.js';
@@ -23,10 +23,12 @@ const SliderTypewriter = ({ isEnglish }) => {
     opacity: { duration: 0.5 },
   };
 
+  // INCREMENT INDEX SLIDER VALUE
   const incrementIndex = () => {
     setSlideIndex((prevValue) => prevValue + 1);
   };
 
+  // DECREMENT INDEX SLIDER VALUE
   const decrementIndex = () => {
     setSlideIndex((prevValue) => prevValue - 1);
   };
@@ -42,7 +44,7 @@ const SliderTypewriter = ({ isEnglish }) => {
     }
   }, [slideIndex, writers]);
 
-  // SLIDER INDEX INCREMENT
+  // SLIDER INDEX INCREMENT EVERY 6 SEC
   useEffect(() => {
     let slider = setInterval(() => {
       setSlideIndex((prevValue) => prevValue + 1);
@@ -65,16 +67,17 @@ const SliderTypewriter = ({ isEnglish }) => {
     );
   }, [writersResult]);
 
-  // LANGUAGE CHANGE ANIMATION
+  // CHANGE LANGUAGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
     };
 
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
-  useEffect(() => {
+  // SLIDER TEXT HANDLER - useCALLBACK AND USE EFFECT
+  const initialSliderText = useCallback(() => {
     setSliderText(() => {
       if (isEnglish) {
         return writers[slideIndex]?.body_en;
@@ -82,7 +85,11 @@ const SliderTypewriter = ({ isEnglish }) => {
         return writers[slideIndex]?.body_pl;
       }
     });
-  }, [[], isEnglish, slideIndex]);
+  }, [isEnglish, slideIndex, writers]);
+
+  useEffect(() => {
+    initialSliderText();
+  }, [initialSliderText]);
 
   return (
     <section

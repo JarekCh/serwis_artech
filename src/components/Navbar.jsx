@@ -50,7 +50,7 @@ const Navbar = () => {
     }
   };
 
-  // LANGUAGE CHANGE ANIMATION
+  // CHANGE LANGUAGE ANIMATION
 
   const controls = useAnimation();
 

@@ -29,7 +29,6 @@ function App() {
   }, [dispatch]);
 
   // TODO
-  // safety for api calls on lazy?
   // fix problems from lighthouse
   // Code review/refactor logic, css
 

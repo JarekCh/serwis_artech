@@ -41,7 +41,7 @@ const Contact = ({ isEnglish }) => {
     });
   };
 
-  // SUBMIT FORM
+  // SUBMIT FORM AND SET NAME FOR
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setModalName(formData.name));
@@ -49,14 +49,14 @@ const Contact = ({ isEnglish }) => {
     clearForm();
   };
 
-  // LANGUAGE CHANGE ANIMATION
+  // CHANGE LANGUAGE ANIMATION
   useEffect(() => {
     const changeLangAnimation = () => {
       controls.start(motionControlsValue);
     };
 
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     <section
@@ -66,12 +66,12 @@ const Contact = ({ isEnglish }) => {
       <div className='hidden lg:block bg-slate-200 absolute -top-20 rotate-[4deg] -left-12 w-[120%] h-[40%] z-0'></div>
       <div className='flex flex-col w-full max-w-[100rem] mx-auto z-2 pt-12'>
         {/* TITLE */}
-        <motion.div
+        <motion.h2
           className='section_title w-full lg:text-center text-indigo-900 z-10'
           animate={controls}
         >
           {isEnglish ? 'Contact Us' : 'Skontaktuj się z nami'}
-        </motion.div>
+        </motion.h2>
         {/* CONTENT CONTAINER */}
         <div className='flex gap-6 flex-col lg:flex-row'>
           {/* SECTION IMAGE */}
