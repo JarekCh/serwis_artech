@@ -68,14 +68,14 @@ const ServiceScope = ({ isEnglish }) => {
             <img
               src={Desk}
               alt={isEnglish ? 'Desk with tools' : 'Biurko z narzędziami'}
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
+              className='service_img lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
             />
           </div>
           <div className='hidden lg:flex content-center justify-center'>
             <img
               src={Cartridge}
               alt={isEnglish ? 'Printer cartridges' : 'Tusze do drukarki'}
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+              className='service_img lg:max-w-[16rem] xl:max-w-[22rem]'
             />
           </div>
           <div className='flex content-center justify-center '>
@@ -86,14 +86,14 @@ const ServiceScope = ({ isEnglish }) => {
                   ? 'Laser printer toner'
                   : 'Toner do drukarki laserowej'
               }
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem]'
+              className='service_img lg:max-w-[16rem] xl:max-w-[22rem]'
             />
           </div>
           <div className='hidden lg:flex content-center justify-center'>
             <img
               src={Soldering}
               alt={isEnglish ? 'Chip soldering' : 'Lutowanie układu scalonego'}
-              className='service_img max-w-[22rem] lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
+              className='service_img lg:max-w-[16rem] xl:max-w-[22rem] shadow-xl'
             />
           </div>
         </div>

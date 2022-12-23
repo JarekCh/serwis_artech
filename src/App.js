@@ -26,10 +26,9 @@ function App() {
   useEffect(() => {
     dispatch(getSiteContent());
     dispatch(getTypewriters());
-  }, []);
+  }, [dispatch]);
 
   // TODO
-  // add button component
   // safety for api calls on lazy?
   // fix problems from lighthouse
   // Code review/refactor logic, css

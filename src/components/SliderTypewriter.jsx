@@ -101,6 +101,7 @@ const SliderTypewriter = ({ isEnglish }) => {
         <div className='flex mb-6'>
           <button
             className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl mr-1 z-10'
+            aria-label='right desktop arrow of typewriters slider'
             onClick={decrementIndex}
           >
             <BsChevronCompactLeft />
@@ -150,6 +151,7 @@ const SliderTypewriter = ({ isEnglish }) => {
                 <div className='flex justify-around my-6'>
                   <button
                     className='flex lg:hidden sliderTypewriter__btns border-2 text-2xl w-10 h-10'
+                    aria-label='left mobile arrow of typewriters slider'
                     onClick={decrementIndex}
                   >
                     <BsChevronLeft />
@@ -163,6 +165,7 @@ const SliderTypewriter = ({ isEnglish }) => {
                   </Link>
                   <button
                     className='flex lg:hidden sliderTypewriter__btns border-2  text-2xl w-10 h-10'
+                    aria-label='right desktop arrow of typewriters slider'
                     onClick={incrementIndex}
                   >
                     <BsChevronRight />
@@ -174,6 +177,7 @@ const SliderTypewriter = ({ isEnglish }) => {
           {/* LEFT BTN DESKTOP */}
           <button
             className='hidden lg:flex sliderTypewriter__btns  w-20 text-6xl ml-1 z-10'
+            aria-label='left desktop arrow of typewriters slider'
             onClick={incrementIndex}
           >
             <BsChevronCompactRight />

@@ -89,6 +89,7 @@ const Navbar = () => {
           <a
             href='https://www.facebook.com/Naprawamaszyndopisania'
             className='text-4xl mx-4 text-[#4267B2] xl:transition-all xl:duration-500 xl:hover:scale-90'
+            aria-label='Facebook'
             target='_blank'
             rel='noreferrer'
           >
@@ -117,6 +118,7 @@ const Navbar = () => {
           <motion.button
             onClick={handleClick}
             type='button'
+            aria-label='site navigation'
             className='inline-flex items-center p-2 ml-5 text-sm text-gray-500 rounded-lg xl:hidden xl:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 '
             whileTap={{ scale: 0.9 }}
           >

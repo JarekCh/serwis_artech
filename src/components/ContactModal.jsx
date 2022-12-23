@@ -18,6 +18,7 @@ const ContactModal = ({ isEnglish }) => {
       className='dismiss fixed top-0 left-0 right-0 w-full h-full flex justify-center items-center z-40 '
       onClick={handleClick}
     >
+      {/* MODAL */}
       <article className='flex justify-between items-center flex-col max-w-[24rem] h-[16rem] bg-white rounded-md p-3 shadow-lg transition-all duration-500 xl:hover:scale-110 xl:hover:shadow-2xl bg-gradient-to-br from-white via-indigo-200 to-indigo-400'>
         <h3 className='text-2xl font-bold text-red-600'>
           {isEnglish ? 'Information' : 'Informacja'}
