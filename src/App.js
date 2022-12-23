@@ -29,7 +29,6 @@ function App() {
   }, []);
 
   // TODO
-  // privacy policy component
   // add button component
   // safety for api calls on lazy?
   // fix problems from lighthouse
