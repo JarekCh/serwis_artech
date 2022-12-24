@@ -81,7 +81,7 @@ const SingleTypewriter = ({ isEnglish }) => {
     };
 
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   // GET TYPEWRITER BY ID FROM BACKEND
   useEffect(() => {

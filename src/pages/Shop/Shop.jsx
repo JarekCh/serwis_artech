@@ -11,7 +11,7 @@ function Shop({ isEnglish }) {
 
   useEffect(() => {
     dispatch(getShop());
-  }, []);
+  }, [dispatch]);
 
   if (isShopLoading) return <Loading />;
 

@@ -31,7 +31,6 @@ const emailSlice = createSlice({
     },
     [sendEmail.fulfilled]: (state, action) => {
       state.isOpen = true;
-      console.log('🚀 ~ file: emailSlice.js ~ line 33 ~ action', state.name);
     },
     [sendEmail.rejected]: (state, action) => {
       state.isOpen = false;

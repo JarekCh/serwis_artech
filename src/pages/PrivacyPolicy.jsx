@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PrivacyPolicy = ({ isEnglish }) => {
+const PrivacyPolicy = () => {
   const ol = 'list-decimal list-inside flex flex-col gap-2 ml-3';
   const ul = 'list-disc list-inside flex flex-col gap-2 ml-3';
 

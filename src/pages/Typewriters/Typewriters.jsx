@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   increaseHighRange,
@@ -14,11 +14,11 @@ const Typewriters = ({ isEnglish }) => {
   const dispatch = useDispatch();
 
   // CALL FOR NEW RECORDS
-  const nextPage = () => {
+  const nextPage = useCallback(() => {
     dispatch(increaseLowRange());
     dispatch(increaseHighRange());
     dispatch(getTypewriters());
-  };
+  }, [dispatch]);
 
   // SORT WRITERS BY DATE
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Logo from '../assets/logo1.png';
+import Logo from '../assets/Artech_Serwis.png';
 import { motion, useAnimation } from 'framer-motion';
 import { FaFacebook } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';

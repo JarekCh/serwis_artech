@@ -28,10 +28,6 @@ function App() {
     dispatch(getTypewriters());
   }, [dispatch]);
 
-  // TODO
-  // fix problems from lighthouse
-  // Code review/refactor logic, css
-
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
@@ -47,10 +43,7 @@ function App() {
                 />
               </Route>
               <Route path='shop' element={<Shop isEnglish={isEnglish} />} />
-              <Route
-                path='privacy-policy'
-                element={<Privacy isEnglish={isEnglish} />}
-              />
+              <Route path='privacy-policy' element={<Privacy />} />
               <Route path='*' element={<Error isEnglish={isEnglish} />} />
             </Route>
           </Routes>

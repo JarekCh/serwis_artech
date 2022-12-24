@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { sendEmail, setModalName } from '../features/EmailJS/emailSlice';
 import Form from './ContactForm';
 
-import LocalizationImg from '../assets/artech_lowRes.jpg';
+import LocalizationImg from '../assets/artech_lowRes.webp';
 
 import { motionControlsValue } from '../utils/utils.js';
 

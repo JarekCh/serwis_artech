@@ -24,7 +24,7 @@ const ShopItem = ({
     };
 
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     // TYPEWRITER

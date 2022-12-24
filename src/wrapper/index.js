@@ -1,3 +1,3 @@
-import ToTopWrap from './ToTopWrap.jsx';
+import ToTopWrap from './ToTopWrap';
 
 export { ToTopWrap };

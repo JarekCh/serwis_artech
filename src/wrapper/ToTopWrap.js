@@ -19,7 +19,7 @@ export default (Component) =>
       };
       window.addEventListener('scroll', updatePosition);
       return () => window.removeEventListener('scroll', updatePosition);
-    }, []);
+    }, [dispatch]);
 
     return (
       <>

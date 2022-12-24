@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import Soldering from '../assets/soldering_480.jpg';
-import Desk from '../assets/desk_480.jpg';
-import Cartridge from '../assets/cartridges_480.png';
-import Toner from '../assets/toner_480.png';
+import Soldering from '../assets/soldering_480.webp';
+import Desk from '../assets/desk_480.webp';
+import Cartridge from '../assets/cartridges_480.webp';
+import Toner from '../assets/toner_480.webp';
 import { BsDot } from 'react-icons/bs';
 
 import { motionControlsValue } from '../utils/utils.js';

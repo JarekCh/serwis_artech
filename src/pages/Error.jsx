@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import errorPage from '../assets/error_page.jpg';
+import errorPage from '../assets/error_page.webp';
 import { motion, useAnimation } from 'framer-motion';
 import { motionControlsValue } from '../utils/utils.js';
 import { Link } from 'react-router-dom';
 
 const Error = ({ isEnglish }) => {
-  // LANGUAGE CHANGE ANIMATION
+  // CHANGE LANGUAGE ANIMATION
   const controls = useAnimation();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const Error = ({ isEnglish }) => {
       controls.start(motionControlsValue);
     };
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     <div

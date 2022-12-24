@@ -34,7 +34,7 @@ const Typewriter = ({
     if (entry.isIntersecting) {
       setImageUrl(entry.target.dataset.src);
     }
-  }, [entry, isLast]);
+  }, [entry, isLast, nextPage]);
 
   // LAZY LOAD ANIMATION OBSERVER
   useEffect(() => {
@@ -50,7 +50,7 @@ const Typewriter = ({
     };
 
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     // TYPEWRITER

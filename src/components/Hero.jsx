@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import heroImg from '../assets/hero1920.jpg';
-import heroImgLowRes from '../assets/hero1280.jpg';
+import heroImg from '../assets/hero1920.webp';
+import heroImgLowRes from '../assets/hero1280.webp';
 
 import { motionControlsValue } from '../utils/utils.js';
 
@@ -12,7 +12,7 @@ const Hero = ({ isEnglish }) => {
   const { isNotify, notification, text_en, text_pl, title_en, title_pl } =
     siteResult[0]?.hero;
 
-  // LANGUAGE CHANGE ANIMATION
+  // CHANGE LANGUAGE ANIMATION
   const controls = useAnimation();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Hero = ({ isEnglish }) => {
       controls.start(motionControlsValue);
     };
     changeLangAnimation();
-  }, [isEnglish]);
+  }, [isEnglish, controls]);
 
   return (
     <section
