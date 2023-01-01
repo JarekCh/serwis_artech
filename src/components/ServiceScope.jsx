@@ -50,8 +50,8 @@ const ServiceScope = ({ isEnglish }) => {
                     </li>
                   ))
                 : service_pl.map((item, i) => (
-                    <li key={i} className='flex items-center'>
-                      <span className='text-indigo-900 text-3xl'>
+                    <li key={i} className='flex items-center text-sm'>
+                      <span className='text-indigo-900 text-4xl'>
                         <BsDot />
                       </span>
                       {item}

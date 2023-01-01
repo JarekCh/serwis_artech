@@ -12,7 +12,7 @@ const isLocalhost = Boolean(
 
 const API_URL = isLocalhost
   ? 'http://localhost:5000'
-  : 'https://serwisartech.pl';
+  : 'https://backend.serwisartech.pl';
 
 export const createEmail = (data) => axios.post(`${API_URL}/send`, data);
 export const fetchSiteContent = () => axios.get(`${API_URL}/`);
