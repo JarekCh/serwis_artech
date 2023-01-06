@@ -39,7 +39,7 @@ const ServiceScope = ({ isEnglish }) => {
           <span className='section_text'>{isEnglish ? text_en : text_pl}</span>
           <div className='mt-2 z-10'>
             <h3 className='font-bold section_text'>Czym się zajmujemy:</h3>
-            <ul className='grid grid-cols-2 section_text -gap-4'>
+            <ul className='grid grid-cols-2 section_text gap-2 mt-4'>
               {isEnglish
                 ? service_en.map((item, i) => (
                     <li key={i} className='flex items-center'>
@@ -50,8 +50,8 @@ const ServiceScope = ({ isEnglish }) => {
                     </li>
                   ))
                 : service_pl.map((item, i) => (
-                    <li key={i} className='flex items-center'>
-                      <span className='text-indigo-900 text-3xl'>
+                    <li key={i} className='flex items-center text-sm'>
+                      <span className='text-indigo-900 text-4xl'>
                         <BsDot />
                       </span>
                       {item}
