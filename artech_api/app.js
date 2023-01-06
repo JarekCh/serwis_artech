@@ -1,12 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import errorHandler from './middleware/error.js';
 import rateLimit from 'express-rate-limit';
 import * as http from 'http';
 import helmet from 'helmet';
-import 'dotenv/config.js';
-import { config } from './config/index.js';
+import dotenv from 'dotenv';
+import IPconfig from './config/index.js';
 import compression from 'compression';
 
 import siteRoutes from './routes/SiteContent.js';
@@ -15,9 +14,10 @@ import typeWritersRoutes from './routes/Typewriters.js';
 import writerRoutes from './routes/Writer.js';
 import emailRoutes from './routes/Email.js';
 
-const { port, allowedDomains } = config;
+const { port, allowedDomains } = IPconfig;
 
 const app = express();
+dotenv.config();
 
 //Rate Limit
 const limiter = rateLimit({
@@ -47,9 +47,6 @@ app.use('/shop', shopRoutes);
 app.use('/typewriters', typeWritersRoutes);
 app.use('/typewriters/', writerRoutes);
 app.use('/send', emailRoutes);
-
-// Error Handler Middleware
-app.use(errorHandler);
 
 const server = http.createServer(app);
 

@@ -2,7 +2,7 @@
   "name": "artech_api",
   "version": "1.0.0",
   "description": "nodemailer and api key storage backend",
-  "main": "app.js",
+  "exports": "./app.js",
   "type": "module",
   "scripts": {
     "start": "node app.js",
