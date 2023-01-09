@@ -97,9 +97,10 @@ const Typewriter = ({
       </Link>
       {/* TYPEWRITER DATE */}
       <motion.p className='text-right mt-6' animate={controls}>
+        <span className='mr-3'>{isEnglish ? 'Added date:' : 'Dodano:'}</span>
         {moment(date)
           .locale(`${isEnglish ? 'en' : 'pl'}`)
-          .format('MMMM Do YYYY, h:mma')}
+          .format('DD.MM.YYYY, HH:mm')}
       </motion.p>
     </article>
   );
