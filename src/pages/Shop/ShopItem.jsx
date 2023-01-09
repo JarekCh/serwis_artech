@@ -65,7 +65,7 @@ const ShopItem = ({
       </div>
       {/* TYPEWRITER DATE */}
       <motion.p className='text-right mt-6' animate={controls}>
-        <span className='mr-3'>{isEnglish ? 'Added date:' : 'Dodano:'}</span>
+        <span className='mr-3'>{isEnglish ? 'Added:' : 'Dodano:'}</span>
         {moment(date)
           .locale(`${isEnglish ? 'en' : 'pl'}`)
           .format('DD.MM.YYYY, HH:mm')}
