@@ -75,11 +75,11 @@ const Contact = ({ isEnglish }) => {
         {/* CONTENT CONTAINER */}
         <div className='flex gap-6 flex-col lg:flex-row'>
           {/* SECTION IMAGE */}
-          <div className='flex flex-1 order-2 lg:order-1 justify-center'>
+          <div className='flex flex-1 order-2 lg:order-1 justify-center mx-2'>
             <img
               src={LocalizationImg}
               alt={isEnglish ? 'Service advertise' : 'Witryna serwisu'}
-              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl max-w-[25rem] lg:max-h-[25rem] lg:max-w-[28.125rem] xl:max-w-[34.375rem]'
+              className='brightness-50 xl:hover:scale-110 rounded-xl hover:transition hover:brightness-90 shadow-2xl max-w-[21rem] lg:max-h-[25rem] lg:max-w-[28.125rem] xl:max-w-[34.375rem]'
             />
           </div>
           {/* CONTACT INFO */}
