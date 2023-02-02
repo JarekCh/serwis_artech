@@ -12,7 +12,7 @@ Commercial website for local typewriter service, designed from scratch and finis
 
 **[Server](#Sever):** Node, Express, Nodemailer
 
-**[Content_Managment](#Content Managment):** Sanity
+**[Content_Managment](#Content_Managment):** Sanity
 
 ## Features
 
