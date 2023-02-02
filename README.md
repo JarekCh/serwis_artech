@@ -42,6 +42,6 @@ Language toggle mode stored in local storage.
 Node.js with express was used as proxy server to connect frontend with sanity and secure the api keys.
 To prevent over extensive usage liraries like compression, express rate limiter or apiCache were used. As for seafty measure cors and helmet. Beside routing and endpints, nodemailer library were used to provide non paid communication endpoint connected with frontend contact form.
 
-### Content Managment
+### Content_Managment
 
 Sanity headless CMS was used as content menager and data base.
