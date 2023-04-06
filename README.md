@@ -27,7 +27,7 @@ https://serwisartech.pl
 
 ### Client
 
-Fundamentals of client are based on React and related libraries such as react router and react router has for navigation, react icons, redux toolkit responsible for state. Visual part includes Tailwind CSS insted of commnon CSS and Motion framer for animation. There are libraries like axios that replace fetch in REST API requests and moment.js for time stamps while adding writers in shop and shop/renoveted writers.
+Fundamentals of client are based on React and related libraries such as react router for navigation, react icons, redux toolkit responsible for state. Visual part includes Tailwind CSS insted of commnon CSS and Motion framer for animation. There are libraries like axios that replace fetch in REST API requests and moment.js for time stamps while adding writers in shop and shop/renoveted writers.
 
 Lazy loading - types are used in project, the one build in react router to lazy load components and the other one as Intersection Observer API to lazy load pictures. Intersection Observer API ware also used with infinite scroling to fetch more content(typewriters) in typwriters page.
 
