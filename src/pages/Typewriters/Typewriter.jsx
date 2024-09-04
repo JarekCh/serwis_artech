@@ -96,7 +96,7 @@ const Typewriter = ({
         </motion.button>
       </Link>
       {/* TYPEWRITER DATE */}
-      <motion.p className='text-right mt-6' animate={controls}>
+      <motion.p className='text-right mt-auto' animate={controls}>
         <span className='mr-3'>{isEnglish ? 'Added:' : 'Dodano:'}</span>
         {moment(date)
           .locale(`${isEnglish ? 'en' : 'pl'}`)

@@ -24,7 +24,7 @@ const Hero = ({ isEnglish }) => {
 
   return (
     <section
-      className=' w-full bg-cover bg-center h-[22rem] md:h-[40rem] xl:h-[54rem] 2xl:h-[65rem]'
+      className=' w-full bg-cover bg-center h-[42rem] xl:h-[54rem] 2xl:h-[65rem]'
       style={{
         backgroundImage: `url(${
           window.innerWidth <= 1280 ? heroImgLowRes : heroImg
